@@ -5,7 +5,7 @@
 package pantallasvistaemprendedor;
 
 
-import com.mycompany.motoamigocontrol.ControladorPrincipal;
+import controlador.ControladorPrincipal;
 import com.mycompany.solicitarpedidocu.SolicitarPedidoCU;
 import javax.swing.JOptionPane;
 import util.Icon;

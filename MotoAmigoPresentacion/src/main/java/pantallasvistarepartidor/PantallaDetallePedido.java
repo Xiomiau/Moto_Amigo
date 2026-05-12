@@ -4,7 +4,7 @@
  */
 package pantallasvistarepartidor;
 
-import com.mycompany.motoamigocontrol.ControladorPrincipal;
+import controlador.ControladorPrincipal;
 import com.mycompany.motoamigodto.PedidoDTO;
 import com.mycompany.motoamigodto.RepartidorDTO;
 import javax.swing.JOptionPane;
@@ -421,11 +421,9 @@ public class PantallaDetallePedido extends javax.swing.JFrame {
 
     private void btn_aceptarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aceptarPedidoActionPerformed
         try {
-            // 1. Sabemos quién es el repartidor
-            RepartidorDTO rep = controlador.obtenerRepartidorLogueado();
             
             // Cambiamos el estado del pedido
-            controlador.aceptarPedido(this.idPedido, rep.id);
+            controlador.aceptarPedido(this.idPedido);
             
             // 3. Pasamos a la pantalla de "Ir por el paquete", pasándole también el ID
             PantallaRecoleccion recoleccion = new PantallaRecoleccion(this.controlador, this.idPedido);

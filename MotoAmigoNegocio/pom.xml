@@ -14,11 +14,7 @@
             <artifactId>MotoAmigoDTO</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>MotoAmigoDominio</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+        
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>MotoAmigoPersistencia</artifactId>

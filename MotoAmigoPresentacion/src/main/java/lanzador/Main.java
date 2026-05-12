@@ -1,6 +1,5 @@
 package lanzador;
 
-import com.mycompany.motoamigocontrol.ControladorPrincipal;
 import javax.swing.SwingUtilities;
 import pantallasregistrarrepartidor.GuiFormUno;
 import pantallasvistaemprendedor.PanelEmprendedor;

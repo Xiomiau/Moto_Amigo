@@ -1,6 +1,6 @@
 package pantallasvistaemprendedor;
 
-import com.mycompany.motoamigocontrol.ControladorPrincipal;
+import controlador.ControladorPrincipal;
 import util.Icon;
 
 /**

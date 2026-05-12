@@ -1,44 +1,33 @@
-package com.mycompany.motoamigocontrol;
+package controlador;
 
-import com.mycompany.motoamigodto.EmprendedorDTO;
 import com.mycompany.motoamigodto.PedidoDTO;
-import com.mycompany.motoamigodto.RepartidorDTO;
-import com.mycompany.motoamigonegocio.GestorSesionCU;
 import com.mycompany.motoamigonegocio.NegocioException;
 import com.mycompany.solicitarpedidocu.SolicitarPedidoCU;
 import java.util.List;
 
 public class ControladorPrincipal {
 
-    // El Controlador solo conoce a la capa de Negocio (Casos de Uso)
     private SolicitarPedidoCU solicitarPedidoCU;
-    private GestorSesionCU gestorSesionCU;
+
+    private static final String NOMBRE_REPARTIDOR_DEMO = "Juan Pérez Gómez";
+    private static final String ID_REPARTIDOR_DEMO = "1";
 
     public ControladorPrincipal() {
         this.solicitarPedidoCU = new SolicitarPedidoCU();
-        this.gestorSesionCU = new GestorSesionCU();
     }
 
-    //MÉTODOS DEL EMPRENDEDOR
-    public EmprendedorDTO obtenerEmprendedorLogueado() throws Exception {
-        return gestorSesionCU.obtenerEmprendedorLogueado();
-    }
-
+    // Emprendedor
     public PedidoDTO solicitarNuevoPedido(PedidoDTO pedidoDTO) throws NegocioException, Exception {
         return solicitarPedidoCU.publicarPedido(pedidoDTO);
     }
 
-    //MÉTODOS DEL REPARTIDOR
-    public RepartidorDTO obtenerRepartidorLogueado() throws Exception {
-        return gestorSesionCU.obtenerRepartidorLogueado();
-    }
-
+    // Repartidor
     public List<PedidoDTO> consultarPedidosDisponibles() throws Exception {
         return solicitarPedidoCU.consultarPedidosDisponibles();
     }
 
-    public void aceptarPedido(String idPedido, String idRepartidor) throws Exception {
-        solicitarPedidoCU.aceptarPedido(idPedido, idRepartidor);
+    public void aceptarPedido(String idPedido) throws Exception {
+        solicitarPedidoCU.aceptarPedido(idPedido, ID_REPARTIDOR_DEMO);
     }
 
     public void confirmarRecoleccionPedido(String idPedido) throws Exception {
@@ -48,8 +37,11 @@ public class ControladorPrincipal {
     public void marcarPedidoComoEntregado(String idPedido) throws Exception {
         solicitarPedidoCU.marcarComoEntregado(idPedido);
     }
-    
+
     public PedidoDTO obtenerPedidoPorId(String idPedido) throws Exception {
-        return solicitarPedidoCU.obtenerPedidoPorId(idPedido); 
+        return solicitarPedidoCU.obtenerPedidoPorId(idPedido);
     }
+    public String obtenerNombreRepartidor() {
+    return NOMBRE_REPARTIDOR_DEMO;
+}
 }

@@ -4,9 +4,8 @@
  */
 package pantallasvistarepartidor;
 
-import com.mycompany.motoamigocontrol.ControladorPrincipal;
+import controlador.ControladorPrincipal;
 import util.Icon;
-import com.mycompany.motoamigocontrol.ControladorPrincipal;
 import com.mycompany.motoamigodto.PedidoDTO;
 import com.mycompany.motoamigodto.RepartidorDTO;
 import util.Icon;
@@ -55,10 +54,10 @@ public class panelRepartidor extends javax.swing.JFrame {
     
     // metodos 
     private void cargarDatosRepartidor() {
+        String nombreRepartidor = controlador.obtenerNombreRepartidor();
         try {
-            RepartidorDTO repartidor = controlador.obtenerRepartidorLogueado();
-            if (repartidor != null) {
-                labelNombreRepartidor.setText(repartidor.nombreCompleto);
+            if (!nombreRepartidor.isEmpty()) {
+                labelNombreRepartidor.setText(nombreRepartidor);
             }
         } catch (Exception e) {
             System.out.println("Error al cargar repartidor: " + e.getMessage());
