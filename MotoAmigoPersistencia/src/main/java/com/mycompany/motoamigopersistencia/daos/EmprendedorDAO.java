@@ -1,8 +1,8 @@
 package com.mycompany.motoamigopersistencia.daos;
 
 import com.mycompany.motoamigopersistencia.interfaces.IEmprendedorDAO;
-import com.mycompany.motoamigodominio.entities.Emprendedor;
-import com.mycompany.motoamigodominio.enums.EstadoEmprendedor;
+import entities.Emprendedor;
+import enums.EstadoEmprendedor;
 import java.util.ArrayList;
 import java.util.List;
 

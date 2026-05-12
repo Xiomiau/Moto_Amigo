@@ -4,7 +4,7 @@
  */
 package com.mycompany.motoamigopersistencia.interfaces;
 
-import com.mycompany.motoamigodominio.entities.Administrador;
+import entities.Administrador;
 
 /**
  *

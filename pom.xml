@@ -8,7 +8,6 @@
     <modules>
         <module>MotoAmigoPresentacion</module>
         <module>MotoAmigoDTO</module>
-        <module>MotoAmigoDominio</module>
         <module>MotoAmigoNegocio</module>
         <module>MotoAmigoPersistencia</module>
         <module>RegistrarRepartidorCU</module>

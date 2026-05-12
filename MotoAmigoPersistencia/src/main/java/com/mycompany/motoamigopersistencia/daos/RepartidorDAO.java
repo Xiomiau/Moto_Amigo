@@ -1,10 +1,10 @@
 package com.mycompany.motoamigopersistencia.daos;
 
 import com.mycompany.motoamigopersistencia.interfaces.IRepartidorDAO;
-import com.mycompany.motoamigodominio.entities.CuentaBancaria;
-import com.mycompany.motoamigodominio.entities.Documento;
-import com.mycompany.motoamigodominio.entities.Repartidor;
-import com.mycompany.motoamigodominio.enums.EstadoRepartidor;
+import entities.CuentaBancaria;
+import entities.Documento;
+import entities.Repartidor;
+import enums.EstadoRepartidor;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

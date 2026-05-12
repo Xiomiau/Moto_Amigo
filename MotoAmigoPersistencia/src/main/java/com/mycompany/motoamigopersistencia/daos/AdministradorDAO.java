@@ -4,7 +4,7 @@
  */
 package com.mycompany.motoamigopersistencia.daos;
 
-import com.mycompany.motoamigodominio.entities.Administrador;
+import entities.Administrador;
 import com.mycompany.motoamigopersistencia.interfaces.IAdministradorDAO;
 
 /**

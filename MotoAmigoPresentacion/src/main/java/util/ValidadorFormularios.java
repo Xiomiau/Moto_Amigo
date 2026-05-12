@@ -4,8 +4,8 @@
  */
 package util;
 
-import com.mycompany.motoamigodominio.entities.CuentaBancaria;
-import com.mycompany.motoamigodominio.enums.TipoTransporte;
+import entities.CuentaBancaria;
+import enums.TipoTransporte;
 import com.mycompany.motoamigonegocio.NegocioException;
 import com.mycompany.motoamigonegocio.bos.CuentaBancariaBO;
 import com.mycompany.motoamigonegocio.bos.DocumentoBO;

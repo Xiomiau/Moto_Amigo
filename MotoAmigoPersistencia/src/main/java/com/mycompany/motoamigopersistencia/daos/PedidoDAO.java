@@ -1,7 +1,7 @@
 package com.mycompany.motoamigopersistencia.daos;
 
 import com.mycompany.motoamigopersistencia.interfaces.IPedidoDAO;
-import com.mycompany.motoamigodominio.entities.Pedido;
+import entities.Pedido;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +42,7 @@ public class PedidoDAO implements IPedidoDAO {
         List<Pedido> disponibles = new ArrayList<>();
         for (Pedido p : baseDatosPedidos) {
             // Solo devolvems los que están esperando repartidor
-            if (p.getEstado() == com.mycompany.motoamigodominio.enums.EstadoPedido.PUBLICADO) {
+            if (p.getEstado() == enums.EstadoPedido.PUBLICADO) {
                 disponibles.add(p);
             }
         }

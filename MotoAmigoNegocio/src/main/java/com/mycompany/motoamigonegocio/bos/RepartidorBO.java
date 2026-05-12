@@ -1,7 +1,7 @@
 package com.mycompany.motoamigonegocio.bos;
 
 import com.mycompany.motoamigonegocio.NegocioException;
-import com.mycompany.motoamigodominio.entities.Repartidor;
+import entities.Repartidor;
 import java.util.List;
 
 public class RepartidorBO {

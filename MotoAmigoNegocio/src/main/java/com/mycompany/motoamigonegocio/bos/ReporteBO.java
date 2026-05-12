@@ -1,7 +1,7 @@
 package com.mycompany.motoamigonegocio.bos;
 
-import com.mycompany.motoamigodominio.entities.Repartidor;
-import com.mycompany.motoamigodominio.enums.EstadoRepartidor;
+import entities.Repartidor;
+import enums.EstadoRepartidor;
 import java.util.List;
 
 public class ReporteBO {

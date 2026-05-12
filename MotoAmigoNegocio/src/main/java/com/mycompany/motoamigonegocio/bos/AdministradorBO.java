@@ -1,7 +1,7 @@
 package com.mycompany.motoamigonegocio.bos;
 
-import com.mycompany.motoamigodominio.entities.Repartidor;
-import com.mycompany.motoamigodominio.enums.EstadoRepartidor;
+import entities.Repartidor;
+import enums.EstadoRepartidor;
 import com.mycompany.motoamigopersistencia.daos.PersistenciaException;
 import com.mycompany.motoamigopersistencia.interfaces.IRepartidorDAO;
 

@@ -1,6 +1,6 @@
 package com.mycompany.registrarrepartidorcu;
 
-import com.mycompany.motoamigodominio.entities.Repartidor;
+import entities.Repartidor;
 import com.mycompany.motoamigodto.CuentaBancariaDTO;
 import com.mycompany.motoamigodto.DocumentoDTO;
 import com.mycompany.motoamigodto.RepartidorDTO;

@@ -1,5 +1,5 @@
 package com.mycompany.motoamigopersistencia.interfaces;
-import com.mycompany.motoamigodominio.entities.Emprendedor;
+import entities.Emprendedor;
 import com.mycompany.motoamigopersistencia.daos.PersistenciaException;
 
 public interface IEmprendedorDAO {

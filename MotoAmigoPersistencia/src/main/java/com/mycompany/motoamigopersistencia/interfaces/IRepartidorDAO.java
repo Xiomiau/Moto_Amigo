@@ -1,6 +1,6 @@
 package com.mycompany.motoamigopersistencia.interfaces;
 
-import com.mycompany.motoamigodominio.entities.Repartidor;
+import entities.Repartidor;
 import com.mycompany.motoamigopersistencia.daos.PersistenciaException;
 import java.util.List;
 

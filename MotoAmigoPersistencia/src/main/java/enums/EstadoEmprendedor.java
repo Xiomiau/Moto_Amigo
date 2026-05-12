@@ -1,4 +1,4 @@
-package com.mycompany.motoamigodominio.enums;
+package enums;
 
 public enum EstadoEmprendedor {
     ACTIVO,

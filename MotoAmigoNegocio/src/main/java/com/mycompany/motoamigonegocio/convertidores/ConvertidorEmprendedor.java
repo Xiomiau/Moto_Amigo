@@ -1,9 +1,11 @@
 package com.mycompany.motoamigonegocio.convertidores;
 
-import com.mycompany.motoamigodominio.entities.Emprendedor;
-import com.mycompany.motoamigodominio.enums.EstadoEmprendedor;
 import com.mycompany.motoamigodto.EmprendedorDTO;
 import com.mycompany.motoamigodto.EstadoEmprendedorDTO;
+import entities.Emprendedor;
+import enums.EstadoEmprendedor;
+
+
 
 public class ConvertidorEmprendedor {
 

@@ -1,5 +1,5 @@
 package com.mycompany.motoamigopersistencia.interfaces;
-import com.mycompany.motoamigodominio.entities.Pedido;
+import entities.Pedido;
 import com.mycompany.motoamigopersistencia.daos.PersistenciaException;
 import java.util.List;
 

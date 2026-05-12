@@ -1,6 +1,6 @@
-package com.mycompany.motoamigodominio.entities;
+package entities;
 
-import com.mycompany.motoamigodominio.enums.EstadoPedido;
+import enums.EstadoPedido;
 
 public class Pedido {
 

@@ -1,7 +1,7 @@
 package com.mycompany.motoamigonegocio.convertidores;
 
-import com.mycompany.motoamigodominio.enums.EstadoPedido;
-import com.mycompany.motoamigodominio.entities.Pedido;
+import enums.EstadoPedido;
+import entities.Pedido;
 import com.mycompany.motoamigodto.EstadoPedidoDTO;
 import com.mycompany.motoamigodto.PedidoDTO;
 

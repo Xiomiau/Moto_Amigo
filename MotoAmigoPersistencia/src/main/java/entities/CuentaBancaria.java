@@ -1,5 +1,5 @@
 
-package com.mycompany.motoamigodominio.entities;
+package entities;
 
 /**
  *

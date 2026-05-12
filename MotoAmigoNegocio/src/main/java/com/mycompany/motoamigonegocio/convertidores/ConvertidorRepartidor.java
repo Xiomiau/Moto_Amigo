@@ -1,9 +1,9 @@
 package com.mycompany.motoamigonegocio.convertidores;
 
-import com.mycompany.motoamigodominio.entities.CuentaBancaria;
-import com.mycompany.motoamigodominio.entities.Documento;
-import com.mycompany.motoamigodominio.entities.Repartidor;
-import com.mycompany.motoamigodominio.enums.EstadoRepartidor;
+import entities.CuentaBancaria;
+import entities.Documento;
+import entities.Repartidor;
+import enums.EstadoRepartidor;
 import com.mycompany.motoamigodto.CuentaBancariaDTO;
 import com.mycompany.motoamigodto.DocumentoDTO;
 import com.mycompany.motoamigodto.EstadoRepartidorDTO;

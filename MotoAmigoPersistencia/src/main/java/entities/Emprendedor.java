@@ -1,6 +1,6 @@
-package com.mycompany.motoamigodominio.entities;
+package entities;
 
-import com.mycompany.motoamigodominio.enums.EstadoEmprendedor;
+import enums.EstadoEmprendedor;
 
 public class Emprendedor {
 
