@@ -1,0 +1,13 @@
+﻿# Maven (multi-modulo)
+**/target/
+
+# Compilados
+*.class
+*.jar
+
+# NetBeans
+**/nb-configuration.xml
+
+# OS
+.DS_Store
+Thumbs.db
