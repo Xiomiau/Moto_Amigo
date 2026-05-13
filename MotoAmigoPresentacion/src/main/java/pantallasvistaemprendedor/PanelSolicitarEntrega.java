@@ -331,7 +331,7 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
             double pesoD = Double.parseDouble(peso);
 
             // Armar el DTO
-            com.mycompany.motoamigodto.PedidoDTO dto = new com.mycompany.motoamigodto.PedidoDTO();
+            com.mycompany.motoamigodto.pedido.PedidoDTO dto = new com.mycompany.motoamigodto.pedido.PedidoDTO();
             dto.direccionOrigen  = origen;
             dto.direccionDestino = destino;
             dto.tipoPaquete      = tipoPaquete;
@@ -339,7 +339,7 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
             dto.idEmprendedor    = "EMP-1"; // Hardcodeado 
 
             // Llamamos al CONTROLADOR
-            com.mycompany.motoamigodto.PedidoDTO resultado = controlador.solicitarNuevoPedido(dto);
+            com.mycompany.motoamigodto.pedido.PedidoDTO resultado = controlador.solicitarNuevoPedido(dto);
 
             // Abrimos la siguiente pantalla pasándole los datos calculados
             PanelCalculoDeRuta panelRuta = new PanelCalculoDeRuta(resultado, this.controlador);

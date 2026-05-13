@@ -2,9 +2,11 @@ package com.mycompany.motoamigonegocio.bos;
 
 import entities.Repartidor;
 import enums.EstadoRepartidor;
+import interfaces.IRepartidorBO;
+import interfaces.IReporteBO;
 import java.util.List;
 
-public class ReporteBO {
+public class ReporteBO implements IReporteBO{
 
     private int totalRepartidores;
     private int totalActivos;

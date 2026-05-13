@@ -1,4 +1,4 @@
-package com.mycompany.motoamigodto;
+package com.mycompany.motoamigodto.pedido;
 
 public class PedidoDTO {
     public String id;

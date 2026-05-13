@@ -5,13 +5,14 @@ import entities.CuentaBancaria;
 import entities.Documento;
 import entities.Repartidor;
 import enums.EstadoRepartidor;
+import enums.TipoTransporte;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class RepartidorDAO implements IRepartidorDAO {
 
-    private static List<Repartidor> baseDatosRepartidores = new ArrayList<>();
+    private static final List<Repartidor> baseDatosRepartidores = new ArrayList<>();
 
     static {
         // Repartidor 1
@@ -35,10 +36,12 @@ public class RepartidorDAO implements IRepartidorDAO {
         d1.setLicenciaConducir(new byte[]{1, 2, 3});
         d1.setTarjetaCirculacion(new byte[]{1, 2, 3});
         r1.setDocumento(d1);
+        r1.setTipoTransporte(TipoTransporte.MOTO);
         baseDatosRepartidores.add(r1);
 
         // Repartidor 2
         Repartidor r2 = new Repartidor();
+        r2.setTipoTransporte(TipoTransporte.AUTOMOVIL);
         r2.setId("2");
         r2.setNombreCompleto("María López Díaz");
         r2.setCorreoElectronico("maria.lopez@email.com");
@@ -81,6 +84,7 @@ public class RepartidorDAO implements IRepartidorDAO {
         d3.setLicenciaConducir(new byte[]{1, 2, 3});
         d3.setTarjetaCirculacion(new byte[]{1, 2, 3});
         r3.setDocumento(d3);
+        r3.setTipoTransporte(TipoTransporte.BICICLETA);
         baseDatosRepartidores.add(r3);
 
         System.out.println("Base de datos inicializada con 3 repartidores.");

@@ -2,9 +2,10 @@ package com.mycompany.motoamigonegocio.bos;
 
 import com.mycompany.motoamigonegocio.NegocioException;
 import entities.Repartidor;
+import interfaces.IRepartidorBO;
 import java.util.List;
 
-public class RepartidorBO {
+public class RepartidorBO implements IRepartidorBO {
 
     public void validarNombreCompleto(String nombre) throws NegocioException {
         if (nombre == null || nombre.trim().isEmpty()) {

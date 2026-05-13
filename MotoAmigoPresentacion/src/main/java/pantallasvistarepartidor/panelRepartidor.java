@@ -6,8 +6,8 @@ package pantallasvistarepartidor;
 
 import controlador.ControladorPrincipal;
 import util.Icon;
-import com.mycompany.motoamigodto.PedidoDTO;
-import com.mycompany.motoamigodto.RepartidorDTO;
+import com.mycompany.motoamigodto.pedido.PedidoDTO;
+import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import util.Icon;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.Timer;

@@ -1,4 +1,4 @@
-package com.mycompany.motoamigodto;
+package com.mycompany.motoamigodto.emprendedor;
 
 public class EmprendedorDTO {
     public String id;

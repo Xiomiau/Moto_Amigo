@@ -1,7 +1,7 @@
 package com.mycompany.motoamigonegocio.convertidores;
 
-import com.mycompany.motoamigodto.EmprendedorDTO;
-import com.mycompany.motoamigodto.EstadoEmprendedorDTO;
+import com.mycompany.motoamigodto.emprendedor.EmprendedorDTO;
+import com.mycompany.motoamigodto.emprendedor.EstadoEmprendedorDTO;
 import entities.Emprendedor;
 import enums.EstadoEmprendedor;
 

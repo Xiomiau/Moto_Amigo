@@ -5,8 +5,8 @@
 package pantallasvistarepartidor;
 
 import controlador.ControladorPrincipal;
-import com.mycompany.motoamigodto.PedidoDTO;
-import com.mycompany.motoamigodto.RepartidorDTO;
+import com.mycompany.motoamigodto.pedido.PedidoDTO;
+import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import javax.swing.JOptionPane;
 import util.Icon;
 

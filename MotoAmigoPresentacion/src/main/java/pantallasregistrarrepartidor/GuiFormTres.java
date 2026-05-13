@@ -4,13 +4,13 @@
  */
 package pantallasregistrarrepartidor;
 
-import com.mycompany.motoamigodto.CuentaBancariaDTO;
-import com.mycompany.motoamigodto.RepartidorDTO;
+import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
+import com.mycompany.motoamigodto.repartidor.TipoTransporteDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
 import com.mycompany.registrarrepartidorcu.RegistrarRepartidorCU;
+import enums.TipoTransporte;
 import java.awt.FlowLayout;
 import javax.swing.JOptionPane;
-import util.ValidadorFormularios;
 import util.guis.TarjetaTransporte;
 
 /**
@@ -203,7 +203,7 @@ public class GuiFormTres extends javax.swing.JFrame {
 
     private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguienteActionPerformed
         // TODO add your handling code here:
-        String tipoTransporte = tarjetaMoto.isSeleccionada() ? "MOTO_AUTO" : tarjetaBici.isSeleccionada() ? "BICICLETA" : null;
+        TipoTransporteDTO tipoTransporte = tarjetaMoto.isSeleccionada() ? TipoTransporteDTO.MOTO : tarjetaBici.isSeleccionada() ? TipoTransporteDTO.BICICLETA : null;
         repartidorDTO.documento.licenciaConducir = cargarLicencia.getArchivoBytes();
         repartidorDTO.documento.tarjetaCirculacion = cargarTarjeta.getArchivoBytes();
         repartidorDTO.tipoTransporte = tipoTransporte;

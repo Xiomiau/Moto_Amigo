@@ -1,6 +1,7 @@
 package entities;
 
 import enums.EstadoRepartidor;
+import enums.TipoTransporte;
 import java.util.Date;
 
 /**
@@ -19,6 +20,7 @@ public class Repartidor {
     private CuentaBancaria cuentaBancaria;
     private Documento documento;
     private EstadoRepartidor estado;
+    private TipoTransporte tipoTransporte;
 
     public Repartidor() {
         this.estado = EstadoRepartidor.PENDIENTE;
@@ -95,4 +97,14 @@ public class Repartidor {
     public void setEstado(EstadoRepartidor estado) {
         this.estado = estado;
     }
+
+    public TipoTransporte getTipoTransporte() {
+        return tipoTransporte;
+    }
+
+    public void setTipoTransporte(TipoTransporte tipoTransporte) {
+        this.tipoTransporte = tipoTransporte;
+    }
+    
+    
 }

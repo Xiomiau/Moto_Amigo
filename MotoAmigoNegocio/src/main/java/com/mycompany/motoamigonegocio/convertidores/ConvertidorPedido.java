@@ -2,8 +2,8 @@ package com.mycompany.motoamigonegocio.convertidores;
 
 import enums.EstadoPedido;
 import entities.Pedido;
-import com.mycompany.motoamigodto.EstadoPedidoDTO;
-import com.mycompany.motoamigodto.PedidoDTO;
+import com.mycompany.motoamigodto.pedido.EstadoPedidoDTO;
+import com.mycompany.motoamigodto.pedido.PedidoDTO;
 
 public class ConvertidorPedido {
 

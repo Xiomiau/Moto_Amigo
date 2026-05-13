@@ -2,8 +2,9 @@ package com.mycompany.motoamigonegocio.bos;
 
 import com.mycompany.motoamigodto.CuentaBancariaDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
+import interfaces.ICuentaBancariaBO;
 
-public class CuentaBancariaBO {
+public class CuentaBancariaBO implements ICuentaBancariaBO {
 
     public void validarCuentaBancaria(CuentaBancariaDTO cuentaBancaria) throws NegocioException {
         if (cuentaBancaria == null) {

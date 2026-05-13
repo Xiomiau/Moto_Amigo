@@ -1,13 +1,13 @@
 package controlador;
 
-import com.mycompany.motoamigodto.PedidoDTO;
+import com.mycompany.motoamigodto.pedido.PedidoDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
 import com.mycompany.solicitarpedidocu.SolicitarPedidoCU;
 import java.util.List;
 
 public class ControladorPrincipal {
 
-    private SolicitarPedidoCU solicitarPedidoCU;
+    private final SolicitarPedidoCU solicitarPedidoCU;
 
     private static final String NOMBRE_REPARTIDOR_DEMO = "Juan Pérez Gómez";
     private static final String ID_REPARTIDOR_DEMO = "1";

@@ -4,8 +4,9 @@ import entities.Repartidor;
 import enums.EstadoRepartidor;
 import com.mycompany.motoamigopersistencia.daos.PersistenciaException;
 import com.mycompany.motoamigopersistencia.interfaces.IRepartidorDAO;
+import interfaces.IAdministradorBO;
 
-public class AdministradorBO {
+public class AdministradorBO implements IAdministradorBO {
 
     private IRepartidorDAO repartidorDAO;
 
@@ -13,6 +14,7 @@ public class AdministradorBO {
         this.repartidorDAO = repartidorDAO;
     }
 
+    @Override
     public void aprobarRepartidor(String id) throws PersistenciaException {
         Repartidor repartidor = repartidorDAO.buscarPorId(id);
         if (repartidor == null) {

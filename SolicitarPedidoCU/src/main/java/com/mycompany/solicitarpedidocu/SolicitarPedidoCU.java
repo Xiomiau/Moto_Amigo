@@ -1,6 +1,6 @@
 package com.mycompany.solicitarpedidocu;
 
-import com.mycompany.motoamigodto.PedidoDTO;
+import com.mycompany.motoamigodto.pedido.PedidoDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
 import com.mycompany.motoamigonegocio.convertidores.ConvertidorPedido;
 import com.mycompany.motoamigopersistencia.daos.PedidoDAO;

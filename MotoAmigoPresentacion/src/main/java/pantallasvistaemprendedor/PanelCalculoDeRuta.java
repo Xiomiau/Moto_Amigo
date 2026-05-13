@@ -11,11 +11,11 @@ import util.Icon;
 public class PanelCalculoDeRuta extends javax.swing.JFrame {
 
     private ControladorPrincipal controlador;
-    private com.mycompany.motoamigodto.PedidoDTO pedido;
+    private com.mycompany.motoamigodto.pedido.PedidoDTO pedido;
     /**
      * Creates new form PanelCalculoDeRuta
      */
-    public PanelCalculoDeRuta(com.mycompany.motoamigodto.PedidoDTO pedido, ControladorPrincipal controlador) {
+    public PanelCalculoDeRuta(com.mycompany.motoamigodto.pedido.PedidoDTO pedido, ControladorPrincipal controlador) {
         initComponents();
         this.pedido=pedido;
         this.controlador = controlador;

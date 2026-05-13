@@ -1,8 +1,9 @@
 package com.mycompany.motoamigonegocio.bos;
 
 import com.mycompany.motoamigonegocio.NegocioException;
+import interfaces.IDocumentoBO;
 
-public class DocumentoBO {
+public class DocumentoBO implements IDocumentoBO {
 
     public void validarINE(byte[] ine) throws NegocioException {
         if (ine == null || ine.length == 0) {

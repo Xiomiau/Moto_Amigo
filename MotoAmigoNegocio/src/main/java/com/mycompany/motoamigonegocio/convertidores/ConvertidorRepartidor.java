@@ -4,13 +4,26 @@ import entities.CuentaBancaria;
 import entities.Documento;
 import entities.Repartidor;
 import enums.EstadoRepartidor;
+
 import com.mycompany.motoamigodto.CuentaBancariaDTO;
 import com.mycompany.motoamigodto.DocumentoDTO;
-import com.mycompany.motoamigodto.EstadoRepartidorDTO;
-import com.mycompany.motoamigodto.RepartidorDTO;
+import com.mycompany.motoamigodto.repartidor.EstadoRepartidorDTO;
+import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
+import com.mycompany.motoamigodto.repartidor.TipoTransporteDTO;
+import enums.TipoTransporte;
 import java.util.Date;
 
 public class ConvertidorRepartidor {
+    
+    public TipoTransporte convertirTipoTransporteADominio(TipoTransporteDTO dto) {
+    if (dto == null) return null;
+    switch (dto) {
+        case MOTO:       return TipoTransporte.MOTO;
+        case AUTOMOVIL:  return TipoTransporte.AUTOMOVIL;
+        case BICICLETA:  return TipoTransporte.BICICLETA;
+        default:         return null;
+    }
+}
 
     // ─── Enum DTO ↔ Dominio ───────────────────────────────────────────────────
 
@@ -91,6 +104,7 @@ public class ConvertidorRepartidor {
         entidad.setFechaRegistro(new Date());  
         entidad.setCuentaBancaria(convertirCuentaADominio(dto.cuentaBancaria));
         entidad.setDocumento(convertirDocumentoADominio(dto.documento));
+        entidad.setTipoTransporte(convertirTipoTransporteADominio(dto.tipoTransporte));
         return entidad;
     }
 

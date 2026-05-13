@@ -1,5 +1,7 @@
-package com.mycompany.motoamigodto;
+package com.mycompany.motoamigodto.repartidor;
 
+import com.mycompany.motoamigodto.CuentaBancariaDTO;
+import com.mycompany.motoamigodto.DocumentoDTO;
 import java.util.Date;
 
 public class RepartidorDTO {
@@ -9,7 +11,7 @@ public class RepartidorDTO {
     public String correoElectronico;
     public String telefono;
     public String contrasenia;
-    public String tipoTransporte;  
+    public TipoTransporteDTO tipoTransporte;  
     public Date fechaRegistro;
     public CuentaBancariaDTO cuentaBancaria;
     public DocumentoDTO documento;
@@ -33,8 +35,8 @@ public class RepartidorDTO {
     public String getContrasenia() { return contrasenia; }
     public void setContrasenia(String contrasenia) { this.contrasenia = contrasenia; }
 
-    public String getTipoTransporte() { return tipoTransporte; }
-    public void setTipoTransporte(String tipoTransporte) { this.tipoTransporte = tipoTransporte; }
+    public TipoTransporteDTO getTipoTransporte() { return tipoTransporte; }
+    public void setTipoTransporte(TipoTransporteDTO tipoTransporte) { this.tipoTransporte = tipoTransporte; }
 
     public Date getFechaRegistro() { return fechaRegistro; }
     public void setFechaRegistro(Date fechaRegistro) { this.fechaRegistro = fechaRegistro; }
