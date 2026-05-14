@@ -6,6 +6,7 @@ package pantallasregistrarrepartidor;
 
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
+import com.mycompany.registrarrepartidorcu.IRegistrarRepartidorCU;
 import com.mycompany.registrarrepartidorcu.RegistrarRepartidorCU;
 import javax.swing.JOptionPane;
 
@@ -15,11 +16,12 @@ import javax.swing.JOptionPane;
  */
 public class GuiFormUno extends javax.swing.JFrame {
 
-    private RegistrarRepartidorCU registrarCU = new RegistrarRepartidorCU();
+    private IRegistrarRepartidorCU registrarCU;
     private RepartidorDTO repartidorDTO = new RepartidorDTO();
 
-    public GuiFormUno() {
+    public GuiFormUno(IRegistrarRepartidorCU registrarCU) {
         initComponents();
+        this.registrarCU=registrarCU;
 
         this.setLocationRelativeTo(null);
     }

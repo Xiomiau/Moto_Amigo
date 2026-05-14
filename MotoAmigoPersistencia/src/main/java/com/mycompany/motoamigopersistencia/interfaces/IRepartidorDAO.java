@@ -12,7 +12,7 @@ public interface IRepartidorDAO {
     boolean existeCorreo(String correo) throws PersistenciaException;
     
     
-    void guardarRepartidor(Repartidor repartidor) throws PersistenciaException;
+    Repartidor guardarRepartidor(Repartidor repartidor) throws PersistenciaException;
     
     //Simula obtener el repartidor que inició sesión
     Repartidor obtenerRepartidorSesion() throws PersistenciaException;

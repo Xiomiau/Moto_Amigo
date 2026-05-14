@@ -7,6 +7,7 @@ package pantallasregistrarrepartidor;
 import com.mycompany.motoamigodto.DocumentoDTO;
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
+import com.mycompany.registrarrepartidorcu.IRegistrarRepartidorCU;
 import com.mycompany.registrarrepartidorcu.RegistrarRepartidorCU;
 import javax.swing.JOptionPane;
 
@@ -17,13 +18,13 @@ import javax.swing.JOptionPane;
 public class GuiFormDos extends javax.swing.JFrame {
 
     private GuiFormUno formAnterior;
-    private RegistrarRepartidorCU registrarCU;
+    private IRegistrarRepartidorCU registrarCU;
     private RepartidorDTO repartidorDTO;
 
     /**
      * Creates new form GuiFormUno
      */
-    public GuiFormDos(GuiFormUno formAnterior, RegistrarRepartidorCU registrarCU, RepartidorDTO repartidorDTO) {
+    public GuiFormDos(GuiFormUno formAnterior, IRegistrarRepartidorCU registrarCU, RepartidorDTO repartidorDTO) {
         initComponents();
         this.formAnterior = formAnterior;
         this.registrarCU = registrarCU;

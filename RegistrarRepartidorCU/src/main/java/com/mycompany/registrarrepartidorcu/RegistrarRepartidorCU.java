@@ -6,12 +6,7 @@ import com.mycompany.motoamigodto.DocumentoDTO;
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import com.mycompany.motoamigodto.repartidor.TipoTransporteDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
-import com.mycompany.motoamigonegocio.bos.AdministradorBO;
-import com.mycompany.motoamigonegocio.bos.CuentaBancariaBO;
-import com.mycompany.motoamigonegocio.bos.DocumentoBO;
-import com.mycompany.motoamigonegocio.bos.RepartidorBO;
 import com.mycompany.motoamigonegocio.convertidores.ConvertidorRepartidor;
-import com.mycompany.motoamigopersistencia.daos.RepartidorDAO;
 import com.mycompany.motoamigopersistencia.interfaces.IRepartidorDAO;
 import enums.EstadoRepartidor;
 import interfaces.IAdministradorBO;
@@ -20,7 +15,6 @@ import interfaces.IDocumentoBO;
 import interfaces.IRepartidorBO;
 import java.util.ArrayList;
 import java.util.List;
-
 public class RegistrarRepartidorCU implements IRegistrarRepartidorCU {
 
     private IRepartidorBO repartidorBO;
@@ -30,13 +24,19 @@ public class RegistrarRepartidorCU implements IRegistrarRepartidorCU {
     private ConvertidorRepartidor convertidor;
     private IAdministradorBO administradorBO;
 
-    public RegistrarRepartidorCU() {
-        this.repartidorDAO = new RepartidorDAO();
-        this.convertidor = new ConvertidorRepartidor();
-        this.repartidorBO = new RepartidorBO();
-        this.documentoBO = new DocumentoBO();
-        this.cuentaBancariaBO = new CuentaBancariaBO();
-        this.administradorBO = new AdministradorBO(repartidorDAO);
+    public RegistrarRepartidorCU(IRepartidorBO repartidorBO,
+                              IDocumentoBO documentoBO,
+                              ICuentaBancariaBO cuentaBancariaBO,
+                              IRepartidorDAO repartidorDAO,
+                              ConvertidorRepartidor convertidor,
+                              IAdministradorBO administradorBO) {
+        
+        this.repartidorBO = repartidorBO;
+    this.documentoBO = documentoBO;
+    this.cuentaBancariaBO = cuentaBancariaBO;
+    this.repartidorDAO = repartidorDAO;
+    this.convertidor = convertidor;
+    this.administradorBO = administradorBO;
     }
 
     @Override
@@ -87,6 +87,7 @@ public class RegistrarRepartidorCU implements IRegistrarRepartidorCU {
         }
 
         Repartidor nuevoRepartidor = convertidor.mapearDtoAEntidad(datosEntrada);
+        nuevoRepartidor.setEstado(EstadoRepartidor.PENDIENTE);
         repartidorDAO.guardarRepartidor(nuevoRepartidor);
     }
 

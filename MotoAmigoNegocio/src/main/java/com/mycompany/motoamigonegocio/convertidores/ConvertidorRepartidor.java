@@ -105,6 +105,7 @@ public class ConvertidorRepartidor {
         entidad.setCuentaBancaria(convertirCuentaADominio(dto.cuentaBancaria));
         entidad.setDocumento(convertirDocumentoADominio(dto.documento));
         entidad.setTipoTransporte(convertirTipoTransporteADominio(dto.tipoTransporte));
+        entidad.setEstado(EstadoRepartidor.PENDIENTE);
         return entidad;
     }
 

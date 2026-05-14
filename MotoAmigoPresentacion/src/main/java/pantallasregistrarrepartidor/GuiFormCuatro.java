@@ -5,12 +5,11 @@
 package pantallasregistrarrepartidor;
 
 import com.mycompany.motoamigodto.CuentaBancariaDTO;
+import com.mycompany.motoamigodto.repartidor.EstadoRepartidorDTO;
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
-import com.mycompany.registrarrepartidorcu.RegistrarRepartidorCU;
-import java.awt.FlowLayout;
+import com.mycompany.registrarrepartidorcu.IRegistrarRepartidorCU;
 import javax.swing.JOptionPane;
-import util.guis.TarjetaTransporte;
 
 /**
  *
@@ -19,10 +18,10 @@ import util.guis.TarjetaTransporte;
 public class GuiFormCuatro extends javax.swing.JFrame {
 
     private GuiFormTres formAnterior;
-    private RegistrarRepartidorCU registrarCU;
+    private IRegistrarRepartidorCU registrarCU;
     private RepartidorDTO repartidorDTO;
 
-    public GuiFormCuatro(GuiFormTres formAnterior, RegistrarRepartidorCU registrarCU, RepartidorDTO repartidorDTO) {
+    public GuiFormCuatro(GuiFormTres formAnterior, IRegistrarRepartidorCU registrarCU, RepartidorDTO repartidorDTO) {
         initComponents();
         this.formAnterior = formAnterior;
         this.registrarCU = registrarCU;
@@ -188,6 +187,7 @@ public class GuiFormCuatro extends javax.swing.JFrame {
         String cuenta = campoCuenta.getText();
         String clabe = campoClabe.getText();
         String banco = campoBanco.getText();
+        
         CuentaBancariaDTO cuentaBancariaDTO = new CuentaBancariaDTO();
         cuentaBancariaDTO.setNumeroCuenta(cuenta);
         cuentaBancariaDTO.setClabe(clabe);
@@ -196,6 +196,12 @@ public class GuiFormCuatro extends javax.swing.JFrame {
         try {
             registrarCU.validarCuentaBancaria(cuentaBancariaDTO);
             repartidorDTO.setCuentaBancaria(cuentaBancariaDTO);
+            repartidorDTO.setEstado(EstadoRepartidorDTO.PENDIENTE);
+            
+            JOptionPane.showMessageDialog(this,
+            "¡Repartidor registrado exitosamente!",
+            "Registro exitoso",
+            JOptionPane.INFORMATION_MESSAGE);
 
             registrarCU.ejecutarRegistro(repartidorDTO);
 
@@ -205,9 +211,9 @@ public class GuiFormCuatro extends javax.swing.JFrame {
         } catch (NegocioException e) {
             JOptionPane.showMessageDialog(this, e.getMessage(),
                     "Datos incompletos", JOptionPane.WARNING_MESSAGE);
-        } catch (Exception e) {  
-    JOptionPane.showMessageDialog(this, "Error al registrar: " + e.getMessage(),
-            "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al registrar: " + e.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_btn_registrarseActionPerformed

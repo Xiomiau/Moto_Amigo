@@ -9,6 +9,11 @@
     <artifactId>MotoAmigoPersistencia</artifactId>
     <packaging>jar</packaging>
     <dependencies>
+        <dependency>
+    <groupId>org.mongodb</groupId>
+    <artifactId>mongodb-driver-sync</artifactId>
+    <version>4.11.1</version>
+</dependency>
         
     </dependencies>
     <properties>

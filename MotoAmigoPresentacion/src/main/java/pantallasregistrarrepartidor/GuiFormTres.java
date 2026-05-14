@@ -7,8 +7,8 @@ package pantallasregistrarrepartidor;
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import com.mycompany.motoamigodto.repartidor.TipoTransporteDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
+import com.mycompany.registrarrepartidorcu.IRegistrarRepartidorCU;
 import com.mycompany.registrarrepartidorcu.RegistrarRepartidorCU;
-import enums.TipoTransporte;
 import java.awt.FlowLayout;
 import javax.swing.JOptionPane;
 import util.guis.TarjetaTransporte;
@@ -20,14 +20,14 @@ import util.guis.TarjetaTransporte;
 public class GuiFormTres extends javax.swing.JFrame {
 
     private GuiFormDos formAnterior;
-    private RegistrarRepartidorCU registrarCU;
+    private IRegistrarRepartidorCU registrarCU;
     private RepartidorDTO repartidorDTO;
 
     private TarjetaTransporte tarjetaMoto;
     private TarjetaTransporte tarjetaBici;
 
 
-    public GuiFormTres(GuiFormDos formAnterior, RegistrarRepartidorCU registrarCU, RepartidorDTO repartidorDTO) {
+    public GuiFormTres(GuiFormDos formAnterior, IRegistrarRepartidorCU registrarCU, RepartidorDTO repartidorDTO) {
         initComponents();
         this.formAnterior = formAnterior;
         this.registrarCU = registrarCU;

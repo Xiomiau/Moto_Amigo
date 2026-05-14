@@ -101,12 +101,14 @@ public class RepartidorDAO implements IRepartidorDAO {
     }
 
     @Override
-    public void guardarRepartidor(Repartidor repartidor) throws PersistenciaException {
+    public Repartidor guardarRepartidor(Repartidor repartidor) throws PersistenciaException {
         if (repartidor.getId() == null || repartidor.getId().isEmpty()) {
             repartidor.setId(String.valueOf(baseDatosRepartidores.size() + 1));
         }
         baseDatosRepartidores.add(repartidor);
+       
         System.out.println("Repartidor " + repartidor.getNombreCompleto() + " guardado. Total: " + baseDatosRepartidores.size());
+        return repartidor;
     }
 
     @Override
