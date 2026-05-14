@@ -7,6 +7,7 @@ import java.util.List;
 
 public class RepartidorBO implements IRepartidorBO {
 
+    @Override
     public void validarNombreCompleto(String nombre) throws NegocioException {
         if (nombre == null || nombre.trim().isEmpty()) {
             throw new NegocioException("El nombre no puede estar vacío.");
@@ -15,6 +16,7 @@ public class RepartidorBO implements IRepartidorBO {
 
    
 
+    @Override
     public void validarCorreoElectronico(String correo) throws NegocioException {
         if (correo == null || correo.trim().isEmpty()) {
             throw new NegocioException("El correo electrónico no puede estar vacío.");
@@ -24,6 +26,7 @@ public class RepartidorBO implements IRepartidorBO {
         }
     }
 
+    @Override
     public void validarContrasena(String contrasena) throws NegocioException {
         if (contrasena == null || contrasena.trim().isEmpty()) {
             throw new NegocioException("La contraseña no puede estar vacía.");
@@ -33,6 +36,7 @@ public class RepartidorBO implements IRepartidorBO {
         }
     }
 
+    @Override
     public void validarTelefono(String telefono) throws NegocioException {
         if (telefono == null || telefono.trim().isEmpty()) {
             throw new NegocioException("El teléfono no puede estar vacío.");
@@ -42,6 +46,7 @@ public class RepartidorBO implements IRepartidorBO {
         }
     }
 
+    @Override
     public boolean verificarCorreoDuplicado(String correo, List<Repartidor> lista) {
         for (Repartidor r : lista) {
             if (r.getCorreoElectronico() != null && r.getCorreoElectronico().equalsIgnoreCase(correo)) {

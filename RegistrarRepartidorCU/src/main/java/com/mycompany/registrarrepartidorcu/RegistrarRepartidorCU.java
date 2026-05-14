@@ -39,6 +39,7 @@ public class RegistrarRepartidorCU implements IRegistrarRepartidorCU {
         this.administradorBO = new AdministradorBO(repartidorDAO);
     }
 
+    @Override
     public void validarFormUno(String nombreCompleto, String correo, String contrasena, String telefono) throws NegocioException {
         repartidorBO.validarNombreCompleto(nombreCompleto);
         repartidorBO.validarCorreoElectronico(correo);
@@ -46,12 +47,14 @@ public class RegistrarRepartidorCU implements IRegistrarRepartidorCU {
         repartidorBO.validarTelefono(telefono);
     }
 
+    @Override
     public void validarFormDos(DocumentoDTO documento) throws NegocioException {
         documentoBO.validarINE(documento.ine);
         documentoBO.validarFotoPerfil(documento.fotoPerfil);
         documentoBO.validarAntecedentes(documento.antecedentes);
     }
 
+    @Override
     public void validarFormTres(TipoTransporteDTO tipoTransporte, DocumentoDTO documento) throws NegocioException {
         if (tipoTransporte == null) {
             throw new NegocioException("Debes seleccionar un tipo de transporte.");

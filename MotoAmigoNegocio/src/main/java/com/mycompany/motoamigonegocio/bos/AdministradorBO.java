@@ -25,6 +25,7 @@ public class AdministradorBO implements IAdministradorBO {
         notificarRepartidor(id, "Su solicitud ha sido aprobada. Ya puede comenzar a recibir pedidos.");
     }
 
+    @Override
     public void rechazarRepartidor(String id) throws PersistenciaException {
         Repartidor repartidor = repartidorDAO.buscarPorId(id);
         if (repartidor == null) {
@@ -35,6 +36,7 @@ public class AdministradorBO implements IAdministradorBO {
         notificarRepartidor(id, "Su solicitud ha sido rechazada. Contacte al administrador para más información.");
     }
 
+    @Override
     public void cambiarEstado(String id, EstadoRepartidor nuevoEstado) throws PersistenciaException {
         Repartidor repartidor = repartidorDAO.buscarPorId(id);
         if (repartidor == null) {
@@ -44,11 +46,13 @@ public class AdministradorBO implements IAdministradorBO {
         repartidorDAO.actualizar(repartidor);
     }
 
+    @Override
     public void notificarRepartidor(String id, String mensaje) {
         // Pendiente de implementar con servicio de notificaciones
         System.out.println("Notificación enviada al repartidor [" + id + "]: " + mensaje);
     }
 
+    @Override
     public void generarReporte() throws PersistenciaException {
         // Delega la generación al ReporteBO
         ReporteBO reporteBO = new ReporteBO();

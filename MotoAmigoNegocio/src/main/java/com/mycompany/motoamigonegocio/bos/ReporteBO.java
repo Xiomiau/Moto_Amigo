@@ -14,6 +14,7 @@ public class ReporteBO implements IReporteBO{
     private int totalBloqueados;
     private int totalInactivos;
 
+    @Override
     public void calcularTotales(List<Repartidor> listaRepartidores) {
         if (listaRepartidores == null) return;
 
@@ -31,6 +32,7 @@ public class ReporteBO implements IReporteBO{
         }
     }
 
+    @Override
     public void exportarPDF() {
         System.out.println("Exportando reporte PDF...");
         System.out.println("Total repartidores : " + totalRepartidores);

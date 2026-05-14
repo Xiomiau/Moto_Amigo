@@ -14,4 +14,9 @@ import java.util.List;
 public interface IReporteBO {
     void calcularTotales(List<Repartidor> listaRepartidores);
     void exportarPDF();
+    public int getTotalRepartidores();
+    public int getTotalActivos();
+    public int getTotalPendientes();
+    public int getTotalBloqueados();
+    public int getTotalInactivos();
 }
