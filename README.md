@@ -23,9 +23,8 @@ Proyecto Maven multi-módulo con 5 capas:
 | Módulo | Responsabilidad |
 |--------|----------------|
 | `MotoAmigoDTO` | Objetos de transferencia de datos |
-| `MotoAmigoDominio` | Entidades y enums del negocio |
 | `MotoAmigoNegocio` | BOs, convertidores e interfaces |
-| `MotoAmigoPersistencia` | DAOs e interfaces |
+| `MotoAmigoPersistencia` | DAOs, Entidades, enums e interfaces |
 | `MotoAmigoPresentacion` | Vistas Swing |
 
 ## Tecnologías
