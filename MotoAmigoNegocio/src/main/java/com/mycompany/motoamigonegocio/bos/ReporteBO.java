@@ -11,7 +11,7 @@ public class ReporteBO implements IReporteBO{
     private int totalRepartidores;
     private int totalActivos;
     private int totalPendientes;
-    private int totalBloqueados;
+    private int totalRechazados;
     private int totalInactivos;
 
     @Override
@@ -21,13 +21,13 @@ public class ReporteBO implements IReporteBO{
         totalRepartidores = listaRepartidores.size();
         totalActivos    = 0;
         totalPendientes = 0;
-        totalBloqueados = 0;
+        totalRechazados = 0;
         totalInactivos  = 0;
 
         for (Repartidor r : listaRepartidores) {
             if (r.getEstado() == EstadoRepartidor.ACTIVO)    totalActivos++;
             else if (r.getEstado() == EstadoRepartidor.PENDIENTE)  totalPendientes++;
-            else if (r.getEstado() == EstadoRepartidor.BLOQUEADO)  totalBloqueados++;
+            else if (r.getEstado() == EstadoRepartidor.RECHAZADO)  totalRechazados++;
             else if (r.getEstado() == EstadoRepartidor.INACTIVO)   totalInactivos++;
         }
     }
@@ -38,13 +38,13 @@ public class ReporteBO implements IReporteBO{
         System.out.println("Total repartidores : " + totalRepartidores);
         System.out.println("Activos            : " + totalActivos);
         System.out.println("Pendientes         : " + totalPendientes);
-        System.out.println("Bloqueados         : " + totalBloqueados);
+        System.out.println("Bloqueados         : " + totalRechazados);
         System.out.println("Inactivos          : " + totalInactivos);
     }
 
     public int getTotalRepartidores() { return totalRepartidores; }
     public int getTotalActivos()      { return totalActivos; }
     public int getTotalPendientes()   { return totalPendientes; }
-    public int getTotalBloqueados()   { return totalBloqueados; }
+    public int getTotalRechazados()   { return totalRechazados; }
     public int getTotalInactivos()    { return totalInactivos; }
 }

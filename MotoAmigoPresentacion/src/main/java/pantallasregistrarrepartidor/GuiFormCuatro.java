@@ -5,7 +5,6 @@
 package pantallasregistrarrepartidor;
 
 import com.mycompany.motoamigodto.CuentaBancariaDTO;
-import com.mycompany.motoamigodto.repartidor.EstadoRepartidorDTO;
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
 import com.mycompany.registrarrepartidorcu.IRegistrarRepartidorCU;
@@ -187,7 +186,7 @@ public class GuiFormCuatro extends javax.swing.JFrame {
         String cuenta = campoCuenta.getText();
         String clabe = campoClabe.getText();
         String banco = campoBanco.getText();
-        
+
         CuentaBancariaDTO cuentaBancariaDTO = new CuentaBancariaDTO();
         cuentaBancariaDTO.setNumeroCuenta(cuenta);
         cuentaBancariaDTO.setClabe(clabe);
@@ -196,13 +195,6 @@ public class GuiFormCuatro extends javax.swing.JFrame {
         try {
             registrarCU.validarCuentaBancaria(cuentaBancariaDTO);
             repartidorDTO.setCuentaBancaria(cuentaBancariaDTO);
-            repartidorDTO.setEstado(EstadoRepartidorDTO.PENDIENTE);
-            
-            JOptionPane.showMessageDialog(this,
-            "¡Repartidor registrado exitosamente!",
-            "Registro exitoso",
-            JOptionPane.INFORMATION_MESSAGE);
-
             registrarCU.ejecutarRegistro(repartidorDTO);
 
             new GuiAvisoRepartidor().setVisible(true);

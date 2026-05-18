@@ -31,7 +31,7 @@ public class AdministradorBO implements IAdministradorBO {
         if (repartidor == null) {
             throw new IllegalArgumentException("No se encontró el repartidor con id: " + id);
         }
-        repartidor.setEstado(EstadoRepartidor.BLOQUEADO);
+        repartidor.setEstado(EstadoRepartidor.RECHAZADO);
         repartidorDAO.actualizar(repartidor);
         notificarRepartidor(id, "Su solicitud ha sido rechazada. Contacte al administrador para más información.");
     }

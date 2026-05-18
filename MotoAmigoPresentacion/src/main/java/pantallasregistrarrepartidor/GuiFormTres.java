@@ -8,8 +8,6 @@ import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import com.mycompany.motoamigodto.repartidor.TipoTransporteDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
 import com.mycompany.registrarrepartidorcu.IRegistrarRepartidorCU;
-import com.mycompany.registrarrepartidorcu.RegistrarRepartidorCU;
-import java.awt.FlowLayout;
 import javax.swing.JOptionPane;
 import util.guis.TarjetaTransporte;
 
@@ -22,34 +20,20 @@ public class GuiFormTres extends javax.swing.JFrame {
     private GuiFormDos formAnterior;
     private IRegistrarRepartidorCU registrarCU;
     private RepartidorDTO repartidorDTO;
-
-    private TarjetaTransporte tarjetaMoto;
-    private TarjetaTransporte tarjetaBici;
-
+    private TarjetaTransporte.GrupoTarjetas grupo;
 
     public GuiFormTres(GuiFormDos formAnterior, IRegistrarRepartidorCU registrarCU, RepartidorDTO repartidorDTO) {
         initComponents();
+
+        grupo = new TarjetaTransporte.GrupoTarjetas();
+        tarjetaAuto.registrarEnGrupo(grupo, null);
+        tarjetaMoto.registrarEnGrupo(grupo, null);
+        tarjetaBici.registrarEnGrupo(grupo, panelArchivos);
         this.formAnterior = formAnterior;
         this.registrarCU = registrarCU;
         this.repartidorDTO = repartidorDTO;
-        agregarTarjetas();
         this.setLocationRelativeTo(null);
-    }
 
-    private void agregarTarjetas() {
-
-        tarjetaMoto = new TarjetaTransporte("Moto / Auto", "Requiere licencia, circulación y seguro.", "MOTO_AUTO");
-        tarjetaBici = new TarjetaTransporte("Bicicleta", "No requiere licencia ni circulación.", "BICICLETA");
-
-        tarjetaMoto.vincularCon(tarjetaBici);
-        tarjetaBici.vincularCon(tarjetaMoto);
-
-        panelTarjetas.setLayout(new FlowLayout(FlowLayout.CENTER, 60, 5));
-        panelTarjetas.add(tarjetaMoto);
-        panelTarjetas.add(tarjetaBici);
-
-        panelTarjetas.revalidate();
-        panelTarjetas.repaint();
     }
 
     /**
@@ -63,12 +47,16 @@ public class GuiFormTres extends javax.swing.JFrame {
 
         icon1 = new util.Icon();
         panelRedondeado1 = new util.guis.PanelRedondeado();
+        jLabel9 = new javax.swing.JLabel();
+        panelTipoTransporte = new javax.swing.JPanel();
+        tarjetaAuto = new util.guis.TarjetaTransporte();
+        tarjetaBici = new util.guis.TarjetaTransporte();
+        tarjetaMoto = new util.guis.TarjetaTransporte();
+        panelArchivos = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         cargarLicencia = new util.guis.AreaCargaArchivo();
         jLabel7 = new javax.swing.JLabel();
         cargarTarjeta = new util.guis.AreaCargaArchivo();
-        panelTarjetas = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btn_siguiente = new util.guis.BotonNaranja();
@@ -76,6 +64,49 @@ public class GuiFormTres extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Formulario Repartidor");
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel9.setText("TIPO DE TRANSPORTE");
+
+        panelTipoTransporte.setBackground(new java.awt.Color(255, 255, 255));
+
+        tarjetaAuto.setDescripcion("");
+        tarjetaAuto.setTitulo("Automóvil");
+        tarjetaAuto.setValor("AUTOMOVIL");
+
+        tarjetaBici.setDescripcion("");
+        tarjetaBici.setTitulo("Bicicleta");
+        tarjetaBici.setValor("BICICLETA");
+
+        tarjetaMoto.setDescripcion("");
+        tarjetaMoto.setTitulo("Motocicleta");
+        tarjetaMoto.setValor("MOTO");
+
+        javax.swing.GroupLayout panelTipoTransporteLayout = new javax.swing.GroupLayout(panelTipoTransporte);
+        panelTipoTransporte.setLayout(panelTipoTransporteLayout);
+        panelTipoTransporteLayout.setHorizontalGroup(
+            panelTipoTransporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTipoTransporteLayout.createSequentialGroup()
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addComponent(tarjetaAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tarjetaMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(tarjetaBici, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
+        );
+        panelTipoTransporteLayout.setVerticalGroup(
+            panelTipoTransporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTipoTransporteLayout.createSequentialGroup()
+                .addGroup(panelTipoTransporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tarjetaAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tarjetaMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tarjetaBici, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18))
+        );
+
+        panelArchivos.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
@@ -85,55 +116,59 @@ public class GuiFormTres extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("TARJETA DE CIRCULACION VIGENTE");
 
-        panelTarjetas.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout panelTarjetasLayout = new javax.swing.GroupLayout(panelTarjetas);
-        panelTarjetas.setLayout(panelTarjetasLayout);
-        panelTarjetasLayout.setHorizontalGroup(
-            panelTarjetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        panelTarjetasLayout.setVerticalGroup(
-            panelTarjetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel9.setText("TIPO DE TRANSPORTE");
-
-        javax.swing.GroupLayout panelRedondeado1Layout = new javax.swing.GroupLayout(panelRedondeado1);
-        panelRedondeado1.setLayout(panelRedondeado1Layout);
-        panelRedondeado1Layout.setHorizontalGroup(
-            panelRedondeado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRedondeado1Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addGroup(panelRedondeado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addGroup(panelRedondeado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel7)
-                        .addComponent(jLabel6)
-                        .addComponent(panelTarjetas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cargarLicencia, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
-                        .addComponent(cargarTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addGap(85, 85, 85))
-        );
-        panelRedondeado1Layout.setVerticalGroup(
-            panelRedondeado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRedondeado1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelArchivosLayout = new javax.swing.GroupLayout(panelArchivos);
+        panelArchivos.setLayout(panelArchivosLayout);
+        panelArchivosLayout.setHorizontalGroup(
+            panelArchivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelArchivosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(panelTarjetas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelArchivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(cargarLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(cargarTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelArchivosLayout.setVerticalGroup(
+            panelArchivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelArchivosLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cargarLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cargarTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panelRedondeado1Layout = new javax.swing.GroupLayout(panelRedondeado1);
+        panelRedondeado1.setLayout(panelRedondeado1Layout);
+        panelRedondeado1Layout.setHorizontalGroup(
+            panelRedondeado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRedondeado1Layout.createSequentialGroup()
+                .addGroup(panelRedondeado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelTipoTransporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelRedondeado1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel9)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panelRedondeado1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(panelArchivos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        panelRedondeado1Layout.setVerticalGroup(
+            panelRedondeado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRedondeado1Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelTipoTransporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(panelArchivos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -180,7 +215,7 @@ public class GuiFormTres extends javax.swing.JFrame {
                                 .addComponent(btn_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btn_siguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(519, Short.MAX_VALUE))
+                .addContainerGap(561, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,11 +226,11 @@ public class GuiFormTres extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(panelRedondeado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_atras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_siguiente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         pack();
@@ -203,22 +238,27 @@ public class GuiFormTres extends javax.swing.JFrame {
 
     private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguienteActionPerformed
         // TODO add your handling code here:
-        TipoTransporteDTO tipoTransporte = tarjetaMoto.isSeleccionada() ? TipoTransporteDTO.MOTO : tarjetaBici.isSeleccionada() ? TipoTransporteDTO.BICICLETA : null;
+
+        if (!tarjetaAuto.isSeleccionada() && !tarjetaMoto.isSeleccionada() && !tarjetaBici.isSeleccionada()) {
+            JOptionPane.showMessageDialog(this, "Selecciona un tipo de transporte.",
+                    "Datos incompletos", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        TipoTransporteDTO tipo = TipoTransporteDTO.valueOf(grupo.getValorSeleccionado());
         repartidorDTO.documento.licenciaConducir = cargarLicencia.getArchivoBytes();
         repartidorDTO.documento.tarjetaCirculacion = cargarTarjeta.getArchivoBytes();
-        repartidorDTO.tipoTransporte = tipoTransporte;
+        repartidorDTO.tipoTransporte = tipo;
 
         try {
-            registrarCU.validarFormTres(tipoTransporte, repartidorDTO.documento);
-            
- 
+            registrarCU.validarDocumentacionTransporte(tipo, repartidorDTO.documento);
             new GuiFormCuatro(this, registrarCU, repartidorDTO).setVisible(true);
             this.dispose();
- 
+
         } catch (NegocioException e) {
             JOptionPane.showMessageDialog(this, e.getMessage(),
                     "Datos incompletos", JOptionPane.WARNING_MESSAGE);
-        } 
+        }
     }//GEN-LAST:event_btn_siguienteActionPerformed
 
     private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed
@@ -239,7 +279,11 @@ public class GuiFormTres extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel panelArchivos;
     private util.guis.PanelRedondeado panelRedondeado1;
-    private javax.swing.JPanel panelTarjetas;
+    private javax.swing.JPanel panelTipoTransporte;
+    private util.guis.TarjetaTransporte tarjetaAuto;
+    private util.guis.TarjetaTransporte tarjetaBici;
+    private util.guis.TarjetaTransporte tarjetaMoto;
     // End of variables declaration//GEN-END:variables
 }

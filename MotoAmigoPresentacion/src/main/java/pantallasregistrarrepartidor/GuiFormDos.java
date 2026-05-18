@@ -8,7 +8,6 @@ import com.mycompany.motoamigodto.DocumentoDTO;
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
 import com.mycompany.registrarrepartidorcu.IRegistrarRepartidorCU;
-import com.mycompany.registrarrepartidorcu.RegistrarRepartidorCU;
 import javax.swing.JOptionPane;
 
 /**
@@ -174,7 +173,7 @@ public class GuiFormDos extends javax.swing.JFrame {
         documento.antecedentes = cargarAntecedentes.getArchivoBytes();
 
         try {
-            registrarCU.validarFormDos(documento);
+            registrarCU.validarDocumentosPersonales(documento);
 
             repartidorDTO.documento = documento;
 

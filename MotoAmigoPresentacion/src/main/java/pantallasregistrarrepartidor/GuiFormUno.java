@@ -5,9 +5,7 @@
 package pantallasregistrarrepartidor;
 
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
-import com.mycompany.motoamigonegocio.NegocioException;
 import com.mycompany.registrarrepartidorcu.IRegistrarRepartidorCU;
-import com.mycompany.registrarrepartidorcu.RegistrarRepartidorCU;
 import javax.swing.JOptionPane;
 
 /**
@@ -187,7 +185,7 @@ public class GuiFormUno extends javax.swing.JFrame {
 
         try {
             
-            registrarCU.validarFormUno(nombre, correo, pass, telefono);
+            registrarCU.validarDatosPersonales(nombre, correo, pass, telefono);
 
             repartidorDTO.setNombreCompleto(nombre);
             repartidorDTO.correoElectronico = correo;
@@ -198,7 +196,7 @@ public class GuiFormUno extends javax.swing.JFrame {
             new GuiFormDos(this, registrarCU, repartidorDTO).setVisible(true);
             this.setVisible(false);
             
-        } catch (NegocioException e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage(),
                     "Datos incompletos", JOptionPane.WARNING_MESSAGE);
         }

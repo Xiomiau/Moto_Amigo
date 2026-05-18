@@ -15,6 +15,7 @@ import interfaces.IDocumentoBO;
 import interfaces.IRepartidorBO;
 import java.util.ArrayList;
 import java.util.List;
+
 public class RegistrarRepartidorCU implements IRegistrarRepartidorCU {
 
     private IRepartidorBO repartidorBO;
@@ -25,22 +26,22 @@ public class RegistrarRepartidorCU implements IRegistrarRepartidorCU {
     private IAdministradorBO administradorBO;
 
     public RegistrarRepartidorCU(IRepartidorBO repartidorBO,
-                              IDocumentoBO documentoBO,
-                              ICuentaBancariaBO cuentaBancariaBO,
-                              IRepartidorDAO repartidorDAO,
-                              ConvertidorRepartidor convertidor,
-                              IAdministradorBO administradorBO) {
-        
+            IDocumentoBO documentoBO,
+            ICuentaBancariaBO cuentaBancariaBO,
+            IRepartidorDAO repartidorDAO,
+            ConvertidorRepartidor convertidor,
+            IAdministradorBO administradorBO) {
+
         this.repartidorBO = repartidorBO;
-    this.documentoBO = documentoBO;
-    this.cuentaBancariaBO = cuentaBancariaBO;
-    this.repartidorDAO = repartidorDAO;
-    this.convertidor = convertidor;
-    this.administradorBO = administradorBO;
+        this.documentoBO = documentoBO;
+        this.cuentaBancariaBO = cuentaBancariaBO;
+        this.repartidorDAO = repartidorDAO;
+        this.convertidor = convertidor;
+        this.administradorBO = administradorBO;
     }
 
     @Override
-    public void validarFormUno(String nombreCompleto, String correo, String contrasena, String telefono) throws NegocioException {
+    public void validarDatosPersonales(String nombreCompleto, String correo, String contrasena, String telefono) throws NegocioException {
         repartidorBO.validarNombreCompleto(nombreCompleto);
         repartidorBO.validarCorreoElectronico(correo);
         repartidorBO.validarContrasena(contrasena);
@@ -48,18 +49,18 @@ public class RegistrarRepartidorCU implements IRegistrarRepartidorCU {
     }
 
     @Override
-    public void validarFormDos(DocumentoDTO documento) throws NegocioException {
+    public void validarDocumentosPersonales(DocumentoDTO documento) throws NegocioException {
         documentoBO.validarINE(documento.ine);
         documentoBO.validarFotoPerfil(documento.fotoPerfil);
         documentoBO.validarAntecedentes(documento.antecedentes);
     }
 
     @Override
-    public void validarFormTres(TipoTransporteDTO tipoTransporte, DocumentoDTO documento) throws NegocioException {
+    public void validarDocumentacionTransporte(TipoTransporteDTO tipoTransporte, DocumentoDTO documento) throws NegocioException {
         if (tipoTransporte == null) {
             throw new NegocioException("Debes seleccionar un tipo de transporte.");
         }
-        if (tipoTransporte == TipoTransporteDTO.MOTO) {
+        if (tipoTransporte == TipoTransporteDTO.MOTO || tipoTransporte == TipoTransporteDTO.AUTOMOVIL) {
             documentoBO.validarLicencia(documento.licenciaConducir);
             documentoBO.validarTarjetaCirculacion(documento.tarjetaCirculacion);
         }
@@ -72,20 +73,19 @@ public class RegistrarRepartidorCU implements IRegistrarRepartidorCU {
 
     @Override
     public void ejecutarRegistro(RepartidorDTO datosEntrada) throws NegocioException, Exception {
-        validarFormUno(
+        validarDatosPersonales(
                 datosEntrada.nombreCompleto,
                 datosEntrada.correoElectronico,
                 datosEntrada.contrasenia,
                 datosEntrada.telefono
         );
-        validarFormDos(datosEntrada.documento);
-        validarFormTres(datosEntrada.tipoTransporte, datosEntrada.documento);
+        validarDocumentosPersonales(datosEntrada.documento);
+        validarDocumentacionTransporte(datosEntrada.tipoTransporte, datosEntrada.documento);
         validarCuentaBancaria(datosEntrada.cuentaBancaria);
 
         if (repartidorDAO.existeCorreo(datosEntrada.correoElectronico)) {
             throw new NegocioException("El correo electrónico ya está registrado en el sistema.");
         }
-
         Repartidor nuevoRepartidor = convertidor.mapearDtoAEntidad(datosEntrada);
         nuevoRepartidor.setEstado(EstadoRepartidor.PENDIENTE);
         repartidorDAO.guardarRepartidor(nuevoRepartidor);
@@ -103,7 +103,7 @@ public class RegistrarRepartidorCU implements IRegistrarRepartidorCU {
 
     @Override
     public void cambiarEstado(String id, String nuevoEstado) throws Exception {
-        administradorBO.cambiarEstado(id, EstadoRepartidor.BLOQUEADO);
+        administradorBO.cambiarEstado(id, EstadoRepartidor.valueOf(nuevoEstado));
     }
 
     @Override
@@ -118,9 +118,10 @@ public class RegistrarRepartidorCU implements IRegistrarRepartidorCU {
         return repartidoresDTO;
         
     }
-
     @Override
     public void generarReporte() throws Exception {
         administradorBO.generarReporte();
     }
+
+    
 }

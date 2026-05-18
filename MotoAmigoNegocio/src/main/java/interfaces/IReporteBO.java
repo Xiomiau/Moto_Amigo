@@ -17,6 +17,6 @@ public interface IReporteBO {
     public int getTotalRepartidores();
     public int getTotalActivos();
     public int getTotalPendientes();
-    public int getTotalBloqueados();
+    public int getTotalRechazados();
     public int getTotalInactivos();
 }

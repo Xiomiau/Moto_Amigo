@@ -13,6 +13,9 @@ import interfaces.IAdministradorBO;
 import interfaces.ICuentaBancariaBO;
 import interfaces.IDocumentoBO;
 import interfaces.IRepartidorBO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import pantallasadministrador.pantallaPrincipal;
 import pantallasregistrarrepartidor.GuiFormUno;
 
 public class Main {
@@ -38,7 +41,12 @@ public class Main {
         
         // 5. Abrir primera pantalla
         java.awt.EventQueue.invokeLater(() -> {
-            new GuiFormUno(cu).setVisible(true);
+            //new GuiFormUno(cu).setVisible(true);
+            try {
+                new pantallaPrincipal(cu).setVisible(true);
+            } catch (Exception ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
 }

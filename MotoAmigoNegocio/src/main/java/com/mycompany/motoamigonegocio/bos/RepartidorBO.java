@@ -1,9 +1,7 @@
 package com.mycompany.motoamigonegocio.bos;
 
 import com.mycompany.motoamigonegocio.NegocioException;
-import entities.Repartidor;
 import interfaces.IRepartidorBO;
-import java.util.List;
 
 public class RepartidorBO implements IRepartidorBO {
 
@@ -13,8 +11,6 @@ public class RepartidorBO implements IRepartidorBO {
             throw new NegocioException("El nombre no puede estar vacío.");
         }
     }
-
-   
 
     @Override
     public void validarCorreoElectronico(String correo) throws NegocioException {
@@ -44,15 +40,5 @@ public class RepartidorBO implements IRepartidorBO {
         if (!telefono.matches("\\d{10}")) {
             throw new NegocioException("El teléfono debe tener exactamente 10 dígitos.");
         }
-    }
-
-    @Override
-    public boolean verificarCorreoDuplicado(String correo, List<Repartidor> lista) {
-        for (Repartidor r : lista) {
-            if (r.getCorreoElectronico() != null && r.getCorreoElectronico().equalsIgnoreCase(correo)) {
-                return true;
-            }
-        }
-        return false;
     }
 }

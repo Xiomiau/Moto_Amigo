@@ -10,7 +10,6 @@ public class CuentaBancaria {
     private String numeroCuenta;
     private String banco;
     private String clabe;
-    private String id;
 
     public CuentaBancaria() {
     }
@@ -37,14 +36,6 @@ public class CuentaBancaria {
 
     public void setClabe(String clabe) {
         this.clabe = clabe;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
     
     

@@ -8,7 +8,6 @@ package entities;
  */
 public class Documento {
     
-    private String id;
     private byte[] ine;
     private byte[] fotoPerfil;
     private byte[] antecedentes;
@@ -58,15 +57,6 @@ public class Documento {
     public void setTarjetaCirculacion(byte[] tarjetaCirculacion) {
         this.tarjetaCirculacion = tarjetaCirculacion;
     }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-    
     
     
     

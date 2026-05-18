@@ -16,6 +16,5 @@ public interface IRepartidorBO {
     void validarCorreoElectronico(String correo) throws NegocioException;
     void validarContrasena(String contrasena) throws NegocioException;
     void validarTelefono(String telefono) throws NegocioException;
-    boolean verificarCorreoDuplicado(String correo, java.util.List<entities.Repartidor> lista);
     
 }

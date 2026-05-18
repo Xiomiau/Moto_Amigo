@@ -5,23 +5,15 @@ import enums.EstadoEmprendedor;
 public class Emprendedor {
 
     private String id;
-    private String nombre;
-    private String apellidop;
-    private String apellidoM;
+    private String nombrecompleto;
     private String correoElectronico;
     private String telefono;
     private String direccion;
     private String contrasenia;
-    private String Direccion;
-    
-
-    // Archivo adjunto (INE)
-    private byte[] documentoIdentificacionINE;
-
-    private String cuentaBancaria;
+    private Documento documento;
+    private CuentaBancaria cuentaBancaria;
     private String nombreNegocio;
     private String descripcionNegocio;
-
     private EstadoEmprendedor estado;
 
     public Emprendedor() {
@@ -37,28 +29,12 @@ public class Emprendedor {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombrecompleto() {
+        return nombrecompleto;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellidop() {
-        return apellidop;
-    }
-
-    public void setApellidop(String apellidop) {
-        this.apellidop = apellidop;
-    }
-
-    public String getApellidoM() {
-        return apellidoM;
-    }
-
-    public void setApellidoM(String apellidoM) {
-        this.apellidoM = apellidoM;
+    public void setNombrecompleto(String nombrecompleto) {
+        this.nombrecompleto = nombrecompleto;
     }
 
     public String getCorreoElectronico() {
@@ -93,19 +69,19 @@ public class Emprendedor {
         this.contrasenia = contrasenia;
     }
 
-    public byte[] getDocumentoIdentificacionINE() {
-        return documentoIdentificacionINE;
+    public Documento getDocumento() {
+        return documento;
     }
 
-    public void setDocumentoIdentificacionINE(byte[] documentoIdentificacionINE) {
-        this.documentoIdentificacionINE = documentoIdentificacionINE;
+    public void setDocumento(Documento documento) {
+        this.documento = documento;
     }
 
-    public String getCuentaBancaria() {
+    public CuentaBancaria getCuentaBancaria() {
         return cuentaBancaria;
     }
 
-    public void setCuentaBancaria(String cuentaBancaria) {
+    public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
         this.cuentaBancaria = cuentaBancaria;
     }
 

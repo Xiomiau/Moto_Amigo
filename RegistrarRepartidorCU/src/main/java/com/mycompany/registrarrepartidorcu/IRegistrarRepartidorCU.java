@@ -18,9 +18,9 @@ import java.util.List;
 public interface IRegistrarRepartidorCU {
     
     // Flujo Repartidor
-    void validarFormUno(String nombreCompleto, String correo, String contrasena, String telefono) throws NegocioException;
-    void validarFormDos(DocumentoDTO documento) throws NegocioException;
-    void validarFormTres(TipoTransporteDTO tipoTransporte, DocumentoDTO documento) throws NegocioException;
+    void validarDatosPersonales(String nombreCompleto, String correo, String contrasena, String telefono) throws NegocioException;
+    void validarDocumentosPersonales(DocumentoDTO documento) throws NegocioException;
+    void validarDocumentacionTransporte(TipoTransporteDTO tipoTransporte, DocumentoDTO documento) throws NegocioException;
     void validarCuentaBancaria(CuentaBancariaDTO cuentaBancaria) throws NegocioException;
     void ejecutarRegistro(RepartidorDTO datosEntrada) throws NegocioException, Exception;
     

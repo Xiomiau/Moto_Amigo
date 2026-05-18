@@ -12,5 +12,5 @@ public enum EstadoRepartidor {
     ACTIVO,
     INACTIVO,
     PENDIENTE,
-    BLOQUEADO
+    RECHAZADO
 }

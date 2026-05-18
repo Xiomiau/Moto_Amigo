@@ -4,6 +4,7 @@
  */
 package com.mycompany.motoamigopersistencia.interfaces;
 
+import com.mycompany.motoamigopersistencia.daos.PersistenciaException;
 import entities.Administrador;
 
 /**
@@ -12,7 +13,7 @@ import entities.Administrador;
  */
 public interface IAdministradorDAO {
     
-    Administrador guardarAdministrador(Administrador admin);
-    boolean eliminarAdministrador(String id);
+    Administrador guardarAdministrador(Administrador admin) throws PersistenciaException;
+    boolean eliminarAdministrador(String id) throws PersistenciaException;
     
 }

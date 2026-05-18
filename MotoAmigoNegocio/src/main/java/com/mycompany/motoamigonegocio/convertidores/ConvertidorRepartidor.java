@@ -14,44 +14,62 @@ import enums.TipoTransporte;
 import java.util.Date;
 
 public class ConvertidorRepartidor {
-    
+
     public TipoTransporte convertirTipoTransporteADominio(TipoTransporteDTO dto) {
-    if (dto == null) return null;
-    switch (dto) {
-        case MOTO:       return TipoTransporte.MOTO;
-        case AUTOMOVIL:  return TipoTransporte.AUTOMOVIL;
-        case BICICLETA:  return TipoTransporte.BICICLETA;
-        default:         return null;
+        if (dto == null) {
+            return null;
+        }
+        switch (dto) {
+            case MOTO:
+                return TipoTransporte.MOTO;
+            case AUTOMOVIL:
+                return TipoTransporte.AUTOMOVIL;
+            case BICICLETA:
+                return TipoTransporte.BICICLETA;
+            default:
+                return null;
+        }
     }
-}
 
     // ─── Enum DTO ↔ Dominio ───────────────────────────────────────────────────
-
     public EstadoRepartidor convertirEstadoADominio(EstadoRepartidorDTO estadoDTO) {
-        if (estadoDTO == null) return null;
-        
+        if (estadoDTO == null) {
+            return null;
+        }
+
         switch (estadoDTO) {
-            case ACTIVO:    return EstadoRepartidor.ACTIVO;
-            case INACTIVO:  return EstadoRepartidor.INACTIVO;
-            case BLOQUEADO: return EstadoRepartidor.BLOQUEADO;
-            default:        return EstadoRepartidor.PENDIENTE;
+            case ACTIVO:
+                return EstadoRepartidor.ACTIVO;
+            case INACTIVO:
+                return EstadoRepartidor.INACTIVO;
+            case BLOQUEADO:
+                return EstadoRepartidor.RECHAZADO;
+            default:
+                return EstadoRepartidor.PENDIENTE;
         }
     }
 
     public EstadoRepartidorDTO convertirEstadoADTO(EstadoRepartidor estado) {
-        if (estado == null) return null;
+        if (estado == null) {
+            return null;
+        }
         switch (estado) {
-            case ACTIVO:    return EstadoRepartidorDTO.ACTIVO;
-            case INACTIVO:  return EstadoRepartidorDTO.INACTIVO;
-            case BLOQUEADO: return EstadoRepartidorDTO.BLOQUEADO;
-            default:        return EstadoRepartidorDTO.PENDIENTE;
+            case ACTIVO:
+                return EstadoRepartidorDTO.ACTIVO;
+            case INACTIVO:
+                return EstadoRepartidorDTO.INACTIVO;
+            case RECHAZADO:
+                return EstadoRepartidorDTO.BLOQUEADO;
+            default:
+                return EstadoRepartidorDTO.PENDIENTE;
         }
     }
 
     // ─── CuentaBancaria ↔ CuentaBancariaDTO ──────────────────────────────────
-
     public CuentaBancaria convertirCuentaADominio(CuentaBancariaDTO dto) {
-        if (dto == null) return null;
+        if (dto == null) {
+            return null;
+        }
         CuentaBancaria cuenta = new CuentaBancaria();
         cuenta.setNumeroCuenta(dto.numeroCuenta);
         cuenta.setBanco(dto.banco);
@@ -60,7 +78,9 @@ public class ConvertidorRepartidor {
     }
 
     public CuentaBancariaDTO convertirCuentaADTO(CuentaBancaria cuenta) {
-        if (cuenta == null) return null;
+        if (cuenta == null) {
+            return null;
+        }
         CuentaBancariaDTO dto = new CuentaBancariaDTO();
         dto.numeroCuenta = cuenta.getNumeroCuenta();
         dto.banco = cuenta.getBanco();
@@ -69,9 +89,10 @@ public class ConvertidorRepartidor {
     }
 
     // ─── Documento ↔ DocumentoDTO ────────────────────────────────────────────
-
     public Documento convertirDocumentoADominio(DocumentoDTO dto) {
-        if (dto == null) return null;
+        if (dto == null) {
+            return null;
+        }
         Documento doc = new Documento();
         doc.setIne(dto.ine);
         doc.setFotoPerfil(dto.fotoPerfil);
@@ -82,7 +103,9 @@ public class ConvertidorRepartidor {
     }
 
     public DocumentoDTO convertirDocumentoADTO(Documento doc) {
-        if (doc == null) return null;
+        if (doc == null) {
+            return null;
+        }
         DocumentoDTO dto = new DocumentoDTO();
         dto.ine = doc.getIne();
         dto.fotoPerfil = doc.getFotoPerfil();
@@ -93,7 +116,6 @@ public class ConvertidorRepartidor {
     }
 
     // ─── RepartidorDTO → Repartidor ───────────────────────────────────────────
-
     public Repartidor mapearDtoAEntidad(RepartidorDTO dto) {
         Repartidor entidad = new Repartidor();
         entidad.setId(dto.id);
@@ -101,7 +123,7 @@ public class ConvertidorRepartidor {
         entidad.setCorreoElectronico(dto.correoElectronico);
         entidad.setTelefono(dto.telefono);
         entidad.setContrasenia(dto.contrasenia);
-        entidad.setFechaRegistro(new Date());  
+        entidad.setFechaRegistro(new Date());
         entidad.setCuentaBancaria(convertirCuentaADominio(dto.cuentaBancaria));
         entidad.setDocumento(convertirDocumentoADominio(dto.documento));
         entidad.setTipoTransporte(convertirTipoTransporteADominio(dto.tipoTransporte));
@@ -110,9 +132,10 @@ public class ConvertidorRepartidor {
     }
 
     // ─── Repartidor → RepartidorDTO ───────────────────────────────────────────
-
     public RepartidorDTO mapearEntidadADTO(Repartidor entidad) {
-        if (entidad == null) return null;
+        if (entidad == null) {
+            return null;
+        }
         RepartidorDTO dto = new RepartidorDTO();
         dto.id = entidad.getId();
         dto.nombreCompleto = entidad.getNombreCompleto();
@@ -122,6 +145,24 @@ public class ConvertidorRepartidor {
         dto.cuentaBancaria = convertirCuentaADTO(entidad.getCuentaBancaria());
         dto.documento = convertirDocumentoADTO(entidad.getDocumento());
         dto.estado = convertirEstadoADTO(entidad.getEstado());
+        dto.tipoTransporte = convertirTipoTransporteADTO(entidad.getTipoTransporte());
         return dto;
     }
+
+    public TipoTransporteDTO convertirTipoTransporteADTO(TipoTransporte tipo) {
+        if (tipo == null) {
+            return null;
+        }
+        switch (tipo) {
+            case MOTO:
+                return TipoTransporteDTO.MOTO;
+            case AUTOMOVIL:
+                return TipoTransporteDTO.AUTOMOVIL;
+            case BICICLETA:
+                return TipoTransporteDTO.BICICLETA;
+            default:
+                return null;
+        }
+    }
+
 }
