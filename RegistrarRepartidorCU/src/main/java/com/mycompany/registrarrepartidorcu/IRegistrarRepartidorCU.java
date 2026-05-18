@@ -22,7 +22,7 @@ public interface IRegistrarRepartidorCU {
     void validarDocumentosPersonales(DocumentoDTO documento) throws NegocioException;
     void validarDocumentacionTransporte(TipoTransporteDTO tipoTransporte, DocumentoDTO documento) throws NegocioException;
     void validarCuentaBancaria(CuentaBancariaDTO cuentaBancaria) throws NegocioException;
-    void ejecutarRegistro(RepartidorDTO datosEntrada) throws NegocioException, Exception;
+    void guardarRepartidor(RepartidorDTO datosEntrada) throws NegocioException, Exception;
     
     // Flujo Administrador
     void aprobarRepartidor(String id) throws Exception;

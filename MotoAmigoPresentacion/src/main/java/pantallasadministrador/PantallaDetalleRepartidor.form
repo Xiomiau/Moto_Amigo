@@ -51,7 +51,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
-                          <Component id="botonVerde1" min="-2" pref="163" max="-2" attributes="0"/>
+                          <Component id="btn_aprobar" min="-2" pref="163" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -126,7 +126,7 @@
                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="botonRojo1" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
-                      <Component id="botonVerde1" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
+                      <Component id="btn_aprobar" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="69" max="32767" attributes="0"/>
               </Group>
@@ -297,9 +297,15 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="util.guis.BotonVerde" name="botonVerde1">
+        <Component class="util.guis.BotonVerde" name="btn_aprobar">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_aprobarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="util.guis.BotonRojo" name="botonRojo1">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRojo1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

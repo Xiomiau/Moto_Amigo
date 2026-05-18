@@ -5,6 +5,8 @@
 package pantallasadministrador;
 
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
+import control.ControlAdministradorRepartidor;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -12,22 +14,33 @@ import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
  */
 public class PantallaDetalleRepartidor extends javax.swing.JFrame {
 
+    private RepartidorDTO dto;
+    private ControlAdministradorRepartidor controlador;
+    private ControlAdministradorRepartidor.OnAccionCompletada onAccionCompletada;
+
     /**
      * Creates new form PantallaDetalleRepartidor
+     *
+     * @param dto
+     * @param controlador
      */
-    public PantallaDetalleRepartidor() {
+    public PantallaDetalleRepartidor(RepartidorDTO dto, ControlAdministradorRepartidor controlador, ControlAdministradorRepartidor.OnAccionCompletada onAccionCompletada) {
+        this.controlador = controlador;
+        this.onAccionCompletada = onAccionCompletada;
+        this.dto = dto;
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    
+
     public void cargarDatos(RepartidorDTO dto) {
-    labelNombre.setText(dto.nombreCompleto);
-    LabelEmail.setText(dto.correoElectronico);
-    labelTelefono.setText(dto.telefono);
-    labelTransporte.setText(dto.tipoTransporte.toString());
-    labelEstado.setText(dto.estado.toString());
-    labelFecha.setText(dto.fechaRegistro.toString());
-}
+        labelNombre.setText(dto.nombreCompleto);
+        LabelEmail.setText(dto.correoElectronico);
+        labelTelefono.setText(dto.telefono);
+        labelTransporte.setText(dto.tipoTransporte.toString());
+        labelEstado.setText(dto.estado.toString());
+        labelFecha.setText(dto.fechaRegistro.toString());
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,7 +67,7 @@ public class PantallaDetalleRepartidor extends javax.swing.JFrame {
         labelTelefono = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         labelEstado = new javax.swing.JLabel();
-        botonVerde1 = new util.guis.BotonVerde();
+        btn_aprobar = new util.guis.BotonVerde();
         botonRojo1 = new util.guis.BotonRojo();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -128,6 +141,18 @@ public class PantallaDetalleRepartidor extends javax.swing.JFrame {
 
         labelEstado.setPreferredSize(new java.awt.Dimension(10, 20));
 
+        btn_aprobar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_aprobarActionPerformed(evt);
+            }
+        });
+
+        botonRojo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRojo1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelPadreLayout = new javax.swing.GroupLayout(panelPadre);
         panelPadre.setLayout(panelPadreLayout);
         panelPadreLayout.setHorizontalGroup(
@@ -137,7 +162,7 @@ public class PantallaDetalleRepartidor extends javax.swing.JFrame {
                 .addGroup(panelPadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPadreLayout.createSequentialGroup()
                         .addGap(117, 117, 117)
-                        .addComponent(botonVerde1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_aprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPadreLayout.createSequentialGroup()
                         .addContainerGap(31, Short.MAX_VALUE)
@@ -196,7 +221,7 @@ public class PantallaDetalleRepartidor extends javax.swing.JFrame {
                 .addGap(66, 66, 66)
                 .addGroup(panelPadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonRojo1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonVerde1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_aprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 69, Short.MAX_VALUE))
         );
 
@@ -216,45 +241,38 @@ public class PantallaDetalleRepartidor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    private void btn_aprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aprobarActionPerformed
+        // TODO add your handling code here:
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaDetalleRepartidor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaDetalleRepartidor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaDetalleRepartidor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaDetalleRepartidor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            controlador.aprobarRepartidor(dto.id);
+            JOptionPane.showMessageDialog(this, "Repartidor aprobado.");
+            onAccionCompletada.ejecutar();
+            this.dispose();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        //</editor-fold>
+        
+        
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PantallaDetalleRepartidor().setVisible(true);
-            }
-        });
+    }//GEN-LAST:event_btn_aprobarActionPerformed
+
+    private void botonRojo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRojo1ActionPerformed
+        // TODO add your handling code here:
+        try {
+        controlador.rechazarRepartidor(dto.id);
+        JOptionPane.showMessageDialog(this, "Repartidor rechazado.");
+        onAccionCompletada.ejecutar();
+        this.dispose();
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
+    }//GEN-LAST:event_botonRojo1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelEmail;
     private util.guis.BotonRojo botonRojo1;
-    private util.guis.BotonVerde botonVerde1;
+    private util.guis.BotonVerde btn_aprobar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

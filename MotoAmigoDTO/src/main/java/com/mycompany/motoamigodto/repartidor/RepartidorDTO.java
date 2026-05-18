@@ -48,5 +48,6 @@ public class RepartidorDTO {
     public void setDocumento(DocumentoDTO documento) { this.documento = documento; }
 
     public EstadoRepartidorDTO getEstado() { return estado; }
+    
     public void setEstado(EstadoRepartidorDTO estado) { this.estado = estado; }
 }

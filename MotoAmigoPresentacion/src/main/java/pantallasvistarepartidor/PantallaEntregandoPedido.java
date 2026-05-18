@@ -279,7 +279,7 @@ public class PantallaEntregandoPedido extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "¡Excelente trabajo! Has completado la entrega.", "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             
             //  Regresamos al menú principal del repartidor
-            panelRepartidor inicio = new panelRepartidor(this.controlador);
+            PanelRepartidor inicio = new PanelRepartidor(this.controlador);
             inicio.setVisible(true);
             this.dispose();
             

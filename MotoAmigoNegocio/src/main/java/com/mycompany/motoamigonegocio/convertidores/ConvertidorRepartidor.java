@@ -42,7 +42,7 @@ public class ConvertidorRepartidor {
                 return EstadoRepartidor.ACTIVO;
             case INACTIVO:
                 return EstadoRepartidor.INACTIVO;
-            case BLOQUEADO:
+            case RECHAZADO:
                 return EstadoRepartidor.RECHAZADO;
             default:
                 return EstadoRepartidor.PENDIENTE;
@@ -59,7 +59,7 @@ public class ConvertidorRepartidor {
             case INACTIVO:
                 return EstadoRepartidorDTO.INACTIVO;
             case RECHAZADO:
-                return EstadoRepartidorDTO.BLOQUEADO;
+                return EstadoRepartidorDTO.RECHAZADO;
             default:
                 return EstadoRepartidorDTO.PENDIENTE;
         }

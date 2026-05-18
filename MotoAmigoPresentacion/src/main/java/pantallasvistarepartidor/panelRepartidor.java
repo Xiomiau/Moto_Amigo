@@ -20,14 +20,14 @@ import javax.swing.JOptionPane;
  *
  * @author xiomi
  */
-public class panelRepartidor extends javax.swing.JFrame {
+public class PanelRepartidor extends javax.swing.JFrame {
 
      private ControladorPrincipal controlador;
      private Timer timerPedidos;
     /**
      * Creates new form panelRepartidor
      */
-    public panelRepartidor(ControladorPrincipal controlador) {
+    public PanelRepartidor(ControladorPrincipal controlador) {
         initComponents();
         this.controlador = controlador;
         this.setLocationRelativeTo(null);

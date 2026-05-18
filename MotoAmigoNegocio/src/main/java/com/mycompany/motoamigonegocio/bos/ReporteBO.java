@@ -2,7 +2,6 @@ package com.mycompany.motoamigonegocio.bos;
 
 import entities.Repartidor;
 import enums.EstadoRepartidor;
-import interfaces.IRepartidorBO;
 import interfaces.IReporteBO;
 import java.util.List;
 
@@ -42,9 +41,14 @@ public class ReporteBO implements IReporteBO{
         System.out.println("Inactivos          : " + totalInactivos);
     }
 
+    @Override
     public int getTotalRepartidores() { return totalRepartidores; }
+    @Override
     public int getTotalActivos()      { return totalActivos; }
+    @Override
     public int getTotalPendientes()   { return totalPendientes; }
+    @Override
     public int getTotalRechazados()   { return totalRechazados; }
+    @Override
     public int getTotalInactivos()    { return totalInactivos; }
 }

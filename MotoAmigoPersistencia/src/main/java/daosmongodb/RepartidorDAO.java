@@ -24,11 +24,11 @@ import org.bson.types.Binary;
  *
  * @author xiomi
  */
-public class RepartidorDAOMongo implements IRepartidorDAO {
+public class RepartidorDAO implements IRepartidorDAO {
 
     private MongoCollection<Document> coleccion;
 
-    public RepartidorDAOMongo() {
+    public RepartidorDAO() {
         MongoDatabase bd = ConexionBD.obtenerConexion().getBd();
         this.coleccion = bd.getCollection("repartidores");
     }

@@ -4,5 +4,5 @@ public enum EstadoRepartidorDTO {
     ACTIVO,
     INACTIVO,
     PENDIENTE,
-    BLOQUEADO
+    RECHAZADO
 }

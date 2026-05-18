@@ -72,7 +72,7 @@ public class RegistrarRepartidorCU implements IRegistrarRepartidorCU {
     }
 
     @Override
-    public void ejecutarRegistro(RepartidorDTO datosEntrada) throws NegocioException, Exception {
+    public void guardarRepartidor(RepartidorDTO datosEntrada) throws NegocioException, Exception {
         validarDatosPersonales(
                 datosEntrada.nombreCompleto,
                 datosEntrada.correoElectronico,

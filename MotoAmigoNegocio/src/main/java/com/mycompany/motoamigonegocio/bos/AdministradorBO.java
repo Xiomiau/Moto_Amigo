@@ -54,7 +54,6 @@ public class AdministradorBO implements IAdministradorBO {
 
     @Override
     public void generarReporte() throws PersistenciaException {
-        // Delega la generación al ReporteBO
         ReporteBO reporteBO = new ReporteBO();
         reporteBO.calcularTotales(repartidorDAO.listarTodos());
     }

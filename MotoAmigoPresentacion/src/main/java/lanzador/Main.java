@@ -8,7 +8,8 @@ import com.mycompany.motoamigonegocio.convertidores.ConvertidorRepartidor;
 import com.mycompany.motoamigopersistencia.interfaces.IRepartidorDAO;
 import com.mycompany.registrarrepartidorcu.IRegistrarRepartidorCU;
 import com.mycompany.registrarrepartidorcu.RegistrarRepartidorCU;
-import daosmongodb.RepartidorDAOMongo;
+import control.ControlAdministradorRepartidor;
+import daosmongodb.RepartidorDAO;
 import interfaces.IAdministradorBO;
 import interfaces.ICuentaBancariaBO;
 import interfaces.IDocumentoBO;
@@ -16,13 +17,13 @@ import interfaces.IRepartidorBO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import pantallasadministrador.pantallaPrincipal;
-import pantallasregistrarrepartidor.GuiFormUno;
+
 
 public class Main {
     public static void main(String[] args) {
         
         // 1. DAO — la "bodega" ahora es MongoDB
-        IRepartidorDAO repartidorDAO = new RepartidorDAOMongo();
+        IRepartidorDAO repartidorDAO = new RepartidorDAO();
         
         // 2. BOs — las reglas de negocio
         IRepartidorBO repartidorBO = new RepartidorBO();
@@ -39,11 +40,14 @@ public class Main {
             repartidorDAO, convertidor, administradorBO
         );
         
+        ControlAdministradorRepartidor controladorAdmin = new ControlAdministradorRepartidor(cu);
+
+        
         // 5. Abrir primera pantalla
         java.awt.EventQueue.invokeLater(() -> {
             //new GuiFormUno(cu).setVisible(true);
             try {
-                new pantallaPrincipal(cu).setVisible(true);
+                new pantallaPrincipal(controladorAdmin).setVisible(true);
             } catch (Exception ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }

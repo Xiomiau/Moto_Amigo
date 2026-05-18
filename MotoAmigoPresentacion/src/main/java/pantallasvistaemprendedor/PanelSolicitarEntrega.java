@@ -4,34 +4,26 @@
  */
 package pantallasvistaemprendedor;
 
-
 import controlador.ControladorPrincipal;
-import com.mycompany.solicitarpedidocu.SolicitarPedidoCU;
-import javax.swing.JOptionPane;
-import util.Icon;
 
 /**
  *
  * @author xiomi
  */
 public class PanelSolicitarEntrega extends javax.swing.JFrame {
-    
-    private String tipoPaquete ="";
+
+    private String tipoPaquete = "";
     private ControladorPrincipal controlador;
 
     /**
      * Creates new form PanelSolicitarEntrega
+     *
+     * @param controlador
      */
     public PanelSolicitarEntrega(ControladorPrincipal controlador) {
         initComponents();
         this.controlador = controlador;
-        labelHomeIcon.setIcon(Icon.cargarIcono("/imagenes/home.png", 20, 20));
-        labelHistorialIcon.setIcon(Icon.cargarIcono("/imagenes/pedidos.png", 20, 20));
-        labelPerfilIcon.setIcon(Icon.cargarIcono("/imagenes/perfil.png", 20, 20));
-        
-        btn_caja1.setIcon(Icon.cargarIcono("/imagenes/box.png", 20, 20));
-        btn_sobre.setIcon(Icon.cargarIcono("/imagenes/sobre.png", 20, 20));
-        
+
         this.setLocationRelativeTo(null);
     }
 
@@ -47,24 +39,16 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
         headerPanel = new javax.swing.JPanel();
         tituloMotoAmigo = new javax.swing.JLabel();
         principalPanel = new javax.swing.JPanel();
-        footerPanel = new javax.swing.JPanel();
-        labelHomeIcon = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        labelHistorialIcon = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        labelPerfilIcon = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        btn_validarDatos = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        txt_entrega = new javax.swing.JTextField();
+        entrega = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txt_recoleccion = new javax.swing.JTextField();
-        btn_sobre = new javax.swing.JButton();
-        btn_caja1 = new javax.swing.JButton();
+        recoleccion = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txt_descripcion = new javax.swing.JTextField();
+        decrp = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txt_peso1 = new javax.swing.JTextField();
+        peso = new javax.swing.JTextField();
+        botonNaranja1 = new util.guis.BotonNaranja();
+        botonNaranja2 = new util.guis.BotonNaranja();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Solicitar Pedido");
@@ -83,7 +67,7 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
             .addGroup(headerPanelLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(tituloMotoAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addContainerGap(236, Short.MAX_VALUE))
         );
         headerPanelLayout.setVerticalGroup(
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,157 +79,62 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
 
         principalPanel.setBackground(new java.awt.Color(248, 250, 250));
 
-        footerPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        labelHomeIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelHomeIcon.setPreferredSize(new java.awt.Dimension(20, 20));
-
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Inicio");
-
-        labelHistorialIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelHistorialIcon.setPreferredSize(new java.awt.Dimension(20, 20));
-
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Pedidos");
-
-        labelPerfilIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelPerfilIcon.setPreferredSize(new java.awt.Dimension(20, 20));
-
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Perfil");
-
-        btn_validarDatos.setBackground(new java.awt.Color(0, 0, 0));
-        btn_validarDatos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_validarDatos.setForeground(new java.awt.Color(255, 255, 255));
-        btn_validarDatos.setText("Validar datos");
-        btn_validarDatos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_validarDatosActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout footerPanelLayout = new javax.swing.GroupLayout(footerPanel);
-        footerPanel.setLayout(footerPanelLayout);
-        footerPanelLayout.setHorizontalGroup(
-            footerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(footerPanelLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(btn_validarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(footerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(footerPanelLayout.createSequentialGroup()
-                    .addGap(56, 56, 56)
-                    .addGroup(footerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelHomeIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(78, 78, 78)
-                    .addGroup(footerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelHistorialIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(footerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelPerfilIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(56, 56, 56)))
-        );
-        footerPanelLayout.setVerticalGroup(
-            footerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(footerPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_validarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
-            .addGroup(footerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(footerPanelLayout.createSequentialGroup()
-                    .addGap(19, 19, 19)
-                    .addGroup(footerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(footerPanelLayout.createSequentialGroup()
-                            .addGap(2, 2, 2)
-                            .addGroup(footerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(footerPanelLayout.createSequentialGroup()
-                                    .addComponent(labelHomeIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabel4))
-                                .addGroup(footerPanelLayout.createSequentialGroup()
-                                    .addComponent(labelHistorialIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabel5))))
-                        .addGroup(footerPanelLayout.createSequentialGroup()
-                            .addComponent(labelPerfilIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jLabel6)))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("PUNTO DE RECOLECCIÓN");
 
-        txt_entrega.setColumns(10);
+        entrega.setColumns(10);
 
         jLabel2.setBackground(new java.awt.Color(204, 204, 204));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("PUNTO DE ENTREGA");
 
-        txt_recoleccion.setColumns(10);
-
-        btn_sobre.setText("Sobre");
-        btn_sobre.setMaximumSize(new java.awt.Dimension(101, 23));
-        btn_sobre.setMinimumSize(new java.awt.Dimension(101, 23));
-        btn_sobre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_sobreActionPerformed(evt);
-            }
-        });
-
-        btn_caja1.setText("Caja/Paquete");
-        btn_caja1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_caja1ActionPerformed(evt);
-            }
-        });
+        recoleccion.setColumns(10);
 
         jLabel3.setBackground(new java.awt.Color(204, 204, 204));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("PESO APROXIMADO");
 
-        txt_descripcion.setColumns(10);
+        decrp.setColumns(10);
 
         jLabel7.setBackground(new java.awt.Color(204, 204, 204));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel7.setText("Descripcion del paquete");
+        jLabel7.setText("DESCRIPCIÓN");
 
-        txt_peso1.setColumns(10);
+        peso.setColumns(10);
+
+        botonNaranja1.setText("Caja");
+
+        botonNaranja2.setText("Sobre");
 
         javax.swing.GroupLayout principalPanelLayout = new javax.swing.GroupLayout(principalPanel);
         principalPanel.setLayout(principalPanelLayout);
         principalPanelLayout.setHorizontalGroup(
             principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(footerPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(principalPanelLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txt_entrega, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_recoleccion, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(principalPanelLayout.createSequentialGroup()
-                            .addComponent(btn_caja1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_sobre, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(botonNaranja1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                        .addGap(58, 58, 58)
+                        .addComponent(botonNaranja2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(decrp, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(principalPanelLayout.createSequentialGroup()
+                        .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(recoleccion, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(entrega, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
-            .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
-                    .addContainerGap(36, Short.MAX_VALUE)
-                    .addComponent(txt_peso1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(33, 33, 33)))
         );
         principalPanelLayout.setVerticalGroup(
             principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,36 +142,31 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txt_recoleccion, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(recoleccion, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_entrega, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
+                .addComponent(entrega, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
                 .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_sobre, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_caja1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                    .addComponent(botonNaranja1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonNaranja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
                 .addComponent(jLabel3)
-                .addGap(79, 79, 79)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addComponent(txt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(footerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
-                    .addContainerGap(401, Short.MAX_VALUE)
-                    .addComponent(txt_peso1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(279, 279, 279)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(decrp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
             .addComponent(principalPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -297,93 +181,20 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_caja1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_caja1ActionPerformed
-        // TODO add your handling code here:
-        tipoPaquete = "Caja";
-    }//GEN-LAST:event_btn_caja1ActionPerformed
-
-    private void btn_sobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sobreActionPerformed
-        // TODO add your handling code here:
-        tipoPaquete = "Sobre";
-    }//GEN-LAST:event_btn_sobreActionPerformed
-
-    private void btn_validarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validarDatosActionPerformed
-                                              
-        
-        String origen = txt_recoleccion.getText().trim();
-        String destino = txt_entrega.getText().trim();
-        String peso = txt_peso1.getText().trim();
-        
-        if (origen.isEmpty() || destino.isEmpty() || peso.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this,
-                "Por favor llena todos los campos.",
-                "Campos vacíos", javax.swing.JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        if (tipoPaquete.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this,
-                "Selecciona el tipo de paquete (Sobre o Caja).",
-                "Tipo requerido", javax.swing.JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        
-        try {
-            double pesoD = Double.parseDouble(peso);
-
-            // Armar el DTO
-            com.mycompany.motoamigodto.pedido.PedidoDTO dto = new com.mycompany.motoamigodto.pedido.PedidoDTO();
-            dto.direccionOrigen  = origen;
-            dto.direccionDestino = destino;
-            dto.tipoPaquete      = tipoPaquete;
-            dto.pesoAproximado   = pesoD;
-            dto.idEmprendedor    = "EMP-1"; // Hardcodeado 
-
-            // Llamamos al CONTROLADOR
-            com.mycompany.motoamigodto.pedido.PedidoDTO resultado = controlador.solicitarNuevoPedido(dto);
-
-            // Abrimos la siguiente pantalla pasándole los datos calculados
-            PanelCalculoDeRuta panelRuta = new PanelCalculoDeRuta(resultado, this.controlador);
-            panelRuta.setVisible(true);
-            this.dispose(); 
-
-        } catch (NumberFormatException e) {
-            javax.swing.JOptionPane.showMessageDialog(this,
-                "El peso debe ser un número válido (ej: 1.5).",
-                "Dato inválido", javax.swing.JOptionPane.ERROR_MESSAGE);
-        } catch (com.mycompany.motoamigonegocio.NegocioException e) {
-            // Aplicamis validaciones de negocio
-            javax.swing.JOptionPane.showMessageDialog(this,
-                e.getMessage(),
-                "Atención", javax.swing.JOptionPane.WARNING_MESSAGE);
-        } catch (Exception e) {
-            javax.swing.JOptionPane.showMessageDialog(this,
-                "Error en el servidor: " + e.getMessage(),
-                "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_btn_validarDatosActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_caja1;
-    private javax.swing.JButton btn_sobre;
-    private javax.swing.JButton btn_validarDatos;
-    private javax.swing.JPanel footerPanel;
+    private util.guis.BotonNaranja botonNaranja1;
+    private util.guis.BotonNaranja botonNaranja2;
+    private javax.swing.JTextField decrp;
+    private javax.swing.JTextField entrega;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel labelHistorialIcon;
-    private javax.swing.JLabel labelHomeIcon;
-    private javax.swing.JLabel labelPerfilIcon;
+    private javax.swing.JTextField peso;
     private javax.swing.JPanel principalPanel;
+    private javax.swing.JTextField recoleccion;
     private javax.swing.JLabel tituloMotoAmigo;
-    private javax.swing.JTextField txt_descripcion;
-    private javax.swing.JTextField txt_entrega;
-    private javax.swing.JTextField txt_peso1;
-    private javax.swing.JTextField txt_recoleccion;
     // End of variables declaration//GEN-END:variables
 }

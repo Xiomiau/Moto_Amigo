@@ -64,11 +64,6 @@ public class GuiFormCuatro extends javax.swing.JFrame {
         campoClabe.setColumns(10);
 
         campoCuenta.setColumns(10);
-        campoCuenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoCuentaActionPerformed(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
@@ -195,7 +190,7 @@ public class GuiFormCuatro extends javax.swing.JFrame {
         try {
             registrarCU.validarCuentaBancaria(cuentaBancariaDTO);
             repartidorDTO.setCuentaBancaria(cuentaBancariaDTO);
-            registrarCU.ejecutarRegistro(repartidorDTO);
+            registrarCU.guardarRepartidor(repartidorDTO);
 
             new GuiAvisoRepartidor().setVisible(true);
             this.dispose();
@@ -215,10 +210,6 @@ public class GuiFormCuatro extends javax.swing.JFrame {
         formAnterior.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_atrasActionPerformed
-
-    private void campoCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCuentaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoCuentaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

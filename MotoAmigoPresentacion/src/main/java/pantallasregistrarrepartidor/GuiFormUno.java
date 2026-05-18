@@ -5,6 +5,7 @@
 package pantallasregistrarrepartidor;
 
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
+import com.mycompany.motoamigonegocio.NegocioException;
 import com.mycompany.registrarrepartidorcu.IRegistrarRepartidorCU;
 import javax.swing.JOptionPane;
 
@@ -196,7 +197,7 @@ public class GuiFormUno extends javax.swing.JFrame {
             new GuiFormDos(this, registrarCU, repartidorDTO).setVisible(true);
             this.setVisible(false);
             
-        } catch (Exception e) {
+        } catch (NegocioException e) {
             JOptionPane.showMessageDialog(this, e.getMessage(),
                     "Datos incompletos", JOptionPane.WARNING_MESSAGE);
         }
