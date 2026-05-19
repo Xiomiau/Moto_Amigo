@@ -4,7 +4,7 @@
  */
 package interfaces;
 
-import com.mycompany.motoamigopersistencia.daos.PersistenciaException;
+import com.mycompany.motoamigopersistencia.exepciones.PersistenciaException;
 
 /**
  *

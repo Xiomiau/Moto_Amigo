@@ -7,23 +7,22 @@ public class Pedido {
     private String id;
     private String direccionOrigen;
     private String direccionDestino;
-    private String tipoPaquete; // "Sobre" o "Caja"
+    private String tipoPaquete;
     private String descripcionPaquete;
     private double pesoAproximado;
 
-    // Datos calculados por la API (MapBox)
+    
     private double distanciaKm;
     private int tiempoEstimadoMinutos;
     private double costo;
 
     private EstadoPedido estado;
 
-    // Relaciones (Solo guardamos los IDs)
     private String idEmprendedor;
-    private String idRepartidor; // Será null hasta que alguien lo acepte
+    private String idRepartidor;
 
     public Pedido() {
-        this.estado = EstadoPedido.PUBLICADO; // Estado inicial por defecto
+        this.estado = EstadoPedido.PUBLICADO; 
     }
 
     // Getters y Setters

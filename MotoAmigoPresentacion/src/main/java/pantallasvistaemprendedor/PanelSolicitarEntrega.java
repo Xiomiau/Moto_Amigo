@@ -47,8 +47,8 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
         decrp = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         peso = new javax.swing.JTextField();
-        botonNaranja1 = new util.guis.BotonNaranja();
-        botonNaranja2 = new util.guis.BotonNaranja();
+        btn_caja = new util.guis.BotonNaranja();
+        btn_sobre = new util.guis.BotonNaranja();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Solicitar Pedido");
@@ -103,9 +103,9 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
 
         peso.setColumns(10);
 
-        botonNaranja1.setText("Caja");
+        btn_caja.setText("Caja");
 
-        botonNaranja2.setText("Sobre");
+        btn_sobre.setText("Sobre");
 
         javax.swing.GroupLayout principalPanelLayout = new javax.swing.GroupLayout(principalPanel);
         principalPanel.setLayout(principalPanelLayout);
@@ -116,9 +116,9 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
                 .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(botonNaranja1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                        .addComponent(btn_caja, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                         .addGap(58, 58, 58)
-                        .addComponent(botonNaranja2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_sobre, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -149,8 +149,8 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
                 .addComponent(entrega, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonNaranja1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonNaranja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_caja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_sobre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -183,8 +183,8 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private util.guis.BotonNaranja botonNaranja1;
-    private util.guis.BotonNaranja botonNaranja2;
+    private util.guis.BotonNaranja btn_caja;
+    private util.guis.BotonNaranja btn_sobre;
     private javax.swing.JTextField decrp;
     private javax.swing.JTextField entrega;
     private javax.swing.JPanel headerPanel;

@@ -3,7 +3,6 @@ package com.mycompany.solicitarpedidocu;
 import com.mycompany.motoamigodto.pedido.PedidoDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
 import com.mycompany.motoamigonegocio.convertidores.ConvertidorPedido;
-import com.mycompany.motoamigopersistencia.daos.PedidoDAO;
 import com.mycompany.motoamigopersistencia.interfaces.IPedidoDAO;
 import entities.Pedido;
 import enums.EstadoPedido;
@@ -15,7 +14,7 @@ public class SolicitarPedidoCU {
     private ConvertidorPedido convertidor;
 
     public SolicitarPedidoCU() {
-        this.pedidoDAO = new PedidoDAO();
+        //this.pedidoDAO = new PedidoDAO();
         this.convertidor = new ConvertidorPedido();
     }
 

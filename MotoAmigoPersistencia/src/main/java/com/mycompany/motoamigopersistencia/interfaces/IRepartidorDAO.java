@@ -1,7 +1,7 @@
 package com.mycompany.motoamigopersistencia.interfaces;
 
 import entities.Repartidor;
-import com.mycompany.motoamigopersistencia.daos.PersistenciaException;
+import com.mycompany.motoamigopersistencia.exepciones.PersistenciaException;
 import java.util.List;
 
 public interface IRepartidorDAO {

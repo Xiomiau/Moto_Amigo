@@ -2,7 +2,7 @@ package com.mycompany.motoamigonegocio.bos;
 
 import entities.Repartidor;
 import enums.EstadoRepartidor;
-import com.mycompany.motoamigopersistencia.daos.PersistenciaException;
+import com.mycompany.motoamigopersistencia.exepciones.PersistenciaException;
 import com.mycompany.motoamigopersistencia.interfaces.IRepartidorDAO;
 import interfaces.IAdministradorBO;
 

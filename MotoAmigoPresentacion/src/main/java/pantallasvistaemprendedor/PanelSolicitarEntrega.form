@@ -99,9 +99,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="botonNaranja1" pref="0" max="32767" attributes="0"/>
+                          <Component id="btn_caja" pref="0" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                          <Component id="botonNaranja2" min="-2" pref="123" max="-2" attributes="0"/>
+                          <Component id="btn_sobre" min="-2" pref="123" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -140,8 +140,8 @@
                   <Component id="entrega" min="-2" pref="43" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="botonNaranja1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="botonNaranja2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_caja" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_sobre" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
@@ -221,12 +221,12 @@
             <Property name="columns" type="int" value="10"/>
           </Properties>
         </Component>
-        <Component class="util.guis.BotonNaranja" name="botonNaranja1">
+        <Component class="util.guis.BotonNaranja" name="btn_caja">
           <Properties>
             <Property name="text" type="java.lang.String" value="Caja"/>
           </Properties>
         </Component>
-        <Component class="util.guis.BotonNaranja" name="botonNaranja2">
+        <Component class="util.guis.BotonNaranja" name="btn_sobre">
           <Properties>
             <Property name="text" type="java.lang.String" value="Sobre"/>
           </Properties>

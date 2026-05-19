@@ -6,7 +6,7 @@ package daosmongodb;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mycompany.motoamigopersistencia.daos.PersistenciaException;
+import com.mycompany.motoamigopersistencia.exepciones.PersistenciaException;
 import conexionbd.ConexionBD;
 import com.mycompany.motoamigopersistencia.interfaces.IRepartidorDAO;
 import entities.CuentaBancaria;
@@ -69,7 +69,6 @@ public class RepartidorDAO implements IRepartidorDAO {
                                 .append("tarjetaCirculacion", repartidor.getDocumento().getTarjetaCirculacion()) : null);
 
         coleccion.insertOne(doc);
-        System.out.println("MONGO GUARDADO");
         return repartidor;
     }
 
@@ -86,20 +85,19 @@ public class RepartidorDAO implements IRepartidorDAO {
     public void actualizar(Repartidor repartidor) throws PersistenciaException {
         Document filtro = new Document("id", repartidor.getId());
 
-    Document actualizacion = new Document("$set", new Document()
-            .append("nombreCompleto", repartidor.getNombreCompleto())
-            .append("correoElectronico", repartidor.getCorreoElectronico())
-            .append("telefono", repartidor.getTelefono())
-            .append("contrasenia", repartidor.getContrasenia())
-            .append("estado", repartidor.getEstado().toString())
-            .append("tipoTransporte", repartidor.getTipoTransporte() != null
-                    ? repartidor.getTipoTransporte().toString() : null)
-            .append("fechaRegistro", repartidor.getFechaRegistro())
-    );
+        Document actualizacion = new Document("$set", new Document()
+                .append("nombreCompleto", repartidor.getNombreCompleto())
+                .append("correoElectronico", repartidor.getCorreoElectronico())
+                .append("telefono", repartidor.getTelefono())
+                .append("contrasenia", repartidor.getContrasenia())
+                .append("estado", repartidor.getEstado().toString())
+                .append("tipoTransporte", repartidor.getTipoTransporte() != null
+                        ? repartidor.getTipoTransporte().toString() : null)
+                .append("fechaRegistro", repartidor.getFechaRegistro())
+        );
 
-    coleccion.updateOne(filtro, actualizacion);
-    System.out.println("MONGO ACTUALIZADO: " + repartidor.getId());
-        
+        coleccion.updateOne(filtro, actualizacion);
+        System.out.println("MONGO ACTUALIZADO: " + repartidor.getId());
 
     }
 
@@ -112,45 +110,61 @@ public class RepartidorDAO implements IRepartidorDAO {
         return repartidores;
     }
 
-    private Repartidor documentoARepartidor(Document doc) {Repartidor r = new Repartidor();
-    r.setId(doc.getString("id"));
-    r.setNombreCompleto(doc.getString("nombreCompleto"));
-    r.setCorreoElectronico(doc.getString("correoElectronico"));
-    r.setTelefono(doc.getString("telefono"));
-    r.setContrasenia(doc.getString("contrasenia"));
-    r.setFechaRegistro(doc.getDate("fechaRegistro"));
+    private Repartidor documentoARepartidor(Document doc) {
+        
+        Repartidor r = new Repartidor();
+        r.setId(doc.getString("id"));
+        r.setNombreCompleto(doc.getString("nombreCompleto"));
+        r.setCorreoElectronico(doc.getString("correoElectronico"));
+        r.setTelefono(doc.getString("telefono"));
+        r.setContrasenia(doc.getString("contrasenia"));
+        r.setFechaRegistro(doc.getDate("fechaRegistro"));
 
-    String estadoStr = doc.getString("estado");
-    if (estadoStr != null) r.setEstado(EstadoRepartidor.valueOf(estadoStr));
+        String estadoStr = doc.getString("estado");
+        if (estadoStr != null) {
+            r.setEstado(EstadoRepartidor.valueOf(estadoStr));
+        }
 
-    String transporteStr = doc.getString("tipoTransporte");
-    if (transporteStr != null) r.setTipoTransporte(TipoTransporte.valueOf(transporteStr));
+        String transporteStr = doc.getString("tipoTransporte");
+        if (transporteStr != null) {
+            r.setTipoTransporte(TipoTransporte.valueOf(transporteStr));
+        }
 
-    Document docCuenta = (Document) doc.get("cuentaBancaria");
-    if (docCuenta != null) {
-        CuentaBancaria cb = new CuentaBancaria();
-        cb.setNumeroCuenta(docCuenta.getString("numeroCuenta"));
-        cb.setBanco(docCuenta.getString("banco"));
-        cb.setClabe(docCuenta.getString("clabe"));
-        r.setCuentaBancaria(cb);
-    }
+        Document docCuenta = (Document) doc.get("cuentaBancaria");
+        if (docCuenta != null) {
+            CuentaBancaria cb = new CuentaBancaria();
+            cb.setNumeroCuenta(docCuenta.getString("numeroCuenta"));
+            cb.setBanco(docCuenta.getString("banco"));
+            cb.setClabe(docCuenta.getString("clabe"));
+            r.setCuentaBancaria(cb);
+        }
 
-    Document docDocumento = (Document) doc.get("documento");
-    if (docDocumento != null) {
-        Documento d = new Documento();
-        Binary ine = docDocumento.get("ine", Binary.class);
-        if (ine != null) d.setIne(ine.getData());
-        Binary foto = docDocumento.get("fotoPerfil", Binary.class);
-        if (foto != null) d.setFotoPerfil(foto.getData());
-        Binary ant = docDocumento.get("antecedentes", Binary.class);
-        if (ant != null) d.setAntecedentes(ant.getData());
-        Binary lic = docDocumento.get("licenciaConducir", Binary.class);
-        if (lic != null) d.setLicenciaConducir(lic.getData());
-        Binary tar = docDocumento.get("tarjetaCirculacion", Binary.class);
-        if (tar != null) d.setTarjetaCirculacion(tar.getData());
-        r.setDocumento(d);
-    }
+        Document docDocumento = (Document) doc.get("documento");
+        if (docDocumento != null) {
+            Documento d = new Documento();
+            Binary ine = docDocumento.get("ine", Binary.class);
+            if (ine != null) {
+                d.setIne(ine.getData());
+            }
+            Binary foto = docDocumento.get("fotoPerfil", Binary.class);
+            if (foto != null) {
+                d.setFotoPerfil(foto.getData());
+            }
+            Binary ant = docDocumento.get("antecedentes", Binary.class);
+            if (ant != null) {
+                d.setAntecedentes(ant.getData());
+            }
+            Binary lic = docDocumento.get("licenciaConducir", Binary.class);
+            if (lic != null) {
+                d.setLicenciaConducir(lic.getData());
+            }
+            Binary tar = docDocumento.get("tarjetaCirculacion", Binary.class);
+            if (tar != null) {
+                d.setTarjetaCirculacion(tar.getData());
+            }
+            r.setDocumento(d);
+        }
 
-    return r;
+        return r;
     }
 }

@@ -4,7 +4,7 @@
  */
 package com.mycompany.motoamigopersistencia.interfaces;
 
-import com.mycompany.motoamigopersistencia.daos.PersistenciaException;
+import com.mycompany.motoamigopersistencia.exepciones.PersistenciaException;
 import entities.Administrador;
 
 /**
