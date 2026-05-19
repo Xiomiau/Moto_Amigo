@@ -25,9 +25,7 @@ public class PantallaDetallePedido extends javax.swing.JFrame {
         initComponents();
         this.idPedido = idPedido;
         this.controlador = controlador;
-        labelHomeIcon1.setIcon(Icon.cargarIcono("/imagenes/home.png", 20, 20));
-        labelHistorialIcon1.setIcon(Icon.cargarIcono("/imagenes/pedidos.png", 20, 20));
-        labelPerfilIcon1.setIcon(Icon.cargarIcono("/imagenes/perfil.png", 20, 20));
+        
         this.setLocationRelativeTo(null);
         
         cargarDatosDelPedido();
@@ -63,13 +61,6 @@ public class PantallaDetallePedido extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         headerPanel = new javax.swing.JPanel();
         tituloMotoAmigo = new javax.swing.JLabel();
-        footerPanel1 = new javax.swing.JPanel();
-        labelHomeIcon1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        labelHistorialIcon1 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        labelPerfilIcon1 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         panelRecoleccion = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -90,6 +81,7 @@ public class PantallaDetallePedido extends javax.swing.JFrame {
         btn_aceptarPedido = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Detalle Pedido");
 
         jPanel1.setBackground(new java.awt.Color(248, 250, 252));
 
@@ -115,74 +107,6 @@ public class PantallaDetallePedido extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(tituloMotoAmigo)
                 .addContainerGap(20, Short.MAX_VALUE))
-        );
-
-        footerPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        labelHomeIcon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelHomeIcon1.setPreferredSize(new java.awt.Dimension(20, 20));
-
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Inicio");
-
-        labelHistorialIcon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelHistorialIcon1.setPreferredSize(new java.awt.Dimension(20, 20));
-
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Pedidos");
-
-        labelPerfilIcon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelPerfilIcon1.setPreferredSize(new java.awt.Dimension(20, 20));
-
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Perfil");
-
-        javax.swing.GroupLayout footerPanel1Layout = new javax.swing.GroupLayout(footerPanel1);
-        footerPanel1.setLayout(footerPanel1Layout);
-        footerPanel1Layout.setHorizontalGroup(
-            footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, footerPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelPerfilIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63))
-            .addGroup(footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(footerPanel1Layout.createSequentialGroup()
-                    .addGap(56, 56, 56)
-                    .addGroup(footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelHomeIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(78, 78, 78)
-                    .addGroup(footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelHistorialIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(56, 56, 56)))
-        );
-        footerPanel1Layout.setVerticalGroup(
-            footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(footerPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(labelPerfilIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
-            .addGroup(footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(footerPanel1Layout.createSequentialGroup()
-                    .addGroup(footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(footerPanel1Layout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addGroup(footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(footerPanel1Layout.createSequentialGroup()
-                                    .addComponent(labelHomeIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabel7))
-                                .addGroup(footerPanel1Layout.createSequentialGroup()
-                                    .addComponent(labelHistorialIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabel8))))
-                        .addGroup(footerPanel1Layout.createSequentialGroup()
-                            .addGap(50, 50, 50)
-                            .addComponent(jLabel9)))
-                    .addContainerGap(19, Short.MAX_VALUE)))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -389,7 +313,6 @@ public class PantallaDetallePedido extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(footerPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -401,8 +324,7 @@ public class PantallaDetallePedido extends javax.swing.JFrame {
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                .addComponent(footerPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -413,7 +335,7 @@ public class PantallaDetallePedido extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -431,14 +353,13 @@ public class PantallaDetallePedido extends javax.swing.JFrame {
             this.dispose();
             
         } catch (Exception e) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Error al aceptar el pedido: " + e.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error al aceptar el pedido: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btn_aceptarPedidoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_aceptarPedido;
-    private javax.swing.JPanel footerPanel1;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -446,18 +367,12 @@ public class PantallaDetallePedido extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelDireccionDestino;
     private javax.swing.JLabel labelDireccionRecoleccion;
     private javax.swing.JLabel labelDistancia;
     private javax.swing.JLabel labelGanancia;
-    private javax.swing.JLabel labelHistorialIcon1;
-    private javax.swing.JLabel labelHomeIcon1;
-    private javax.swing.JLabel labelPerfilIcon1;
     private javax.swing.JLabel labelPesoPaquete;
     private javax.swing.JLabel labelTipoPaquete;
     private javax.swing.JPanel pamelDestino;

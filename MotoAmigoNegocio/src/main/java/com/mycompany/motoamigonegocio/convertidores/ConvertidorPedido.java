@@ -1,6 +1,5 @@
 package com.mycompany.motoamigonegocio.convertidores;
 
-import enums.EstadoPedido;
 import entities.Pedido;
 import com.mycompany.motoamigodto.pedido.EstadoPedidoDTO;
 import com.mycompany.motoamigodto.pedido.PedidoDTO;
@@ -17,7 +16,6 @@ public class ConvertidorPedido {
         entidad.setPesoAproximado(dto.pesoAproximado);
         entidad.setIdEmprendedor(dto.idEmprendedor);
         
-        // Asumiendo que estos datos se actualizarán después con la API
         entidad.setDistanciaKm(dto.distanciaKm);
         entidad.setTiempoEstimadoMinutos(dto.tiempoEstimadoMinutos);
         entidad.setCosto(dto.costo);

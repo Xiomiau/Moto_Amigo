@@ -7,7 +7,6 @@ public class PedidoDTO {
     public String tipoPaquete; 
     public String descripcionPaquete;
     public double pesoAproximado;
-    
     public double distanciaKm;
     public int tiempoEstimadoMinutos;
     public double costo;

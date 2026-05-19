@@ -5,7 +5,7 @@
 package pantallasvistarepartidor;
 
 import controlador.ControladorPrincipal;
-import util.Icon;
+import util.MapBoxService;
 
 /**
  *
@@ -13,8 +13,8 @@ import util.Icon;
  */
 public class PantallaEntregandoPedido extends javax.swing.JFrame {
 
-        private ControladorPrincipal controlador;
-        private String idPedido;
+    private ControladorPrincipal controlador;
+    private String idPedido;
 
     /**
      * Creates new form PantallaNavegacion
@@ -23,10 +23,47 @@ public class PantallaEntregandoPedido extends javax.swing.JFrame {
         initComponents();
         this.controlador = controlador;
         this.idPedido = idPedido;
-        labelHomeIcon1.setIcon(Icon.cargarIcono("/imagenes/home.png", 20, 20));
-        labelHistorialIcon1.setIcon(Icon.cargarIcono("/imagenes/pedidos.png", 20, 20));
-        labelPerfilIcon1.setIcon(Icon.cargarIcono("/imagenes/perfil.png", 20, 20));
         
+
+        cargarDatosPedido();
+
+    }
+
+    private void cargarDatosPedido() {
+
+        new Thread(() -> {
+        try {
+            com.mycompany.motoamigodto.pedido.PedidoDTO pedido =
+                controlador.obtenerPedidoPorId(idPedido);
+
+            if (pedido != null) {
+                javax.swing.SwingUtilities.invokeLater(() -> {
+                    labelDestino.setText(pedido.direccionDestino);
+                    labelTiempo.setText(pedido.tiempoEstimadoMinutos + " minutos");
+                });
+
+                double[] destino = MapBoxService.geocodificar(pedido.direccionDestino);
+                
+                int ancho = 350;
+                int alto  = 345;
+                java.awt.image.BufferedImage imagen = 
+                    MapBoxService.obtenerMapaEstatico(destino[0], destino[1], ancho, alto);
+
+                javax.swing.SwingUtilities.invokeLater(() -> {
+                    javax.swing.JLabel labelMapa = new javax.swing.JLabel(
+                        new javax.swing.ImageIcon(imagen)
+                    );
+                    panelMapaNavegacion.setLayout(new java.awt.BorderLayout());
+                    panelMapaNavegacion.add(labelMapa, java.awt.BorderLayout.CENTER);
+                    panelMapaNavegacion.revalidate();
+                    panelMapaNavegacion.repaint();
+                });
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }).start();
+
     }
 
     /**
@@ -41,14 +78,6 @@ public class PantallaEntregandoPedido extends javax.swing.JFrame {
         panelPadre = new javax.swing.JPanel();
         headerPanel = new javax.swing.JPanel();
         tituloMotoAmigo = new javax.swing.JLabel();
-        footerPanel1 = new javax.swing.JPanel();
-        labelHomeIcon1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        labelHistorialIcon1 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        labelPerfilIcon1 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        panelMapaNavegacion = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         labelDestino = new javax.swing.JLabel();
@@ -56,8 +85,10 @@ public class PantallaEntregandoPedido extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btn_registrarIncidente = new javax.swing.JButton();
         btn_marcarEntregado = new javax.swing.JButton();
+        panelMapaNavegacion = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("En Recolección");
 
         panelPadre.setBackground(new java.awt.Color(248, 250, 252));
 
@@ -83,85 +114,6 @@ public class PantallaEntregandoPedido extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(tituloMotoAmigo)
                 .addContainerGap(20, Short.MAX_VALUE))
-        );
-
-        footerPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        labelHomeIcon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelHomeIcon1.setPreferredSize(new java.awt.Dimension(20, 20));
-
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Inicio");
-
-        labelHistorialIcon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelHistorialIcon1.setPreferredSize(new java.awt.Dimension(20, 20));
-
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Pedidos");
-
-        labelPerfilIcon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelPerfilIcon1.setPreferredSize(new java.awt.Dimension(20, 20));
-
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Perfil");
-
-        javax.swing.GroupLayout footerPanel1Layout = new javax.swing.GroupLayout(footerPanel1);
-        footerPanel1.setLayout(footerPanel1Layout);
-        footerPanel1Layout.setHorizontalGroup(
-            footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, footerPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelPerfilIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63))
-            .addGroup(footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(footerPanel1Layout.createSequentialGroup()
-                    .addGap(56, 56, 56)
-                    .addGroup(footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelHomeIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(78, 78, 78)
-                    .addGroup(footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelHistorialIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(56, 56, 56)))
-        );
-        footerPanel1Layout.setVerticalGroup(
-            footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(footerPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(labelPerfilIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
-            .addGroup(footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(footerPanel1Layout.createSequentialGroup()
-                    .addGroup(footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(footerPanel1Layout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addGroup(footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(footerPanel1Layout.createSequentialGroup()
-                                    .addComponent(labelHomeIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabel7))
-                                .addGroup(footerPanel1Layout.createSequentialGroup()
-                                    .addComponent(labelHistorialIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabel8))))
-                        .addGroup(footerPanel1Layout.createSequentialGroup()
-                            .addGap(50, 50, 50)
-                            .addComponent(jLabel9)))
-                    .addContainerGap(19, Short.MAX_VALUE)))
-        );
-
-        javax.swing.GroupLayout panelMapaNavegacionLayout = new javax.swing.GroupLayout(panelMapaNavegacion);
-        panelMapaNavegacion.setLayout(panelMapaNavegacionLayout);
-        panelMapaNavegacionLayout.setHorizontalGroup(
-            panelMapaNavegacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        panelMapaNavegacionLayout.setVerticalGroup(
-            panelMapaNavegacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 345, Short.MAX_VALUE)
         );
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -224,37 +176,50 @@ public class PantallaEntregandoPedido extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout panelMapaNavegacionLayout = new javax.swing.GroupLayout(panelMapaNavegacion);
+        panelMapaNavegacion.setLayout(panelMapaNavegacionLayout);
+        panelMapaNavegacionLayout.setHorizontalGroup(
+            panelMapaNavegacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 370, Short.MAX_VALUE)
+        );
+        panelMapaNavegacionLayout.setVerticalGroup(
+            panelMapaNavegacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 360, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout panelPadreLayout = new javax.swing.GroupLayout(panelPadre);
         panelPadre.setLayout(panelPadreLayout);
         panelPadreLayout.setHorizontalGroup(
             panelPadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(footerPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelPadreLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(panelPadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(panelPadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPadreLayout.createSequentialGroup()
-                        .addComponent(btn_registrarIncidente, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_marcarEntregado, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panelMapaNavegacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)
+                        .addGroup(panelPadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panelPadreLayout.createSequentialGroup()
+                                .addComponent(btn_registrarIncidente, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_marcarEntregado, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(panelPadreLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(panelMapaNavegacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelPadreLayout.setVerticalGroup(
             panelPadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPadreLayout.createSequentialGroup()
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(panelMapaNavegacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(28, 28, 28)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(panelPadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_registrarIncidente, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(btn_marcarEntregado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                .addComponent(footerPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -275,14 +240,14 @@ public class PantallaEntregandoPedido extends javax.swing.JFrame {
         try {
             //  Cambiamos el estado a ENTREGADO
             controlador.marcarPedidoComoEntregado(this.idPedido);
-            
+
             javax.swing.JOptionPane.showMessageDialog(this, "¡Excelente trabajo! Has completado la entrega.", "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            
+
             //  Regresamos al menú principal del repartidor
             PanelRepartidor inicio = new PanelRepartidor(this.controlador);
             inicio.setVisible(true);
             this.dispose();
-            
+
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
@@ -292,18 +257,11 @@ public class PantallaEntregandoPedido extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_marcarEntregado;
     private javax.swing.JButton btn_registrarIncidente;
-    private javax.swing.JPanel footerPanel1;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelDestino;
-    private javax.swing.JLabel labelHistorialIcon1;
-    private javax.swing.JLabel labelHomeIcon1;
-    private javax.swing.JLabel labelPerfilIcon1;
     private javax.swing.JLabel labelTiempo;
     private javax.swing.JPanel panelMapaNavegacion;
     private javax.swing.JPanel panelPadre;

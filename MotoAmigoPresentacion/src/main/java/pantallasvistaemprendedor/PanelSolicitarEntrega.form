@@ -87,25 +87,17 @@
     <Container class="javax.swing.JPanel" name="principalPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="fa" green="fa" red="f8" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="btn_caja" pref="0" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                          <Component id="btn_sobre" min="-2" pref="123" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="decrp" min="-2" pref="331" max="-2" attributes="0"/>
                               <Component id="peso" min="-2" pref="331" max="-2" attributes="0"/>
@@ -115,15 +107,31 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="recoleccion" min="-2" pref="331" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" pref="168" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" pref="168" max="-2" attributes="0"/>
-                              <Component id="entrega" alignment="0" min="-2" pref="331" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="recoleccion" min="-2" pref="331" max="-2" attributes="0"/>
+                                      <Component id="jLabel2" min="-2" pref="168" max="-2" attributes="0"/>
+                                      <Component id="jLabel1" min="-2" pref="168" max="-2" attributes="0"/>
+                                      <Component id="entrega" alignment="0" min="-2" pref="331" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                                  <Component id="radioCaja" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="radioSobre" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="btn_solicitarPedido_" min="-2" pref="201" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -138,12 +146,12 @@
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="entrega" min="-2" pref="43" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btn_caja" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_sobre" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="radioCaja" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="radioSobre" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="peso" min="-2" pref="43" max="-2" attributes="0"/>
@@ -151,7 +159,9 @@
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="decrp" min="-2" pref="43" max="-2" attributes="0"/>
-                  <EmptySpace pref="92" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="btn_solicitarPedido_" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="50" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -221,12 +231,20 @@
             <Property name="columns" type="int" value="10"/>
           </Properties>
         </Component>
-        <Component class="util.guis.BotonNaranja" name="btn_caja">
+        <Component class="util.guis.BotonNegro" name="btn_solicitarPedido_">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Publicar Pedido"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_solicitarPedido_ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="radioCaja">
           <Properties>
             <Property name="text" type="java.lang.String" value="Caja"/>
           </Properties>
         </Component>
-        <Component class="util.guis.BotonNaranja" name="btn_sobre">
+        <Component class="javax.swing.JRadioButton" name="radioSobre">
           <Properties>
             <Property name="text" type="java.lang.String" value="Sobre"/>
           </Properties>

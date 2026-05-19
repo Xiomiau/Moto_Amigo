@@ -9,6 +9,7 @@ import com.mycompany.motoamigopersistencia.interfaces.IRepartidorDAO;
 import com.mycompany.registrarrepartidorcu.IRegistrarRepartidorCU;
 import com.mycompany.registrarrepartidorcu.RegistrarRepartidorCU;
 import control.ControlAdministradorRepartidor;
+import controlador.ControladorPrincipal;
 import daosmongodb.RepartidorDAO;
 import interfaces.IAdministradorBO;
 import interfaces.ICuentaBancariaBO;
@@ -17,37 +18,48 @@ import interfaces.IRepartidorBO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import pantallasadministrador.pantallaPrincipal;
-
+import pantallasvistarepartidor.PanelRepartidor;
 
 public class Main {
+
     public static void main(String[] args) {
-        
+
         // 1. DAO — la "bodega" ahora es MongoDB
         IRepartidorDAO repartidorDAO = new RepartidorDAO();
-        
+
         // 2. BOs — las reglas de negocio
         IRepartidorBO repartidorBO = new RepartidorBO();
         IDocumentoBO documentoBO = new DocumentoBO();
         ICuentaBancariaBO cuentaBancariaBO = new CuentaBancariaBO();
         IAdministradorBO administradorBO = new AdministradorBO(repartidorDAO);
-        
+
         // 3. Convertidor
         ConvertidorRepartidor convertidor = new ConvertidorRepartidor();
-        
+
         // 4. CU con todo conectado
         IRegistrarRepartidorCU cu = new RegistrarRepartidorCU(
-            repartidorBO, documentoBO, cuentaBancariaBO,
-            repartidorDAO, convertidor, administradorBO
+                repartidorBO, documentoBO, cuentaBancariaBO,
+                repartidorDAO, convertidor, administradorBO
         );
-        
-        ControlAdministradorRepartidor controladorAdmin = new ControlAdministradorRepartidor(cu);
 
-        
+        ControlAdministradorRepartidor controladorAdmin = new ControlAdministradorRepartidor(cu);
+        ControladorPrincipal controladorPrincipal = new ControladorPrincipal();
+
         // 5. Abrir primera pantalla
         java.awt.EventQueue.invokeLater(() -> {
             //new GuiFormUno(cu).setVisible(true);
             try {
+
+                // administrador
                 new pantallaPrincipal(controladorAdmin).setVisible(true);
+
+                //Emprendedor
+                new pantallasvistaemprendedor.PanelSolicitarEntrega(controladorPrincipal).setVisible(true);
+
+                // repartidor
+                PanelRepartidor repartidor = new PanelRepartidor(controladorPrincipal);
+                repartidor.setVisible(true);
+
             } catch (Exception ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }

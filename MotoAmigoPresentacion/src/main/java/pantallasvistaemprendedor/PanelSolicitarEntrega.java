@@ -4,7 +4,9 @@
  */
 package pantallasvistaemprendedor;
 
+import com.mycompany.motoamigodto.pedido.PedidoDTO;
 import controlador.ControladorPrincipal;
+import javax.swing.ButtonGroup;
 
 /**
  *
@@ -12,7 +14,6 @@ import controlador.ControladorPrincipal;
  */
 public class PanelSolicitarEntrega extends javax.swing.JFrame {
 
-    private String tipoPaquete = "";
     private ControladorPrincipal controlador;
 
     /**
@@ -23,8 +24,11 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
     public PanelSolicitarEntrega(ControladorPrincipal controlador) {
         initComponents();
         this.controlador = controlador;
-
         this.setLocationRelativeTo(null);
+        
+        ButtonGroup grupo = new ButtonGroup();
+        grupo.add(radioCaja);
+        grupo.add(radioSobre);
     }
 
     /**
@@ -47,8 +51,9 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
         decrp = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         peso = new javax.swing.JTextField();
-        btn_caja = new util.guis.BotonNaranja();
-        btn_sobre = new util.guis.BotonNaranja();
+        btn_solicitarPedido_ = new util.guis.BotonNegro();
+        radioCaja = new javax.swing.JRadioButton();
+        radioSobre = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Solicitar Pedido");
@@ -77,7 +82,7 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        principalPanel.setBackground(new java.awt.Color(248, 250, 250));
+        principalPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -103,25 +108,25 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
 
         peso.setColumns(10);
 
-        btn_caja.setText("Caja");
+        btn_solicitarPedido_.setText("Publicar Pedido");
+        btn_solicitarPedido_.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_solicitarPedido_ActionPerformed(evt);
+            }
+        });
 
-        btn_sobre.setText("Sobre");
+        radioCaja.setText("Caja");
+
+        radioSobre.setText("Sobre");
 
         javax.swing.GroupLayout principalPanelLayout = new javax.swing.GroupLayout(principalPanel);
         principalPanel.setLayout(principalPanelLayout);
         principalPanelLayout.setHorizontalGroup(
             principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(principalPanelLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
                 .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(btn_caja, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                        .addGap(58, 58, 58)
-                        .addComponent(btn_sobre, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(decrp, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,12 +134,24 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(principalPanelLayout.createSequentialGroup()
                         .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(recoleccion, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(entrega, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(principalPanelLayout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(recoleccion, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(entrega, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(principalPanelLayout.createSequentialGroup()
+                                .addGap(98, 98, 98)
+                                .addComponent(radioCaja)
+                                .addGap(36, 36, 36)
+                                .addComponent(radioSobre)))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_solicitarPedido_, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85))
         );
         principalPanelLayout.setVerticalGroup(
             principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,11 +164,11 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(entrega, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addGap(18, 18, 18)
                 .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_caja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_sobre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
+                    .addComponent(radioCaja)
+                    .addComponent(radioSobre))
+                .addGap(61, 61, 61)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -159,7 +176,9 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(decrp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(btn_solicitarPedido_, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -181,10 +200,36 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_solicitarPedido_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_solicitarPedido_ActionPerformed
+        // TODO add your handling code here:
+ try {
+        PedidoDTO pedido = new PedidoDTO();
+        
+        pedido.direccionOrigen = recoleccion.getText();
+        pedido.direccionDestino = entrega.getText();
+        pedido.idEmprendedor="EMP-001";
+        pedido.descripcionPaquete = decrp.getText();
+        pedido.pesoAproximado = Double.parseDouble(peso.getText());
+        if(radioCaja.isSelected()) {
+            pedido.tipoPaquete = "Caja";
+        } else if (radioSobre.isSelected()) {
+            pedido.tipoPaquete = "Sobre";
+        }
+        
+        controlador.solicitarNuevoPedido(pedido);
+        
+        } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "El peso debe ser un número válido.");
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, e.getMessage(), "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
+
+    }//GEN-LAST:event_btn_solicitarPedido_ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private util.guis.BotonNaranja btn_caja;
-    private util.guis.BotonNaranja btn_sobre;
+    private util.guis.BotonNegro btn_solicitarPedido_;
     private javax.swing.JTextField decrp;
     private javax.swing.JTextField entrega;
     private javax.swing.JPanel headerPanel;
@@ -194,6 +239,8 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField peso;
     private javax.swing.JPanel principalPanel;
+    private javax.swing.JRadioButton radioCaja;
+    private javax.swing.JRadioButton radioSobre;
     private javax.swing.JTextField recoleccion;
     private javax.swing.JLabel tituloMotoAmigo;
     // End of variables declaration//GEN-END:variables
