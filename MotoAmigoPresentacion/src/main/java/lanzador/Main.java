@@ -51,14 +51,14 @@ public class Main {
             try {
 
                 // administrador
-                new pantallaPrincipal(controladorAdmin).setVisible(true);
+                //new pantallaPrincipal(controladorAdmin).setVisible(true);
 
                 //Emprendedor
                 new pantallasvistaemprendedor.PanelSolicitarEntrega(controladorPrincipal).setVisible(true);
 
                 // repartidor
-                PanelRepartidor repartidor = new PanelRepartidor(controladorPrincipal);
-                repartidor.setVisible(true);
+//                PanelRepartidor repartidor = new PanelRepartidor(controladorPrincipal);
+//                repartidor.setVisible(true);
 
             } catch (Exception ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);

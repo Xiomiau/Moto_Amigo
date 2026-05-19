@@ -7,6 +7,7 @@ package pantallasvistaemprendedor;
 import com.mycompany.motoamigodto.pedido.PedidoDTO;
 import controlador.ControladorPrincipal;
 import javax.swing.ButtonGroup;
+import pantallasvistarepartidor.PanelRepartidor;
 
 /**
  *
@@ -217,6 +218,9 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
         }
         
         controlador.solicitarNuevoPedido(pedido);
+        PanelRepartidor panel = new pantallasvistarepartidor.PanelRepartidor(controlador);
+        panel.setVisible(true);
+        this.setVisible(false);
         
         } catch (NumberFormatException e) {
         javax.swing.JOptionPane.showMessageDialog(this, "El peso debe ser un número válido.");

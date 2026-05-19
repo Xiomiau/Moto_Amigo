@@ -24,7 +24,40 @@ public class PantallaRecoleccion extends javax.swing.JFrame {
         this.controlador = controlador;
         this.idPedido = idPedido;
         this.setLocationRelativeTo(null);
+        cargarDatosPedido();
     }
+    
+    private void cargarDatosPedido() {
+    new Thread(() -> {
+        try {
+            com.mycompany.motoamigodto.pedido.PedidoDTO pedido =
+                controlador.obtenerPedidoPorId(idPedido);
+
+            if (pedido != null) {
+                javax.swing.SwingUtilities.invokeLater(() -> {
+                    labelDestino.setText(pedido.direccionOrigen); 
+                    labelTiempo.setText(pedido.tiempoEstimadoMinutos + " minutos");
+                });
+
+                double[] coords = util.MapBoxService.geocodificar(pedido.direccionOrigen);
+                java.awt.image.BufferedImage imagen =
+                    util.MapBoxService.obtenerMapaEstatico(coords[0], coords[1], 350, 345);
+
+                javax.swing.SwingUtilities.invokeLater(() -> {
+                    javax.swing.JLabel labelMapa = new javax.swing.JLabel(
+                        new javax.swing.ImageIcon(imagen)
+                    );
+                    panelMapaNavegacion.setLayout(new java.awt.BorderLayout());
+                    panelMapaNavegacion.add(labelMapa, java.awt.BorderLayout.CENTER);
+                    panelMapaNavegacion.revalidate();
+                    panelMapaNavegacion.repaint();
+                });
+            }
+        } catch (Exception e) {
+            System.out.println("Error cargando mapa recolección: " + e.getMessage());
+        }
+    }).start();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
