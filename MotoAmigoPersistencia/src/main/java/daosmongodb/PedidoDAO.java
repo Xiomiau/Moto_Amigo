@@ -47,6 +47,7 @@ public class PedidoDAO implements IPedidoDAO {
                 .append("tiempo_estimado", pedido.getTiempoEstimadoMinutos())
                 .append("id_repartidor", pedido.getIdRepartidor())
                 .append("id_emprendedor", pedido.getIdEmprendedor())
+                .append("costo", pedido.getCosto())
                 .append("estado", pedido.getEstado().toString());
 
         coleccion.insertOne(doc);
@@ -105,6 +106,7 @@ public class PedidoDAO implements IPedidoDAO {
         pedido.setDistanciaKm(doc.getDouble("distancia"));
         pedido.setTiempoEstimadoMinutos(doc.getInteger("tiempo_estimado"));
         pedido.setIdRepartidor(doc.getString("id_repartidor"));
+        pedido.setCosto(doc.getDouble("costo"));
         pedido.setIdEmprendedor(doc.getString("id_emprendedor"));
 
         String estadoStr = doc.getString("estado");

@@ -9,12 +9,12 @@ import entities.Pedido;
 import enums.EstadoPedido;
 import java.util.List;
 
-public class SolicitarPedidoCU implements ISolicitarPedido {
+public class publicarPedido implements IPublicarPedido {
 
     private IPedidoDAO pedidoDAO;
     private ConvertidorPedido convertidor;
 
-    public SolicitarPedidoCU() {
+    public publicarPedido() {
         this.pedidoDAO = new PedidoDAO();
         this.convertidor = new ConvertidorPedido();
     }
@@ -22,23 +22,19 @@ public class SolicitarPedidoCU implements ISolicitarPedido {
     // 1. El emprendedor publica el pedido
     @Override
     public PedidoDTO publicarPedido(PedidoDTO pedido) throws Exception {
-        // Validación de reglas de negocio
         validarDatosPedido(pedido);
 
-        pedido.distanciaKm = simularCalculoDistanciaMapBox(pedido.direccionOrigen, pedido.direccionDestino);
+        pedido.distanciaKm = simularCalculoDistanciaMapBox(pedido.direccionOrigen, pedido.direccionDestino); // 3.2 harcodeado
         pedido.tiempoEstimadoMinutos = simularCalculoTiempoMapBox(pedido.distanciaKm);
-
-        // 2. Aplicar Regla de Negocio Interna (Costo)
-        pedido.costo = calcularCostoTarifa(pedido.distanciaKm);
-
-        // Mapeo DTO a Entidad
+        
+        pedido.costo = calcularCostoTarifa(pedido.distanciaKm); //3.2 *6+10.5 = 29.7
+     
         Pedido nuevoPedido = convertidor.mapearDtoAEntidad(pedido);
         nuevoPedido.setEstado(EstadoPedido.PUBLICADO);
+        
+        Pedido pedidoGuardado = pedidoDAO.guardarPedido(nuevoPedido);
 
-        // Guardar
-        pedidoDAO.guardarPedido(nuevoPedido);
-
-        return convertidor.mapearEntidadADTO(nuevoPedido);
+        return convertidor.mapearEntidadADTO(pedidoGuardado);
     }
 
     // 2. El Repartidor acepta el pedido
@@ -114,14 +110,14 @@ public class SolicitarPedidoCU implements ISolicitarPedido {
         return 3.2; // 3.2 km como referencia estática para las pruebas
     }
 
-    private int simularCalculoTiempoMapBox(double distancia) {
+    private int simularCalculoTiempoMapBox(double tiempoEntrega) {
         return 15; // 15 minutos aprox
     }
 
     // Calculo de el pago del Repartidor
     private double calcularCostoTarifa(double distanciaKm) {
         // Regla de negocio: $6.00 MXN por cada kilómetro recorrido
-        return distanciaKm * 6.0 + 10;
+        return (distanciaKm * 6.0) + 10.5;
     }
 
     // NUEVO: Devuelve la lista para la tabla del repartidor

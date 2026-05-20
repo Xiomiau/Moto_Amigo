@@ -217,7 +217,7 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
             pedido.tipoPaquete = "Sobre";
         }
         
-        controlador.solicitarNuevoPedido(pedido);
+        controlador.publicarPedido(pedido);
         PanelRepartidor panel = new pantallasvistarepartidor.PanelRepartidor(controlador);
         panel.setVisible(true);
         this.setVisible(false);

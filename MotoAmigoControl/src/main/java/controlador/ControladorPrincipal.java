@@ -2,22 +2,22 @@ package controlador;
 
 import com.mycompany.motoamigodto.pedido.PedidoDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
-import com.mycompany.solicitarpedidocu.SolicitarPedidoCU;
+import com.mycompany.solicitarpedidocu.publicarPedido;
 import java.util.List;
 
 public class ControladorPrincipal {
 
-    private final SolicitarPedidoCU solicitarPedidoCU;
+    private final publicarPedido solicitarPedidoCU;
 
     private static final String NOMBRE_REPARTIDOR_DEMO = "Juan Pérez Gómez";
     private static final String ID_REPARTIDOR_DEMO = "1";
 
     public ControladorPrincipal() {
-        this.solicitarPedidoCU = new SolicitarPedidoCU();
+        this.solicitarPedidoCU = new publicarPedido();
     }
 
     // Emprendedor
-    public PedidoDTO solicitarNuevoPedido(PedidoDTO pedidoDTO) throws NegocioException, Exception {
+    public PedidoDTO publicarPedido(PedidoDTO pedidoDTO) throws NegocioException, Exception {
         
         return solicitarPedidoCU.publicarPedido(pedidoDTO);
     }

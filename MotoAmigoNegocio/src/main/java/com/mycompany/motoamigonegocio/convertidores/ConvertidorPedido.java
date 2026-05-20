@@ -15,7 +15,6 @@ public class ConvertidorPedido {
         entidad.setDescripcionPaquete(dto.descripcionPaquete);
         entidad.setPesoAproximado(dto.pesoAproximado);
         entidad.setIdEmprendedor(dto.idEmprendedor);
-        
         entidad.setDistanciaKm(dto.distanciaKm);
         entidad.setTiempoEstimadoMinutos(dto.tiempoEstimadoMinutos);
         entidad.setCosto(dto.costo);

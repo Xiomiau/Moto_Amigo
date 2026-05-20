@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author xiomi
  */
-public interface ISolicitarPedido {
+public interface IPublicarPedido {
     PedidoDTO publicarPedido(PedidoDTO pedido) throws Exception;
     
     void aceptarPedido(String idPedido, String idRepartidor) throws Exception;
