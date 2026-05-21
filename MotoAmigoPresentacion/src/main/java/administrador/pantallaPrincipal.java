@@ -7,6 +7,7 @@ package administrador;
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import control.ControlAdministradorRepartidor;
 import java.util.List;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -105,6 +106,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             );
         }
 
+        
+    }
+
+    private void recargarTabla() throws Exception {
+        
         total = repartidores.size();
         activos = repartidores.stream()
                 .filter(r -> "ACTIVO".equalsIgnoreCase(r.estado.toString()))
@@ -115,9 +121,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         rechazados = repartidores.stream()
                 .filter(r -> "RECHAZADO".equalsIgnoreCase(r.estado.toString()))
                 .count();
-    }
-
-    private void recargarTabla() throws Exception {
+        System.out.println("Tabla recargada");
         panelTablaRepartidores.limpiar();
         cargarTabla();
     }

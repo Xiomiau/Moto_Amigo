@@ -2,7 +2,7 @@ package util;
 
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.data.JRMapCollectionDataSource;
 import net.sf.jasperreports.view.JasperViewer;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
@@ -19,11 +19,11 @@ public class GenerarReporte {
         // 1. Calcular totales
         long total     = repartidores.size();
         long activos   = repartidores.stream()
-                .filter(r -> "ACTIVO".equalsIgnoreCase(r.estado.toString())).count();
+                .filter(r -> r.estado != null && "ACTIVO".equalsIgnoreCase(r.estado.toString())).count();
         long pendientes = repartidores.stream()
-                .filter(r -> "PENDIENTE".equalsIgnoreCase(r.estado.toString())).count();
+                .filter(r -> r.estado != null && "PENDIENTE".equalsIgnoreCase(r.estado.toString())).count();
         long rechazados = repartidores.stream()
-                .filter(r -> "RECHAZADO".equalsIgnoreCase(r.estado.toString())).count();
+                .filter(r -> r.estado != null && "RECHAZADO".equalsIgnoreCase(r.estado.toString())).count();
 
         // 2. Parámetros del reporte
         Map<String, Object> parametros = new HashMap<>();
@@ -34,7 +34,7 @@ public class GenerarReporte {
         parametros.put("FECHA", new SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date()));
 
         // 3. Convertir lista a formato que JasperReports entiende
-        List<Map<String, Object>> datos = new ArrayList<>();
+        List<Map<String, ?>> datos = new ArrayList<>();
         for (RepartidorDTO r : repartidores) {
             Map<String, Object> fila = new HashMap<>();
             fila.put("nombreCompleto",    r.nombreCompleto != null ? r.nombreCompleto : "");
@@ -52,7 +52,7 @@ public class GenerarReporte {
         JasperReport jasperReport = JasperCompileManager.compileReport(plantilla);
 
         // 5. Generar reporte
-        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(datos);
+        JRMapCollectionDataSource dataSource = new JRMapCollectionDataSource(datos);
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametros, dataSource);
 
         // 6. Mostrar en pantalla

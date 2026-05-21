@@ -58,37 +58,37 @@
     <columnHeader>
         <band height="25">
             <staticText>
-                <reportElement x="0" y="0" width="160" height="25" backcolor="#F56900" mode="Opaque"/>
+                <reportElement x="0" y="0" width="160" height="25" forecolor="#FFFFFF" backcolor="#F56900" mode="Opaque"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
-                    <font isBold="true" foreColor="#FFFFFF"/>
+                    <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Nombre]]></text>
             </staticText>
             <staticText>
-                <reportElement x="160" y="0" width="160" height="25" backcolor="#F56900" mode="Opaque"/>
+                <reportElement x="160" y="0" width="160" height="25" forecolor="#FFFFFF" backcolor="#F56900" mode="Opaque"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
-                    <font isBold="true" foreColor="#FFFFFF"/>
+                    <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Correo]]></text>
             </staticText>
             <staticText>
-                <reportElement x="320" y="0" width="80" height="25" backcolor="#F56900" mode="Opaque"/>
+                <reportElement x="320" y="0" width="80" height="25" forecolor="#FFFFFF" backcolor="#F56900" mode="Opaque"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
-                    <font isBold="true" foreColor="#FFFFFF"/>
+                    <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Teléfono]]></text>
             </staticText>
             <staticText>
-                <reportElement x="400" y="0" width="70" height="25" backcolor="#F56900" mode="Opaque"/>
+                <reportElement x="400" y="0" width="70" height="25" forecolor="#FFFFFF" backcolor="#F56900" mode="Opaque"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
-                    <font isBold="true" foreColor="#FFFFFF"/>
+                    <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Estado]]></text>
             </staticText>
             <staticText>
-                <reportElement x="470" y="0" width="65" height="25" backcolor="#F56900" mode="Opaque"/>
+                <reportElement x="470" y="0" width="65" height="25" forecolor="#FFFFFF" backcolor="#F56900" mode="Opaque"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
-                    <font isBold="true" foreColor="#FFFFFF"/>
+                    <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Fecha]]></text>
             </staticText>

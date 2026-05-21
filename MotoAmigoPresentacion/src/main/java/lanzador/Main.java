@@ -52,7 +52,7 @@ public class Main {
             try {
 
                 // administrador
-                //new PantallaPrincipal(controladorAdmin).setVisible(true);
+                new PantallaPrincipal(controladorAdmin).setVisible(true);
                 
                 // Registro Repartidor
                 //new FormDatosPersonales_inicio(cu).setVisible(true);
@@ -61,8 +61,8 @@ public class Main {
                 //new pedidoemprendedor.PanelSolicitarEntrega(controladorPrincipal).setVisible(true);
 
                 // repartidor
-                PanelRepartidor repartidor = new PanelRepartidor(controladorPrincipal);
-                repartidor.setVisible(true);
+//                PanelRepartidor repartidor = new PanelRepartidor(controladorPrincipal);
+//                repartidor.setVisible(true);
 
             } catch (Exception ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
