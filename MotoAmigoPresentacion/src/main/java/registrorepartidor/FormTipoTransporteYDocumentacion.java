@@ -8,6 +8,7 @@ import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import com.mycompany.motoamigodto.repartidor.TipoTransporteDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
 import com.mycompany.registrarrepartidorcu.IRegistrarRepartidorCU;
+import control.ControlAdministradorRepartidor;
 import javax.swing.JOptionPane;
 import util.guis.TarjetaTransporte;
 
@@ -21,8 +22,9 @@ public class FormTipoTransporteYDocumentacion extends javax.swing.JFrame {
     private IRegistrarRepartidorCU registrarCU;
     private RepartidorDTO repartidorDTO;
     private TarjetaTransporte.GrupoTarjetas grupo;
+    private ControlAdministradorRepartidor controlador;
 
-    public FormTipoTransporteYDocumentacion(FormDocumentosPersonales formAnterior, IRegistrarRepartidorCU registrarCU, RepartidorDTO repartidorDTO) {
+    public FormTipoTransporteYDocumentacion(FormDocumentosPersonales formAnterior, IRegistrarRepartidorCU registrarCU, RepartidorDTO repartidorDTO,ControlAdministradorRepartidor controlador) {
         initComponents();
 
         grupo = new TarjetaTransporte.GrupoTarjetas();
@@ -32,6 +34,7 @@ public class FormTipoTransporteYDocumentacion extends javax.swing.JFrame {
         this.formAnterior = formAnterior;
         this.registrarCU = registrarCU;
         this.repartidorDTO = repartidorDTO;
+        this.controlador=controlador;
         this.setLocationRelativeTo(null);
 
     }
@@ -252,7 +255,7 @@ public class FormTipoTransporteYDocumentacion extends javax.swing.JFrame {
 
         try {
             registrarCU.validarDocumentacionTransporte(tipo, repartidorDTO.documento);
-            new FormDatosBancarios(this, registrarCU, repartidorDTO).setVisible(true);
+            new FormDatosBancarios(this, registrarCU, repartidorDTO,controlador).setVisible(true);
             this.dispose();
 
         } catch (NegocioException e) {

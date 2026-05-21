@@ -4,18 +4,25 @@
  */
 package registrorepartidor;
 
+import administrador.PantallaPrincipal;
+import control.ControlAdministradorRepartidor;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author xiomi
  */
 public class FormAvisoRegistroExitoso extends javax.swing.JFrame {
+    private ControlAdministradorRepartidor controlador;
     
 
     /**
      * Creates new form GuiFormUno
      */
-    public FormAvisoRegistroExitoso() {
+    public FormAvisoRegistroExitoso(ControlAdministradorRepartidor controlador) {
         initComponents();
+        this.controlador=controlador;
         
         this.setLocationRelativeTo(null);
     }
@@ -36,7 +43,7 @@ public class FormAvisoRegistroExitoso extends javax.swing.JFrame {
         panelRedondeadoNaranja1 = new util.guis.PanelRedondeadoNaranja();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        botonNegro1 = new util.guis.BotonNegro();
+        btn_salir = new util.guis.BotonNegro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Formulario Repartidor");
@@ -83,10 +90,10 @@ public class FormAvisoRegistroExitoso extends javax.swing.JFrame {
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        botonNegro1.setText("Salir");
-        botonNegro1.addActionListener(new java.awt.event.ActionListener() {
+        btn_salir.setText("Salir");
+        btn_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonNegro1ActionPerformed(evt);
+                btn_salirActionPerformed(evt);
             }
         });
 
@@ -114,7 +121,7 @@ public class FormAvisoRegistroExitoso extends javax.swing.JFrame {
                 .addContainerGap(294, Short.MAX_VALUE))
             .addGroup(panelRedondeado1Layout.createSequentialGroup()
                 .addGap(363, 363, 363)
-                .addComponent(botonNegro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         panelRedondeado1Layout.setVerticalGroup(
@@ -129,7 +136,7 @@ public class FormAvisoRegistroExitoso extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(panelRedondeadoNaranja1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
-                .addComponent(botonNegro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(112, Short.MAX_VALUE))
         );
 
@@ -153,16 +160,20 @@ public class FormAvisoRegistroExitoso extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botonNegro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNegro1ActionPerformed
-        // TODO add your handling code here:
-        
+    private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
+        try {
+            // TODO add your handling code here:
+            new PantallaPrincipal(controlador).setVisible(true);
+        } catch (Exception ex) {
+            Logger.getLogger(FormAvisoRegistroExitoso.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
-    }//GEN-LAST:event_botonNegro1ActionPerformed
+    }//GEN-LAST:event_btn_salirActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private util.guis.BotonNegro botonNegro1;
+    private util.guis.BotonNegro btn_salir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

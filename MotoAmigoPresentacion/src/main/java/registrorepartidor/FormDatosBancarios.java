@@ -8,6 +8,7 @@ import com.mycompany.motoamigodto.CuentaBancariaDTO;
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
 import com.mycompany.registrarrepartidorcu.IRegistrarRepartidorCU;
+import control.ControlAdministradorRepartidor;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,12 +20,14 @@ public class FormDatosBancarios extends javax.swing.JFrame {
     private FormTipoTransporteYDocumentacion formAnterior;
     private IRegistrarRepartidorCU registrarCU;
     private RepartidorDTO repartidorDTO;
+    private ControlAdministradorRepartidor controlador;
 
-    public FormDatosBancarios(FormTipoTransporteYDocumentacion formAnterior, IRegistrarRepartidorCU registrarCU, RepartidorDTO repartidorDTO) {
+    public FormDatosBancarios(FormTipoTransporteYDocumentacion formAnterior, IRegistrarRepartidorCU registrarCU, RepartidorDTO repartidorDTO,ControlAdministradorRepartidor controlador) {
         initComponents();
         this.formAnterior = formAnterior;
         this.registrarCU = registrarCU;
         this.repartidorDTO = repartidorDTO;
+        this.controlador=controlador;
         this.setLocationRelativeTo(null);
     }
 
@@ -192,7 +195,7 @@ public class FormDatosBancarios extends javax.swing.JFrame {
             repartidorDTO.setCuentaBancaria(cuentaBancariaDTO);
             registrarCU.guardarRepartidor(repartidorDTO);
 
-            new FormAvisoRegistroExitoso().setVisible(true);
+            new FormAvisoRegistroExitoso(controlador).setVisible(true);
             this.dispose();
 
         } catch (NegocioException e) {

@@ -8,6 +8,7 @@ import com.mycompany.motoamigodto.DocumentoDTO;
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
 import com.mycompany.registrarrepartidorcu.IRegistrarRepartidorCU;
+import control.ControlAdministradorRepartidor;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,15 +20,17 @@ public class FormDocumentosPersonales extends javax.swing.JFrame {
     private FormDatosPersonales_inicio formAnterior;
     private IRegistrarRepartidorCU registrarCU;
     private RepartidorDTO repartidorDTO;
+    private ControlAdministradorRepartidor controlador;
 
     /**
      * Creates new form FormDatosPersonales_inicio
      */
-    public FormDocumentosPersonales(FormDatosPersonales_inicio formAnterior, IRegistrarRepartidorCU registrarCU, RepartidorDTO repartidorDTO) {
+    public FormDocumentosPersonales(FormDatosPersonales_inicio formAnterior, IRegistrarRepartidorCU registrarCU, RepartidorDTO repartidorDTO,ControlAdministradorRepartidor controlador) {
         initComponents();
         this.formAnterior = formAnterior;
         this.registrarCU = registrarCU;
         this.repartidorDTO = repartidorDTO;
+        this.controlador=controlador;
         this.setLocationRelativeTo(null);
     }
 
@@ -177,7 +180,7 @@ public class FormDocumentosPersonales extends javax.swing.JFrame {
 
             repartidorDTO.documento = documento;
 
-            new FormTipoTransporteYDocumentacion(this, registrarCU, repartidorDTO).setVisible(true);
+            new FormTipoTransporteYDocumentacion(this, registrarCU, repartidorDTO,controlador).setVisible(true);
             this.setVisible(false);
 
         } catch (NegocioException e) {

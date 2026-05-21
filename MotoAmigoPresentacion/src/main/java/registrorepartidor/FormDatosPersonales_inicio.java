@@ -7,6 +7,7 @@ package registrorepartidor;
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
 import com.mycompany.registrarrepartidorcu.IRegistrarRepartidorCU;
+import control.ControlAdministradorRepartidor;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,10 +18,12 @@ public class FormDatosPersonales_inicio extends javax.swing.JFrame {
 
     private IRegistrarRepartidorCU registrarCU;
     private RepartidorDTO repartidorDTO = new RepartidorDTO();
+    private ControlAdministradorRepartidor controlador;
 
-    public FormDatosPersonales_inicio(IRegistrarRepartidorCU registrarCU) {
+    public FormDatosPersonales_inicio(IRegistrarRepartidorCU registrarCU, ControlAdministradorRepartidor controlador) {
         initComponents();
         this.registrarCU=registrarCU;
+        this.controlador=controlador;
 
         this.setLocationRelativeTo(null);
     }
@@ -194,7 +197,7 @@ public class FormDatosPersonales_inicio extends javax.swing.JFrame {
             repartidorDTO.telefono = telefono;
             
             
-            new FormDocumentosPersonales(this, registrarCU, repartidorDTO).setVisible(true);
+            new FormDocumentosPersonales(this, registrarCU, repartidorDTO, controlador).setVisible(true);
             this.setVisible(false);
             
         } catch (NegocioException e) {

@@ -20,39 +20,38 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import pedidorepartidor.PanelRepartidor;
 import registrorepartidor.FormDatosPersonales_inicio;
+import control.FormCrearCuenta;
+import control.FormLogin;
+import control.ControlAdministradorRepartidor;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        // 1. DAO — la "bodega" ahora es MongoDB
         IRepartidorDAO repartidorDAO = new RepartidorDAO();
+        
 
-        // 2. BOs — las reglas de negocio
         IRepartidorBO repartidorBO = new RepartidorBO();
         IDocumentoBO documentoBO = new DocumentoBO();
         ICuentaBancariaBO cuentaBancariaBO = new CuentaBancariaBO();
         IAdministradorBO administradorBO = new AdministradorBO(repartidorDAO);
 
-        // 3. Convertidor
         ConvertidorRepartidor convertidor = new ConvertidorRepartidor();
 
-        // 4. CU con todo conectado
-        IRegistrarRepartidorCU cu = new RegistrarRepartidorCU(
-                repartidorBO, documentoBO, cuentaBancariaBO,
-                repartidorDAO, convertidor, administradorBO
-        );
+        IRegistrarRepartidorCU cu = new RegistrarRepartidorCU(repartidorBO, documentoBO, cuentaBancariaBO,repartidorDAO, convertidor, administradorBO);
 
         ControlAdministradorRepartidor controladorAdmin = new ControlAdministradorRepartidor(cu);
         ControladorPrincipal controladorPrincipal = new ControladorPrincipal();
+        ControlAdministradorRepartidor adminRepartidor = new  ControlAdministradorRepartidor(cu);
 
-        // 5. Abrir primera pantalla
         java.awt.EventQueue.invokeLater(() -> {
             
             try {
+                //Inicio de app
+                new FormLogin(cu,controladorAdmin).setVisible(true);
 
                 // administrador
-                new PantallaPrincipal(controladorAdmin).setVisible(true);
+                //new PantallaPrincipal(controladorAdmin).setVisible(true);
                 
                 // Registro Repartidor
                 //new FormDatosPersonales_inicio(cu).setVisible(true);
