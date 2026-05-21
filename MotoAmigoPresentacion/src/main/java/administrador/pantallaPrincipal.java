@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package pantallasadministrador;
+package administrador;
 
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import control.ControlAdministradorRepartidor;
@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author xiomi
  */
-public class pantallaPrincipal extends javax.swing.JFrame {
+public class PantallaPrincipal extends javax.swing.JFrame {
 
     private ControlAdministradorRepartidor controlador;
 
@@ -26,7 +26,7 @@ public class pantallaPrincipal extends javax.swing.JFrame {
      * @param controlador
      * @throws java.lang.Exception
      */
-    public pantallaPrincipal(ControlAdministradorRepartidor controlador) throws Exception {
+    public PantallaPrincipal(ControlAdministradorRepartidor controlador) throws Exception {
         this.controlador = controlador;
         initComponents();
         cargarTabla();
@@ -146,6 +146,7 @@ public class pantallaPrincipal extends javax.swing.JFrame {
         panelRedondeado4 = new util.guis.PanelRedondeado();
         jLabel7 = new javax.swing.JLabel();
         labelRechazados = new javax.swing.JLabel();
+        btn_generarReporte__ = new util.guis.BotonNaranja();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dashboard Administrador");
@@ -332,8 +333,15 @@ public class pantallaPrincipal extends javax.swing.JFrame {
                     .addComponent(panelRedondeado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelRedondeado3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelRedondeado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
+
+        btn_generarReporte__.setText("Generar Reporte");
+        btn_generarReporte__.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_generarReporte__ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelPadreLayout = new javax.swing.GroupLayout(panelPadre);
         panelPadre.setLayout(panelPadreLayout);
@@ -342,15 +350,19 @@ public class pantallaPrincipal extends javax.swing.JFrame {
             .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelPadreLayout.createSequentialGroup()
                 .addGroup(panelPadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelPadreLayout.createSequentialGroup()
+                            .addGap(306, 306, 306)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(187, 187, 187)))
+                    .addGroup(panelPadreLayout.createSequentialGroup()
+                        .addGap(382, 382, 382)
+                        .addComponent(btn_generarReporte__, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelPadreLayout.createSequentialGroup()
                         .addGap(115, 115, 115)
-                        .addGroup(panelPadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(panelPadreLayout.createSequentialGroup()
-                        .addGap(306, 306, 306)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(299, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
         panelPadreLayout.setVerticalGroup(
             panelPadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -358,11 +370,13 @@ public class pantallaPrincipal extends javax.swing.JFrame {
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addComponent(btn_generarReporte__, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -379,7 +393,20 @@ public class pantallaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_generarReporte__ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_generarReporte__ActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+        repartidores = controlador.listarRepartidores();
+        util.GenerarReporte.generarReporteRepartidores(repartidores);
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al generar reporte: " + e.getMessage(),
+                "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    }//GEN-LAST:event_btn_generarReporte__ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private util.guis.BotonNaranja btn_generarReporte__;
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

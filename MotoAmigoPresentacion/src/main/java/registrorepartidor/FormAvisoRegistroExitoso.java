@@ -2,19 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package pantallasregistrarrepartidor;
+package registrorepartidor;
 
 /**
  *
  * @author xiomi
  */
-public class GuiAvisoRepartidor extends javax.swing.JFrame {
+public class FormAvisoRegistroExitoso extends javax.swing.JFrame {
     
 
     /**
      * Creates new form GuiFormUno
      */
-    public GuiAvisoRepartidor() {
+    public FormAvisoRegistroExitoso() {
         initComponents();
         
         this.setLocationRelativeTo(null);

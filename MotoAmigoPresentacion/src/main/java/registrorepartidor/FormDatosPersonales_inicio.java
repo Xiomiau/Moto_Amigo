@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package pantallasregistrarrepartidor;
+package registrorepartidor;
 
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
@@ -13,12 +13,12 @@ import javax.swing.JOptionPane;
  *
  * @author xiomi
  */
-public class GuiFormUno extends javax.swing.JFrame {
+public class FormDatosPersonales_inicio extends javax.swing.JFrame {
 
     private IRegistrarRepartidorCU registrarCU;
     private RepartidorDTO repartidorDTO = new RepartidorDTO();
 
-    public GuiFormUno(IRegistrarRepartidorCU registrarCU) {
+    public FormDatosPersonales_inicio(IRegistrarRepartidorCU registrarCU) {
         initComponents();
         this.registrarCU=registrarCU;
 
@@ -194,7 +194,7 @@ public class GuiFormUno extends javax.swing.JFrame {
             repartidorDTO.telefono = telefono;
             
             
-            new GuiFormDos(this, registrarCU, repartidorDTO).setVisible(true);
+            new FormDocumentosPersonales(this, registrarCU, repartidorDTO).setVisible(true);
             this.setVisible(false);
             
         } catch (NegocioException e) {

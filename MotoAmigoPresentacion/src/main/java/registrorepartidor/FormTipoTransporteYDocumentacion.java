@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package pantallasregistrarrepartidor;
+package registrorepartidor;
 
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import com.mycompany.motoamigodto.repartidor.TipoTransporteDTO;
@@ -15,14 +15,14 @@ import util.guis.TarjetaTransporte;
  *
  * @author xiomi
  */
-public class GuiFormTres extends javax.swing.JFrame {
+public class FormTipoTransporteYDocumentacion extends javax.swing.JFrame {
 
-    private GuiFormDos formAnterior;
+    private FormDocumentosPersonales formAnterior;
     private IRegistrarRepartidorCU registrarCU;
     private RepartidorDTO repartidorDTO;
     private TarjetaTransporte.GrupoTarjetas grupo;
 
-    public GuiFormTres(GuiFormDos formAnterior, IRegistrarRepartidorCU registrarCU, RepartidorDTO repartidorDTO) {
+    public FormTipoTransporteYDocumentacion(FormDocumentosPersonales formAnterior, IRegistrarRepartidorCU registrarCU, RepartidorDTO repartidorDTO) {
         initComponents();
 
         grupo = new TarjetaTransporte.GrupoTarjetas();
@@ -252,7 +252,7 @@ public class GuiFormTres extends javax.swing.JFrame {
 
         try {
             registrarCU.validarDocumentacionTransporte(tipo, repartidorDTO.documento);
-            new GuiFormCuatro(this, registrarCU, repartidorDTO).setVisible(true);
+            new FormDatosBancarios(this, registrarCU, repartidorDTO).setVisible(true);
             this.dispose();
 
         } catch (NegocioException e) {

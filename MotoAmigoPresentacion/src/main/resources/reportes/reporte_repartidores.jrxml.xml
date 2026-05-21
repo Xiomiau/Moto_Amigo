@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="reporte_repartidores" pageWidth="595" pageHeight="842"
+              columnWidth="535" leftMargin="30" rightMargin="30"
+              topMargin="30" bottomMargin="30">
+
+    <parameter name="TOTAL" class="java.lang.Integer"/>
+    <parameter name="ACTIVOS" class="java.lang.Integer"/>
+    <parameter name="PENDIENTES" class="java.lang.Integer"/>
+    <parameter name="RECHAZADOS" class="java.lang.Integer"/>
+    <parameter name="FECHA" class="java.lang.String"/>
+
+    <field name="nombreCompleto" class="java.lang.String"/>
+    <field name="correoElectronico" class="java.lang.String"/>
+    <field name="telefono" class="java.lang.String"/>
+    <field name="estado" class="java.lang.String"/>
+    <field name="fechaRegistro" class="java.lang.String"/>
+
+    <title>
+        <band height="120">
+            <staticText>
+                <reportElement x="0" y="0" width="535" height="40"/>
+                <textElement textAlignment="Center">
+                    <font size="22" isBold="true"/>
+                </textElement>
+                <text><![CDATA[MotoAmigo — Reporte de Repartidores]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="0" y="45" width="535" height="20"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA["Generado el: " + $P{FECHA}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="75" width="130" height="30"/>
+                <textElement textAlignment="Center"><font size="12" isBold="true"/></textElement>
+                <textFieldExpression><![CDATA["Total: " + $P{TOTAL}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="135" y="75" width="130" height="30"/>
+                <textElement textAlignment="Center"><font size="12" isBold="true"/></textElement>
+                <textFieldExpression><![CDATA["Activos: " + $P{ACTIVOS}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="270" y="75" width="130" height="30"/>
+                <textElement textAlignment="Center"><font size="12" isBold="true"/></textElement>
+                <textFieldExpression><![CDATA["Pendientes: " + $P{PENDIENTES}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="405" y="75" width="130" height="30"/>
+                <textElement textAlignment="Center"><font size="12" isBold="true"/></textElement>
+                <textFieldExpression><![CDATA["Rechazados: " + $P{RECHAZADOS}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+
+    <columnHeader>
+        <band height="25">
+            <staticText>
+                <reportElement x="0" y="0" width="160" height="25" backcolor="#F56900" mode="Opaque"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true" foreColor="#FFFFFF"/>
+                </textElement>
+                <text><![CDATA[Nombre]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="160" y="0" width="160" height="25" backcolor="#F56900" mode="Opaque"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true" foreColor="#FFFFFF"/>
+                </textElement>
+                <text><![CDATA[Correo]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="320" y="0" width="80" height="25" backcolor="#F56900" mode="Opaque"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true" foreColor="#FFFFFF"/>
+                </textElement>
+                <text><![CDATA[Teléfono]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="400" y="0" width="70" height="25" backcolor="#F56900" mode="Opaque"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true" foreColor="#FFFFFF"/>
+                </textElement>
+                <text><![CDATA[Estado]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="470" y="0" width="65" height="25" backcolor="#F56900" mode="Opaque"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true" foreColor="#FFFFFF"/>
+                </textElement>
+                <text><![CDATA[Fecha]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <detail>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="160" height="20"/>
+                <textElement verticalAlignment="Middle"><font size="9"/></textElement>
+                <textFieldExpression><![CDATA[$F{nombreCompleto}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="160" y="0" width="160" height="20"/>
+                <textElement verticalAlignment="Middle"><font size="9"/></textElement>
+                <textFieldExpression><![CDATA[$F{correoElectronico}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="320" y="0" width="80" height="20"/>
+                <textElement verticalAlignment="Middle"><font size="9"/></textElement>
+                <textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="400" y="0" width="70" height="20"/>
+                <textElement verticalAlignment="Middle"><font size="9"/></textElement>
+                <textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="470" y="0" width="65" height="20"/>
+                <textElement verticalAlignment="Middle"><font size="9"/></textElement>
+                <textFieldExpression><![CDATA[$F{fechaRegistro}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

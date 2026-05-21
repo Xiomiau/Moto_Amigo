@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package pantallasvistarepartidor;
+package pedidorepartidor;
 
 import controlador.ControladorPrincipal;
 import com.mycompany.motoamigodto.pedido.PedidoDTO;
@@ -110,7 +110,7 @@ public class PanelRepartidor extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaPedidos = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
-        btn_seleccionarPedido = new javax.swing.JButton();
+        btn_seleccionarPedido = new util.guis.BotonVerde();
 
         jScrollPane1.setBackground(new java.awt.Color(248, 250, 252));
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -274,10 +274,7 @@ public class PanelRepartidor extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("PEDIDOS DISPONIBLES");
 
-        btn_seleccionarPedido.setBackground(new java.awt.Color(0, 201, 80));
-        btn_seleccionarPedido.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btn_seleccionarPedido.setForeground(new java.awt.Color(255, 255, 255));
-        btn_seleccionarPedido.setText("Seleccionar Pedido");
+        btn_seleccionarPedido.setText("Seleccionar");
         btn_seleccionarPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_seleccionarPedidoActionPerformed(evt);
@@ -304,8 +301,8 @@ public class PanelRepartidor extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addComponent(jLabel3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(btn_seleccionarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(128, 128, 128)
+                        .addComponent(btn_seleccionarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -319,8 +316,8 @@ public class PanelRepartidor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_seleccionarPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(102, 102, 102))
+                .addComponent(btn_seleccionarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -338,6 +335,7 @@ public class PanelRepartidor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_seleccionarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_seleccionarPedidoActionPerformed
+        // TODO add your handling code here:
         int fila = tablaPedidos.getSelectedRow();
 
         if (fila == -1) {
@@ -354,11 +352,12 @@ public class PanelRepartidor extends javax.swing.JFrame {
         PantallaDetallePedido detalle = new PantallaDetallePedido(this.controlador, idPedidoSeleccionado);
         detalle.setVisible(true);
         this.dispose();
+
     }//GEN-LAST:event_btn_seleccionarPedidoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_seleccionarPedido;
+    private util.guis.BotonVerde btn_seleccionarPedido;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

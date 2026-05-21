@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package pantallasregistrarrepartidor;
+package registrorepartidor;
 
-import com.mycompany.motoamigodto.CuentaBancariaDTO;
+import com.mycompany.motoamigodto.DocumentoDTO;
 import com.mycompany.motoamigodto.repartidor.RepartidorDTO;
 import com.mycompany.motoamigonegocio.NegocioException;
 import com.mycompany.registrarrepartidorcu.IRegistrarRepartidorCU;
@@ -14,13 +14,16 @@ import javax.swing.JOptionPane;
  *
  * @author xiomi
  */
-public class GuiFormCuatro extends javax.swing.JFrame {
+public class FormDocumentosPersonales extends javax.swing.JFrame {
 
-    private GuiFormTres formAnterior;
+    private FormDatosPersonales_inicio formAnterior;
     private IRegistrarRepartidorCU registrarCU;
     private RepartidorDTO repartidorDTO;
 
-    public GuiFormCuatro(GuiFormTres formAnterior, IRegistrarRepartidorCU registrarCU, RepartidorDTO repartidorDTO) {
+    /**
+     * Creates new form FormDatosPersonales_inicio
+     */
+    public FormDocumentosPersonales(FormDatosPersonales_inicio formAnterior, IRegistrarRepartidorCU registrarCU, RepartidorDTO repartidorDTO) {
         initComponents();
         this.formAnterior = formAnterior;
         this.registrarCU = registrarCU;
@@ -37,77 +40,64 @@ public class GuiFormCuatro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        icon1 = new util.Icon();
         panelRedondeado1 = new util.guis.PanelRedondeado();
+        jLabel5 = new javax.swing.JLabel();
+        cargarIne = new util.guis.AreaCargaArchivo();
         jLabel6 = new javax.swing.JLabel();
+        cargarFoto = new util.guis.AreaCargaArchivo();
         jLabel7 = new javax.swing.JLabel();
-        campoClabe = new javax.swing.JTextField();
-        campoCuenta = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        campoBanco = new javax.swing.JTextField();
+        cargarAntecedentes = new util.guis.AreaCargaArchivo();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btn_registrarse = new util.guis.BotonNaranja();
+        btn_siguiente = new util.guis.BotonNaranja();
         btn_atras = new util.guis.BotonNegro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Formulario Repartidor");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel5.setText("INE");
+
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel6.setText("NÚMERO DE CUENTA");
+        jLabel6.setText("FOTO DE PERFIL");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel7.setText("CUENTA CLABE");
-
-        campoClabe.setColumns(10);
-
-        campoCuenta.setColumns(10);
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel8.setText("BANCO");
-
-        campoBanco.setColumns(10);
+        jLabel7.setText("VERIFICACIÓN ANTECEDENTES");
 
         javax.swing.GroupLayout panelRedondeado1Layout = new javax.swing.GroupLayout(panelRedondeado1);
         panelRedondeado1.setLayout(panelRedondeado1Layout);
         panelRedondeado1Layout.setHorizontalGroup(
             panelRedondeado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRedondeado1Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+            .addGroup(panelRedondeado1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(panelRedondeado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRedondeado1Layout.createSequentialGroup()
-                        .addGroup(panelRedondeado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(campoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())
-                    .addGroup(panelRedondeado1Layout.createSequentialGroup()
-                        .addGroup(panelRedondeado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(campoClabe, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelRedondeado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(campoCuenta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(154, 154, 154))))
+                    .addComponent(cargarAntecedentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(cargarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(cargarIne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         panelRedondeado1Layout.setVerticalGroup(
             panelRedondeado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRedondeado1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(19, 19, 19)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cargarIne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cargarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoClabe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addComponent(cargarAntecedentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -115,13 +105,13 @@ public class GuiFormCuatro extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel3.setText("Paso 4 de 4");
+        jLabel3.setText("Paso 2 de 4");
 
-        btn_registrarse.setText("Registrarse");
-        btn_registrarse.setPreferredSize(new java.awt.Dimension(350, 50));
-        btn_registrarse.addActionListener(new java.awt.event.ActionListener() {
+        btn_siguiente.setText("Siguiente");
+        btn_siguiente.setPreferredSize(new java.awt.Dimension(350, 50));
+        btn_siguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_registrarseActionPerformed(evt);
+                btn_siguienteActionPerformed(evt);
             }
         });
 
@@ -148,13 +138,13 @@ public class GuiFormCuatro extends javax.swing.JFrame {
                             .addComponent(jLabel1)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(325, 325, 325)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(panelRedondeado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_registrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(537, Short.MAX_VALUE))
+                                .addGap(158, 158, 158)
+                                .addComponent(btn_siguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(489, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,65 +155,60 @@ public class GuiFormCuatro extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(panelRedondeado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_atras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_registrarse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(193, Short.MAX_VALUE))
+                    .addComponent(btn_siguiente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarseActionPerformed
+    private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguienteActionPerformed
         // TODO add your handling code here:
-
-        String cuenta = campoCuenta.getText();
-        String clabe = campoClabe.getText();
-        String banco = campoBanco.getText();
-
-        CuentaBancariaDTO cuentaBancariaDTO = new CuentaBancariaDTO();
-        cuentaBancariaDTO.setNumeroCuenta(cuenta);
-        cuentaBancariaDTO.setClabe(clabe);
-        cuentaBancariaDTO.setBanco(banco);
+        DocumentoDTO documento = new DocumentoDTO();
+        documento.ine = cargarIne.getArchivoBytes();
+        documento.fotoPerfil = cargarFoto.getArchivoBytes();
+        documento.antecedentes = cargarAntecedentes.getArchivoBytes();
 
         try {
-            registrarCU.validarCuentaBancaria(cuentaBancariaDTO);
-            repartidorDTO.setCuentaBancaria(cuentaBancariaDTO);
-            registrarCU.guardarRepartidor(repartidorDTO);
+            registrarCU.validarDocumentosPersonales(documento);
 
-            new GuiAvisoRepartidor().setVisible(true);
-            this.dispose();
+            repartidorDTO.documento = documento;
+
+            new FormTipoTransporteYDocumentacion(this, registrarCU, repartidorDTO).setVisible(true);
+            this.setVisible(false);
 
         } catch (NegocioException e) {
             JOptionPane.showMessageDialog(this, e.getMessage(),
-                    "Datos incompletos", JOptionPane.WARNING_MESSAGE);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error al registrar: " + e.getMessage(),
-                    "Error", JOptionPane.ERROR_MESSAGE);
+                    "Documentos incompletos", JOptionPane.WARNING_MESSAGE);
         }
-
-    }//GEN-LAST:event_btn_registrarseActionPerformed
+    }//GEN-LAST:event_btn_siguienteActionPerformed
 
     private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed
         // TODO add your handling code here:
         formAnterior.setVisible(true);
         this.dispose();
+
+
     }//GEN-LAST:event_btn_atrasActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private util.guis.BotonNegro btn_atras;
-    private util.guis.BotonNaranja btn_registrarse;
-    private javax.swing.JTextField campoBanco;
-    private javax.swing.JTextField campoClabe;
-    private javax.swing.JTextField campoCuenta;
-    private util.Icon icon1;
+    private util.guis.BotonNaranja btn_siguiente;
+    private util.guis.AreaCargaArchivo cargarAntecedentes;
+    private util.guis.AreaCargaArchivo cargarFoto;
+    private util.guis.AreaCargaArchivo cargarIne;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private util.guis.PanelRedondeado panelRedondeado1;
     // End of variables declaration//GEN-END:variables
 }

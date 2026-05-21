@@ -12,16 +12,19 @@ import java.util.List;
  * @author xiomi
  */
 public interface IPublicarPedido {
+
     PedidoDTO publicarPedido(PedidoDTO pedido) throws Exception;
-    
+
     void aceptarPedido(String idPedido, String idRepartidor) throws Exception;
-    
+
+    void cancelarPedido(String idPedido) throws Exception;
+
     void confirmarRecoleccion(String idPedido) throws Exception;
-    
+
     void marcarComoEntregado(String idPedido) throws Exception;
-    
+
     List<PedidoDTO> consultarPedidosDisponibles() throws Exception;
-    
+
     PedidoDTO obtenerPedidoPorId(String idPedido) throws Exception;
-    
+
 }

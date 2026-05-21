@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package pantallasvistarepartidor;
+package pedidorepartidor;
 
 import controlador.ControladorPrincipal;
 
@@ -76,17 +76,11 @@ public class PantallaRecoleccion extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         headerPanel = new javax.swing.JPanel();
         tituloMotoAmigo = new javax.swing.JLabel();
-        footerPanel1 = new javax.swing.JPanel();
-        labelHomeIcon1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        labelHistorialIcon1 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        labelPerfilIcon1 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        btn_cancelarEntrega = new javax.swing.JButton();
-        btn_pedidoRecolectado = new javax.swing.JButton();
+        btn_pedidoEnRecoleccion = new util.guis.BotonVerde();
+        btn_cancelar = new util.guis.BotonNegro();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Pantalla en Recoleccion");
 
         javax.swing.GroupLayout panelMapaNavegacionLayout = new javax.swing.GroupLayout(panelMapaNavegacion);
         panelMapaNavegacion.setLayout(panelMapaNavegacionLayout);
@@ -158,7 +152,7 @@ public class PantallaRecoleccion extends javax.swing.JFrame {
             .addGroup(headerPanelLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(tituloMotoAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         headerPanelLayout.setVerticalGroup(
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,91 +162,18 @@ public class PantallaRecoleccion extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        footerPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        labelHomeIcon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelHomeIcon1.setPreferredSize(new java.awt.Dimension(20, 20));
-
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Inicio");
-
-        labelHistorialIcon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelHistorialIcon1.setPreferredSize(new java.awt.Dimension(20, 20));
-
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Pedidos");
-
-        labelPerfilIcon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelPerfilIcon1.setPreferredSize(new java.awt.Dimension(20, 20));
-
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Perfil");
-
-        javax.swing.GroupLayout footerPanel1Layout = new javax.swing.GroupLayout(footerPanel1);
-        footerPanel1.setLayout(footerPanel1Layout);
-        footerPanel1Layout.setHorizontalGroup(
-            footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, footerPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelPerfilIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63))
-            .addGroup(footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(footerPanel1Layout.createSequentialGroup()
-                    .addGap(56, 56, 56)
-                    .addGroup(footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelHomeIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(78, 78, 78)
-                    .addGroup(footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelHistorialIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(56, 56, 56)))
-        );
-        footerPanel1Layout.setVerticalGroup(
-            footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(footerPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(labelPerfilIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
-            .addGroup(footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(footerPanel1Layout.createSequentialGroup()
-                    .addGroup(footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(footerPanel1Layout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addGroup(footerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(footerPanel1Layout.createSequentialGroup()
-                                    .addComponent(labelHomeIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabel7))
-                                .addGroup(footerPanel1Layout.createSequentialGroup()
-                                    .addComponent(labelHistorialIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabel8))))
-                        .addGroup(footerPanel1Layout.createSequentialGroup()
-                            .addGap(50, 50, 50)
-                            .addComponent(jLabel9)))
-                    .addContainerGap(19, Short.MAX_VALUE)))
-        );
-
-        btn_cancelarEntrega.setBackground(new java.awt.Color(0, 0, 0));
-        btn_cancelarEntrega.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btn_cancelarEntrega.setForeground(new java.awt.Color(255, 255, 255));
-        btn_cancelarEntrega.setText("Cancelar");
-        btn_cancelarEntrega.addActionListener(new java.awt.event.ActionListener() {
+        btn_pedidoEnRecoleccion.setText("Pedido Recolectado");
+        btn_pedidoEnRecoleccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cancelarEntregaActionPerformed(evt);
+                btn_pedidoEnRecoleccionActionPerformed(evt);
             }
         });
 
-        btn_pedidoRecolectado.setBackground(new java.awt.Color(0, 201, 80));
-        btn_pedidoRecolectado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btn_pedidoRecolectado.setForeground(new java.awt.Color(255, 255, 255));
-        btn_pedidoRecolectado.setText("Pedido Recolectado");
-        btn_pedidoRecolectado.addActionListener(new java.awt.event.ActionListener() {
+        btn_cancelar.setText("Cancelar");
+        btn_cancelar.setToolTipText("");
+        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_pedidoRecolectadoActionPerformed(evt);
+                btn_cancelarActionPerformed(evt);
             }
         });
 
@@ -260,18 +181,20 @@ public class PantallaRecoleccion extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(footerPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_cancelarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelMapaNavegacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_pedidoRecolectado, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panelMapaNavegacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btn_pedidoEnRecoleccion, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,52 +204,50 @@ public class PantallaRecoleccion extends javax.swing.JFrame {
                 .addComponent(panelMapaNavegacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_cancelarEntrega, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                    .addComponent(btn_pedidoRecolectado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                .addComponent(footerPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_pedidoEnRecoleccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(175, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_cancelarEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarEntregaActionPerformed
+    private void btn_pedidoEnRecoleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pedidoEnRecoleccionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_cancelarEntregaActionPerformed
-
-    private void btn_pedidoRecolectadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pedidoRecolectadoActionPerformed
+        
         try {
-            // 1. Cambiamos el estado a REPARTO en la BD
             controlador.confirmarRecoleccionPedido(this.idPedido);
             
-            // 2. Pasamos a la pantalla de entregando
-            PantallaEntregandoPedido entregando = new PantallaEntregandoPedido(this.controlador, this.idPedido);
-            entregando.setVisible(true);
+            PantallaEnReparto enReparto = new PantallaEnReparto(this.controlador, this.idPedido);
+            enReparto.setVisible(true);
             this.dispose();
             
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_btn_pedidoRecolectadoActionPerformed
+    }//GEN-LAST:event_btn_pedidoEnRecoleccionActionPerformed
+
+    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+            controlador.cancelarPedido(idPedido);
+        } catch (Exception e) {
+        }
+        
+    }//GEN-LAST:event_btn_cancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_cancelarEntrega;
-    private javax.swing.JButton btn_pedidoRecolectado;
-    private javax.swing.JPanel footerPanel1;
+    private util.guis.BotonNegro btn_cancelar;
+    private util.guis.BotonVerde btn_pedidoEnRecoleccion;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelDestino;
-    private javax.swing.JLabel labelHistorialIcon1;
-    private javax.swing.JLabel labelHomeIcon1;
-    private javax.swing.JLabel labelPerfilIcon1;
     private javax.swing.JLabel labelTiempo;
     private javax.swing.JPanel panelMapaNavegacion;
     private javax.swing.JLabel tituloMotoAmigo;

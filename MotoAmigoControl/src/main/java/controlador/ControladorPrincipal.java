@@ -30,6 +30,10 @@ public class ControladorPrincipal {
     public void aceptarPedido(String idPedido) throws Exception {
         solicitarPedidoCU.aceptarPedido(idPedido, ID_REPARTIDOR_DEMO);
     }
+    
+    public void cancelarPedido(String idPedido) throws Exception{
+        solicitarPedidoCU.cancelarPedido(idPedido);
+    }
 
     public void confirmarRecoleccionPedido(String idPedido) throws Exception {
         solicitarPedidoCU.confirmarRecoleccion(idPedido);

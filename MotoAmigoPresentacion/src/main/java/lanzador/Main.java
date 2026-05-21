@@ -1,5 +1,6 @@
 package lanzador;
 
+import administrador.PantallaPrincipal;
 import com.mycompany.motoamigonegocio.bos.AdministradorBO;
 import com.mycompany.motoamigonegocio.bos.CuentaBancariaBO;
 import com.mycompany.motoamigonegocio.bos.DocumentoBO;
@@ -17,8 +18,8 @@ import interfaces.IDocumentoBO;
 import interfaces.IRepartidorBO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import pantallasadministrador.pantallaPrincipal;
-import pantallasvistarepartidor.PanelRepartidor;
+import pedidorepartidor.PanelRepartidor;
+import registrorepartidor.FormDatosPersonales_inicio;
 
 public class Main {
 
@@ -47,18 +48,21 @@ public class Main {
 
         // 5. Abrir primera pantalla
         java.awt.EventQueue.invokeLater(() -> {
-            //new GuiFormUno(cu).setVisible(true);
+            
             try {
 
                 // administrador
-                //new pantallaPrincipal(controladorAdmin).setVisible(true);
+                //new PantallaPrincipal(controladorAdmin).setVisible(true);
+                
+                // Registro Repartidor
+                //new FormDatosPersonales_inicio(cu).setVisible(true);
 
                 //Emprendedor
-                new pantallasvistaemprendedor.PanelSolicitarEntrega(controladorPrincipal).setVisible(true);
+                //new pedidoemprendedor.PanelSolicitarEntrega(controladorPrincipal).setVisible(true);
 
                 // repartidor
-//                PanelRepartidor repartidor = new PanelRepartidor(controladorPrincipal);
-//                repartidor.setVisible(true);
+                PanelRepartidor repartidor = new PanelRepartidor(controladorPrincipal);
+                repartidor.setVisible(true);
 
             } catch (Exception ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);

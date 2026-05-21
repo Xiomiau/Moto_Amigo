@@ -1,4 +1,4 @@
-package pantallasvistaemprendedor;
+package pedidoemprendedor;
 
 import controlador.ControladorPrincipal;
 import util.Icon;

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package pantallasvistaemprendedor;
+package pedidoemprendedor;
 
 import controlador.ControladorPrincipal;
 
@@ -152,7 +152,6 @@ public class PanelSeguimientoPedido extends javax.swing.JFrame {
             .addGap(0, 318, Short.MAX_VALUE)
         );
 
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("Estado");
 
         label_actualizar_estado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N

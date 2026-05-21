@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package pantallasvistaemprendedor;
+package pedidoemprendedor;
 
 import com.mycompany.motoamigodto.pedido.PedidoDTO;
 import controlador.ControladorPrincipal;
 import javax.swing.ButtonGroup;
-import pantallasvistarepartidor.PanelRepartidor;
+import pedidorepartidor.PanelRepartidor;
 
 /**
  *
@@ -218,7 +218,7 @@ public class PanelSolicitarEntrega extends javax.swing.JFrame {
         }
         
         controlador.publicarPedido(pedido);
-        PanelRepartidor panel = new pantallasvistarepartidor.PanelRepartidor(controlador);
+        PanelRepartidor panel = new pedidorepartidor.PanelRepartidor(controlador);
         panel.setVisible(true);
         this.setVisible(false);
         

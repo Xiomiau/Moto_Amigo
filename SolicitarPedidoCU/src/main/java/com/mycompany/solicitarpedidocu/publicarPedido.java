@@ -24,7 +24,7 @@ public class publicarPedido implements IPublicarPedido {
     public PedidoDTO publicarPedido(PedidoDTO pedido) throws Exception {
         validarDatosPedido(pedido);
 
-        pedido.distanciaKm = simularCalculoDistanciaMapBox(pedido.direccionOrigen, pedido.direccionDestino); // 3.2 harcodeado
+        pedido.distanciaKm = simularCalculoDistanciaMapBox(pedido.direccionOrigen, pedido.direccionDestino); // 3.2 km harcodeado
         pedido.tiempoEstimadoMinutos = simularCalculoTiempoMapBox(pedido.distanciaKm);
         
         pedido.costo = calcularCostoTarifa(pedido.distanciaKm); //3.2 *6+10.5 = 29.7
@@ -57,6 +57,18 @@ public class publicarPedido implements IPublicarPedido {
         pedido.setEstado(EstadoPedido.RECOLECCION);
         pedidoDAO.actualizarPedido(pedido);
     }
+    
+    @Override
+    public void cancelarPedido(String idPedido) throws Exception {
+    Pedido pedido = pedidoDAO.buscarPedidoPorId(idPedido);
+    
+    if (pedido == null) {
+        throw new NegocioException("El pedido no existe.");
+    }
+    
+    pedido.setEstado(EstadoPedido.CANCELADO);
+    pedidoDAO.actualizarPedido(pedido);
+}
 
     // 3. El repartidor confirma que ya tiene el paquete en sus manos
     @Override

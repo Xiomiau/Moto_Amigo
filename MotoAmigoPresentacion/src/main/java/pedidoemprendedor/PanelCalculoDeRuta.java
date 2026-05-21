@@ -1,5 +1,5 @@
 
-package pantallasvistaemprendedor;
+package pedidoemprendedor;
 
 import controlador.ControladorPrincipal;
 import util.Icon;
@@ -176,7 +176,6 @@ public class PanelCalculoDeRuta extends javax.swing.JFrame {
         panelDistancia.setPreferredSize(new java.awt.Dimension(100, 70));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("DISTANCIA");
 
         javax.swing.GroupLayout panelDistanciaLayout = new javax.swing.GroupLayout(panelDistancia);
@@ -211,7 +210,6 @@ public class PanelCalculoDeRuta extends javax.swing.JFrame {
         panelTiemp.setPreferredSize(new java.awt.Dimension(100, 70));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("TIEMPO");
 
         javax.swing.GroupLayout panelTiempLayout = new javax.swing.GroupLayout(panelTiemp);
@@ -244,7 +242,6 @@ public class PanelCalculoDeRuta extends javax.swing.JFrame {
         panelPrecio.setPreferredSize(new java.awt.Dimension(100, 70));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
         jLabel7.setText("PRECIO");
 
         javax.swing.GroupLayout panelPrecioLayout = new javax.swing.GroupLayout(panelPrecio);

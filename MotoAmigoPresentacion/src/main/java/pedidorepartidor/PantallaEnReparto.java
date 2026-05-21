@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package pantallasvistarepartidor;
+package pedidorepartidor;
 
 import controlador.ControladorPrincipal;
 import util.MapBoxService;
@@ -11,7 +11,7 @@ import util.MapBoxService;
  *
  * @author xiomi
  */
-public class PantallaEntregandoPedido extends javax.swing.JFrame {
+public class PantallaEnReparto extends javax.swing.JFrame {
 
     private ControladorPrincipal controlador;
     private String idPedido;
@@ -19,7 +19,7 @@ public class PantallaEntregandoPedido extends javax.swing.JFrame {
     /**
      * Creates new form PantallaNavegacion
      */
-    public PantallaEntregandoPedido(ControladorPrincipal controlador, String idPedido) {
+    public PantallaEnReparto(ControladorPrincipal controlador, String idPedido) {
         initComponents();
         this.controlador = controlador;
         this.idPedido = idPedido;
@@ -88,7 +88,7 @@ public class PantallaEntregandoPedido extends javax.swing.JFrame {
         panelMapaNavegacion = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("En Recolección");
+        setTitle("Pantalla en Reparto");
 
         panelPadre.setBackground(new java.awt.Color(248, 250, 252));
 
