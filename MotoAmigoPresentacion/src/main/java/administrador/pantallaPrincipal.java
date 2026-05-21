@@ -19,7 +19,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private ControlAdministradorRepartidor controlador;
 
     List<RepartidorDTO> repartidores;
-    long total, activos, pendientes,rechazados;
+    long total, activos, pendientes, rechazados;
 
     /**
      * Creates new form pantallaPrincipal
@@ -31,13 +31,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         this.controlador = controlador;
         initComponents();
         cargarTabla();
+        cargarLabels();
 
         this.setLocationRelativeTo(null);
+
+
+    }
+    
+    private void  cargarLabels() throws Exception {
         labelTotal.setText(String.valueOf(total));
         labelActivos.setText(String.valueOf(activos));
         labelPendientes.setText(String.valueOf(pendientes));
         labelRechazados.setText(String.valueOf(rechazados));
-
+        
     }
 
     protected void aprobarRepartidor(RepartidorDTO dto) {
@@ -50,6 +56,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 controlador.aprobarRepartidor(dto.id);
                 JOptionPane.showMessageDialog(this, "Repartidor aprobado correctamente.");
                 recargarTabla();
+                //cargarLabels();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, e.getMessage(),
                         "Error", JOptionPane.ERROR_MESSAGE);
@@ -67,6 +74,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 controlador.rechazarRepartidor(dto.id);
                 JOptionPane.showMessageDialog(this, "Repartidor rechazado.");
                 recargarTabla();
+                //cargarLabels();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, e.getMessage(),
                         "Error", JOptionPane.ERROR_MESSAGE);
@@ -105,11 +113,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     }
             );
         }
-
-        
-    }
-
-    private void recargarTabla() throws Exception {
         
         total = repartidores.size();
         activos = repartidores.stream()
@@ -121,7 +124,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         rechazados = repartidores.stream()
                 .filter(r -> "RECHAZADO".equalsIgnoreCase(r.estado.toString()))
                 .count();
-        System.out.println("Tabla recargada");
+        
+        cargarLabels();
+
+    }
+
+    private void recargarTabla() throws Exception {
+
         panelTablaRepartidores.limpiar();
         cargarTabla();
     }
@@ -399,14 +408,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void btn_generarReporte__ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_generarReporte__ActionPerformed
         // TODO add your handling code here:
-        
+
         try {
-        repartidores = controlador.listarRepartidores();
-        util.GenerarReporte.generarReporteRepartidores(repartidores);
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error al generar reporte: " + e.getMessage(),
-                "Error", JOptionPane.ERROR_MESSAGE);
-    }
+            repartidores = controlador.listarRepartidores();
+            util.GenerarReporte.generarReporteRepartidores(repartidores);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al generar reporte: " + e.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btn_generarReporte__ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
